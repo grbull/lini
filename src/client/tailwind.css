@@ -12,6 +12,20 @@ body {
 }
 
 /* 
+Fixed linked elements from being highlighted blue
+https://stackoverflow.com/questions/21003535/anyway-to-prevent-the-blue-highlighting-of-elements-in-chrome-when-clicking-quic
+*/
+a {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 
 Used to to toggle settings
 https://tailwindcomponents.com/component/toggle-switch
 */
