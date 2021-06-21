@@ -1,7 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { EpisodeDto, ScheduleDto } from '../../server/episode/episode.dto';
+import {
+  EpisodeDto,
+  EpisodeScheduleDto,
+} from '../../server/episode/episode.dto';
 import { api } from '../utils/api';
 
 type ScheduleStatus = 'idle' | 'loading' | 'error';
@@ -19,8 +22,8 @@ const initialState: ScheduleState = {
   past: [],
 };
 
-export const get = createAsyncThunk<ScheduleDto>('schedule/get', () =>
-  api.schedule.get()
+export const get = createAsyncThunk<EpisodeScheduleDto>('schedule/get', () =>
+  api.episode.getSchedule()
 );
 
 export const schedule = createSlice({

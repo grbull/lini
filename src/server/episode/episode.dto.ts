@@ -16,7 +16,7 @@ export class EpisodeDto {
   show!: ShowDto;
 }
 
-export class ScheduleDto {
+export class EpisodeScheduleDto {
   future!: EpisodeDto[];
   past!: EpisodeDto[];
 }

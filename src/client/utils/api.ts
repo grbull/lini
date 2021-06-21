@@ -1,7 +1,10 @@
 import Axios from 'axios';
 
 import { AuthLoginDto, AuthValidateDto } from '../../server/auth/auth.dto';
-import { EpisodeDto, ScheduleDto } from '../../server/episode/episode.dto';
+import {
+  EpisodeDto,
+  EpisodeScheduleDto,
+} from '../../server/episode/episode.dto';
 import { PushSubscriptionCreateDto } from '../../server/push_subscription/push_subscription.dto';
 import { ShowDto, ShowWithEpisodesDto } from '../../server/show/show.dto';
 import {
@@ -84,8 +87,8 @@ async function subscriptionRemove(
   return response.data;
 }
 
-async function scheduleGet(): Promise<ScheduleDto> {
-  const response = await axios.get<ScheduleDto>('episode/schedule');
+async function episodeScheduleGet(): Promise<EpisodeScheduleDto> {
+  const response = await axios.get<EpisodeScheduleDto>('episode/schedule');
   return response.data;
 }
 
@@ -107,15 +110,13 @@ export const api = {
   episode: {
     get: episodeGet,
     getByShow: episodeGetByShow,
+    getSchedule: episodeScheduleGet,
   },
   subscription: {
     getAll: subscriptionGetAll,
     create: subscriptionCreate,
     update: subscriptionUpdate,
     remove: subscriptionRemove,
-  },
-  schedule: {
-    get: scheduleGet,
   },
   push: {
     create: pushCreate,
