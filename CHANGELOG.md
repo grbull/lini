@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/grbull/lini/compare/v2.1.0...v2.1.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* absolute link was breaking build ([3646954](https://github.com/grbull/lini/commit/364695413854ec400d0964e1e6f4e9e2894f2b51))
+
 ## [2.1.0](https://github.com/grbull/lini/compare/v2.0.1...v2.1.0) (2021-06-21)
 
 
