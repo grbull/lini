@@ -1,0 +1,26 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+html,
+body {
+  background-color: theme('colors.gray.700');
+  color: theme('colors.gray.100');
+  height: 100%;
+}
+
+/* 
+Used to to toggle settings
+https://tailwindcomponents.com/component/toggle-switch
+*/
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68d391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68d391;
+}

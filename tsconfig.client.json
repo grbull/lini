@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "module": "es2020",
+    "declaration": false,
+    "target": "es5",
+  },
+  "exclude": ["src/server"]
+}

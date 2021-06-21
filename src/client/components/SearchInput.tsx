@@ -1,0 +1,49 @@
+import cn from 'classnames';
+import React, { ChangeEvent, ReactElement, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { searchActions } from '../redux/search';
+
+export function SearchInput(): ReactElement {
+  const [query, setQuery] = useState('');
+  const dispatch = useDispatch();
+
+  function changeHandler(e: ChangeEvent<HTMLInputElement>): void {
+    setQuery(e.target.value);
+  }
+
+  useEffect(() => {
+    if (query === '') {
+      dispatch(searchActions.clear());
+      return;
+    }
+    const timer = setTimeout(() => {
+      dispatch(searchActions.query(query));
+    }, 500);
+
+    return (): void => clearTimeout(timer);
+  }, [query, dispatch]);
+
+  return (
+    <div className={cn('px-2')}>
+      <input
+        className={cn(
+          'w-full',
+          'mb-4',
+          'p-1',
+          'text-xl',
+          'text-center',
+          'bg-gray-600',
+          'border',
+          'border-solid',
+          'border-gray-800',
+          'focus:border-gray-400'
+        )}
+        onChange={changeHandler}
+        placeholder="Search for a show..."
+        type="search"
+        value={query}
+      />
+    </div>
+  );
+}

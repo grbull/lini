@@ -1,0 +1,13 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "extends": ["gbx", "gbx/react", "gbx/typescript"],
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "no-restricted-syntax": "off"
+  }
+}
