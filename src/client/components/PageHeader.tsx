@@ -19,7 +19,13 @@ export function PageHeader({
 }: Props): ReactElement {
   const classes = {
     header: cn('w-full', 'h-12', 'flex', 'items-center', 'p-2', className),
-    title: cn('font-medium', 'text-lg'),
+    title: cn(
+      'mx-2',
+      'font-medium',
+      'text-lg',
+      'overflow-x-scroll',
+      'whitespace-nowrap'
+    ),
   };
 
   if (!goBack) {

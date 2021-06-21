@@ -47,24 +47,13 @@ export function Episode({ match }: Props): ReactElement {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>{data.name} - Lini</title>
-      </Helmet>
-      <BackgroundImageShow imageURL={data.show.imageOriginal}>
-        <PageHeader
-          className={cn(
-            'p-2',
-            'fixed',
-            'top-0',
-            'bg-gray-700',
-            'bg-opacity-80'
-          )}
-          rightElement={<SubscribeButton showID={data.show.id} />}
-          title={data.show.name}
-        />
-        <EpisodeInfo episode={data} />
-      </BackgroundImageShow>
-    </>
+    <BackgroundImageShow imageURL={data.show.imageOriginal}>
+      <PageHeader
+        className={cn('p-2', 'fixed', 'top-0', 'bg-gray-700', 'bg-opacity-80')}
+        rightElement={<SubscribeButton showID={data.show.id} />}
+        title={data.show.name}
+      />
+      <EpisodeInfo episode={data} />
+    </BackgroundImageShow>
   );
 }
