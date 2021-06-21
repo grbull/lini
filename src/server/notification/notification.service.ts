@@ -6,6 +6,8 @@ import { EpisodeService } from '../episode/episode.service';
 import { LoggerService } from '../logger/logger.service';
 import { PushSubscriptionService } from '../push_subscription/push_subscription.service';
 import { UserService } from '../user/user.service';
+import { formatEpisodeCode } from '../utils/formatEpisodeCode';
+import { NotificationDto } from './notification.dto';
 
 @Injectable()
 export class NotificationService {
@@ -47,20 +49,32 @@ export class NotificationService {
           endDate
         );
         for (const episode of episodes) {
-          await this.pushSubscriptionService.sendNotificationToUser(user.id, {
-            title: `An episode of ${subscription.show.name} airs @ ${episode.airdate}`,
-            message: `S${episode.season}E${episode.number} - ${
-              episode.summary || 'No summary available.'
-            }`,
-          });
+          const title = `${subscription.show.name} - ${formatEpisodeCode(
+            episode.season,
+            episode.number
+          )}`;
+
+          const message = episode.summary
+            ? `${episode.airdate}\n\n${episode.summary}`
+            : `${episode.airdate}`;
+
+          const url = `${this.configService.get('CLIENT_URL')}/episode/${
+            episode.id
+          }`;
+
+          const notificationDto: NotificationDto = {
+            title,
+            message,
+            url,
+            icon: subscription.show.imageMedium || undefined,
+          };
+
+          await this.pushSubscriptionService.sendNotificationToUser(
+            user.id,
+            notificationDto
+          );
         }
       }
     }
   }
-  // cronjob to send notifications
-  // every 15min
-  // map through users
-  // map through users subscriptions
-  // check every subscription for show
-  // check every show for episode in 15min blocks, send out notification
 }

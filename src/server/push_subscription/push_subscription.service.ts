@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import webpush, { PushSubscription } from 'web-push';
 
 import { LoggerService } from '../logger/logger.service';
+import { NotificationDto } from '../notification/notification.dto';
 import { UserEntity } from '../user/user.entity';
 import { PushSubscriptionCreateDto } from './push_subscription.dto';
 import { PushSubscriptionEntity } from './push_subscription.entity';
@@ -93,7 +94,7 @@ export class PushSubscriptionService {
 
   public async sendNotificationToUser(
     userId: number,
-    payload: { title: string; message: string }
+    payload: NotificationDto
   ): Promise<void> {
     const subscriptions = await this.pushSubscriptionRepository.find({
       user: userId,

@@ -4,6 +4,8 @@ export const sw: ServiceWorkerGlobalScope & typeof globalThis = self as any;
 
 import { precacheAndRoute } from 'workbox-precaching';
 
+import { NotificationDto } from '../server/notification/notification.dto';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: __WB_MANIFEST is a placeholder filled by workbox-webpack-plugin with the list of dependecies to be cached
 precacheAndRoute(self.__WB_MANIFEST);
@@ -17,11 +19,20 @@ sw.addEventListener('push', (event) => {
   }
 
   if (event.data) {
-    const data: { title: string; message: string } = event.data.json();
-    sw.registration.showNotification(data.title, {
-      body: data.message,
-      // tag: 'simple-push-demo-notification',
-      // icon: icon,
+    const notificationDto = event.data.json() as NotificationDto;
+
+    sw.registration.showNotification(notificationDto.title, {
+      body: notificationDto.message,
+      icon: notificationDto.icon,
+      badge: '/android-chrome-192x192.png',
+      data: { url: notificationDto.url },
     });
+  }
+});
+
+sw.addEventListener('notificationclick', function (event) {
+  event.notification.close();
+  if (event.notification.data.url) {
+    event.waitUntil(sw.clients.openWindow(event.notification.data.url));
   }
 });
