@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/grbull/lini/compare/v2.1.1...v2.2.0) (2021-06-22)
+
+
+### Features
+
+* display app version in settings ([aa6f0c3](https://github.com/grbull/lini/commit/aa6f0c33a23134c1c329993450f7b29913d4bae9)), closes [#23](https://github.com/grbull/lini/issues/23)
+* implement redux persist ([542dfce](https://github.com/grbull/lini/commit/542dfce38199e6267ebe4bfd60948b035537d81c)), closes [#29](https://github.com/grbull/lini/issues/29)
+
+
+### Bug Fixes
+
+* air time is not displayed on episode page ([0963030](https://github.com/grbull/lini/commit/0963030d251c3f6f6c5f38051ede5493368f0601)), closes [#26](https://github.com/grbull/lini/issues/26)
+* dateFromNow is returning long strings ([1cabf7f](https://github.com/grbull/lini/commit/1cabf7f930d3620577fc9fac94c558a7f2f9892c)), closes [#21](https://github.com/grbull/lini/issues/21)
+* episode accordion dates are not formatted ([f7567f8](https://github.com/grbull/lini/commit/f7567f8126e3e76626baf2796fa9c75e9d43143c)), closes [#33](https://github.com/grbull/lini/issues/33)
+* episode accordion episode number ([4acd252](https://github.com/grbull/lini/commit/4acd25243e481ceddd237ee3b42410a0f41629bb)), closes [#32](https://github.com/grbull/lini/issues/32)
+* episode accordion spacing is too tight ([830ebd2](https://github.com/grbull/lini/commit/830ebd2942f9adb48755b8460c2ed373ec354884)), closes [#31](https://github.com/grbull/lini/issues/31)
+* missing safari-pinned-tab.svg ([ea652c2](https://github.com/grbull/lini/commit/ea652c24c5099e859b47203349eb58b6255bd971)), closes [#28](https://github.com/grbull/lini/issues/28)
+* notification times are not formatted ([f80bcd0](https://github.com/grbull/lini/commit/f80bcd080af8afe4a321ae2e2091726ea59869f8)), closes [#25](https://github.com/grbull/lini/issues/25)
+* theme colors are inconsistent ([b141b8c](https://github.com/grbull/lini/commit/b141b8ce205618207b17183eb0a90453286469f7)), closes [#3](https://github.com/grbull/lini/issues/3)
+
 ### [2.1.1](https://github.com/grbull/lini/compare/v2.1.0...v2.1.1) (2021-06-21)
 
 
