@@ -1,7 +1,6 @@
-import { formatDistance } from 'date-fns';
+import { DateTime } from 'luxon';
 
-export function dateFromNow(date: string): string {
-  return formatDistance(new Date(date), new Date(), {
-    addSuffix: true,
-  });
+export function dateFromNow(airstamp: string): string {
+  const { locale } = Intl.DateTimeFormat().resolvedOptions();
+  return DateTime.fromISO(airstamp, { locale }).toRelative() || airstamp;
 }
