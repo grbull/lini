@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
+import { dateToLocaleDate } from '../utils/date';
 import { formatEpisodeNumber } from '../utils/formatEpisodeNumber';
 
 interface Props {
@@ -50,7 +51,9 @@ export function EpisodeAccordionItem({
             <span>
               E{formatEpisodeNumber(episode.number)} - {episode.name}
             </span>
-            <span>{episode.airdate || 'N/A'}</span>
+            <span>
+              {episode.airstamp ? dateToLocaleDate(episode.airstamp) : 'N/A'}
+            </span>
           </Link>
         ))}
     </div>
