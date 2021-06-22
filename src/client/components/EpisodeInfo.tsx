@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { ReactElement } from 'react';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
-import { dateFromNow } from '../utils/date';
+import { dateToLocaleDate, dateToLocaleTime } from '../utils/date';
 import { formatEpisodeCode } from '../utils/formatEpisodeCode';
 import { imageEpisode } from '../utils/imageEpisode';
 import { InfoCard } from './InfoCard';
@@ -19,8 +19,8 @@ export function EpisodeInfo({ episode }: Props): ReactElement {
         <p>{formatEpisodeCode(episode.season, episode.number)}</p>
       </div>
       <div className={cn('w-full', 'flex', 'justify-between')}>
-        <p>{episode.airstamp ? dateFromNow(episode.airstamp) : 'N/A'}</p>
-        <p>{episode.airdate || 'N/A'}</p>
+        <p>{episode.airstamp ? dateToLocaleDate(episode.airstamp) : 'N/A'}</p>
+        <p>{episode.airstamp ? dateToLocaleTime(episode.airstamp) : 'N/A'}</p>
       </div>
 
       <img
