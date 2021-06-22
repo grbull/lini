@@ -1,6 +1,8 @@
+import cn from 'classnames';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
+import packageJson from '../../../package.json';
 import { PageHeader } from '../components/PageHeader';
 import { Preferences } from '../components/Preferences';
 import { SettingsCard } from '../components/SettingsCard';
@@ -30,6 +32,9 @@ export function Settings(): ReactElement {
       </SettingsCard>
       <SettingsCard title="Other">
         <a href={process.env.SERVER_URL + 'auth/logout'}>Logout</a>
+        <div className={cn('mt-4', 'font-light', 'text-sm')}>
+          Version: {packageJson.version}
+        </div>
       </SettingsCard>
     </>
   );
