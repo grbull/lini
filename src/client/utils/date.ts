@@ -21,3 +21,12 @@ export function dateToLocaleTime(airstamp: string): string {
     ) || ''
   );
 }
+
+export function dateToLocaleDateTime(airstamp: string): string {
+  const { locale } = Intl.DateTimeFormat().resolvedOptions();
+  return (
+    DateTime.fromISO(airstamp, { locale }).toLocaleString(
+      DateTime.DATETIME_FULL
+    ) || airstamp
+  );
+}
