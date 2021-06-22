@@ -49,7 +49,10 @@ export function EpisodeAccordionItem({
             to={`/episode/${episode.id}`}
           >
             <span>
-              E{formatEpisodeNumber(episode.number)} - {episode.name}
+              <span className={cn('mr-1', 'text-gray-400')}>
+                E{formatEpisodeNumber(episode.number)}
+              </span>
+              <span>{episode.name}</span>
             </span>
             <span>
               {episode.airstamp ? dateToLocaleDate(episode.airstamp) : 'N/A'}
