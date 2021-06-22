@@ -32,8 +32,8 @@ export function BackgroundImageShow({
         className={cn(
           'w-full',
           'h-full',
-          'bg-gray-700',
-          'bg-opacity-80',
+          'bg-gray-100 dark:bg-gray-700',
+          'bg-opacity-30 dark:bg-opacity-80',
           'overflow-y-scroll'
         )}
       >

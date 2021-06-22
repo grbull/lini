@@ -33,7 +33,7 @@ export function SearchInput(): ReactElement {
           'p-1',
           'text-xl',
           'text-center',
-          'bg-gray-600',
+          'bg-gray-200 dark:bg-gray-600',
           'border',
           'border-solid',
           'border-gray-800',

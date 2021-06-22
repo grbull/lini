@@ -57,8 +57,9 @@ export function Show({ match }: Props): ReactElement {
             'p-2',
             'fixed',
             'top-0',
-            'bg-gray-700',
-            'bg-opacity-80'
+            'text-gray-100',
+            'bg-gray-100 dark:bg-gray-700',
+            'bg-opacity-30 dark:bg-opacity-80'
           )}
           rightElement={<SubscribeButton showID={data.id} />}
           title={data.name}

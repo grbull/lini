@@ -22,7 +22,7 @@ export function ShowGrid({ shows }: Props): ReactElement {
             className={cn(
               'flex',
               'flex-col',
-              'bg-gray-800',
+              'bg-gray-200 dark:bg-gray-800',
               'h-full',
               'border-b-2',
               'border-solid',

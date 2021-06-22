@@ -28,10 +28,11 @@ export function NavigationItem({
         'items-center',
         'text-sm',
         'focus:outline-none',
-        'bg-gray-800',
         {
-          'text-white': isActive,
-          'text-gray-400': !isActive,
+          'bg-gray-300 text-gray-800': isActive,
+          'bg-gray-200 text-gray-600': !isActive,
+          'dark:bg-gray-800 dark:text-white': isActive,
+          'dark:bg-gray-800 dark:text-gray-400': !isActive,
         }
       )}
       to={to}

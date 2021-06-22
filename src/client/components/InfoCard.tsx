@@ -13,8 +13,8 @@ export function InfoCard({ children, className }: Props): ReactElement {
         'm-2',
         'px-2',
         'py-2.5',
-        'bg-gray-900',
-        'bg-opacity-80',
+        'bg-gray-200 dark:bg-gray-900',
+        'bg-opacity-90 dark:bg-opacity-80',
         'overflow-hidden',
         className
       )}

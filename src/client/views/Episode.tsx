@@ -49,7 +49,14 @@ export function Episode({ match }: Props): ReactElement {
   return (
     <BackgroundImageShow imageURL={data.show.imageOriginal}>
       <PageHeader
-        className={cn('p-2', 'fixed', 'top-0', 'bg-gray-700', 'bg-opacity-80')}
+        className={cn(
+          'p-2',
+          'fixed',
+          'top-0',
+          'text-gray-100',
+          'bg-gray-100 dark:bg-gray-700',
+          'bg-opacity-30 dark:bg-opacity-80'
+        )}
         rightElement={<SubscribeButton showID={data.show.id} />}
         title={data.show.name}
       />
