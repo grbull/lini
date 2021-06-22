@@ -43,7 +43,7 @@ export function EpisodeAccordionItem({
       {isExpanded &&
         episodes.map((episode) => (
           <Link
-            className={cn('flex', 'justify-between', 'items-center')}
+            className={cn('py-1', 'flex', 'justify-between', 'items-center')}
             key={episode.number}
             to={`/episode/${episode.id}`}
           >
