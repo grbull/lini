@@ -19,7 +19,21 @@ export function ShowGrid({ shows }: Props): ReactElement {
       {shows.map((show) => (
         <div className={cn('w-1/3', 'p-1')} key={show.id}>
           <Link
-            className={cn('flex', 'flex-col', 'bg-gray-800', 'h-full')}
+            className={cn(
+              'flex',
+              'flex-col',
+              'bg-gray-800',
+              'h-full',
+              'border-b-2',
+              'border-solid',
+              { 'border-green-500': show.status === 'Running' },
+              {
+                'border-yellow-500':
+                  show.status === 'To Be Determined' ||
+                  show.status === 'In Development',
+              },
+              { 'border-red-500': show.status === 'Ended' }
+            )}
             to={`/show/${show.id}`}
           >
             <img
