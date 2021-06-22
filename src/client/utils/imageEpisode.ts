@@ -1,6 +1,5 @@
 // TODO: Create placeholder
-const placeHolder =
-  'https://static.tvmaze.com/uploads/images/original_untouched/23/59145.jpg';
+const placeHolder = '/placeholder_episode.png';
 
 export function imageEpisode(url?: string): string {
   if (url) {

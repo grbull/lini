@@ -1,6 +1,5 @@
 // TODO: Create placeholder
-const placeHolder =
-  'https://lini.s1acker.com/uploads/images/medium_portrait/185/464747.jpg';
+const placeHolder = '/placeholder_show.png';
 
 export function imageShow(url?: string): string {
   if (url) {
