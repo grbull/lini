@@ -8,6 +8,7 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      height: { 18: '4.5rem' },
       minHeight: {
         0: '0',
         16: '4rem',
