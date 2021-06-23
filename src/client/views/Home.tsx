@@ -12,7 +12,7 @@ export function Home(): ReactElement {
     (state: RootState) => state.schedule
   );
 
-  if (status === 'loading') {
+  if (status === 'init') {
     return (
       <>
         <SettingsButton />

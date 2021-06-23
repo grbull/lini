@@ -7,7 +7,7 @@ import {
 } from '../../server/episode/episode.dto';
 import { api } from '../utils/api';
 
-type ScheduleStatus = 'idle' | 'loading' | 'error';
+type ScheduleStatus = 'init' | 'idle' | 'loading' | 'error';
 
 type ScheduleState = {
   status: ScheduleStatus;
@@ -17,7 +17,7 @@ type ScheduleState = {
 };
 
 const initialState: ScheduleState = {
-  status: 'idle',
+  status: 'init',
   future: [],
   past: [],
 };
