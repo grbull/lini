@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/grbull/lini/compare/v2.5.0...v2.5.1) (2021-06-23)
+
+
+### Bug Fixes
+
+* home view is vertically scrollable ([8141c2b](https://github.com/grbull/lini/commit/8141c2b39c23344e3d8859d23a827f17a93a4eb3))
+
 ## [2.5.0](https://github.com/grbull/lini/compare/v2.4.0...v2.5.0) (2021-06-23)
 
 
