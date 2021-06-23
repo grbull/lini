@@ -5,6 +5,7 @@ import { ShowWithEpisodesDto } from '../../server/show/show.dto';
 import { imageShow } from '../utils/imageShow';
 import { EpisodeAccordion } from './EpisodeAccordion';
 import { InfoCard } from './InfoCard';
+import { ShowInfoImage } from './ShowInfoImage';
 
 interface Props {
   show: ShowWithEpisodesDto;
@@ -14,10 +15,9 @@ export function ShowInfo({ show }: Props): ReactElement {
   return (
     <>
       <InfoCard className={cn('my-0')}>
-        <img
+        <ShowInfoImage
           alt={show.name}
-          className={cn('w-1/3', 'float-left', 'mr-2.5')}
-          src={imageShow(show.imageOriginal)}
+          imageURL={imageShow(show.imageOriginal)}
         />
         <div className={cn()}>{show.summary}</div>
       </InfoCard>

@@ -8,6 +8,7 @@ import { BackgroundImageShow } from '../components/BackgroundImageShow';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { ShowInfo } from '../components/ShowInfo';
+import { ShowInfoLoading } from '../components/ShowInfoLoading';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { showActions } from '../redux/show';
 import { RootState } from '../redux/store';
@@ -40,8 +41,8 @@ export function Show({ match }: Props): ReactElement {
   if (!data || isLoading) {
     return (
       <>
-        <PageHeader title="Loading.." />
-        <p>Loading...</p>
+        <PageHeader isLoading title="Loading.." />
+        <ShowInfoLoading />
       </>
     );
   }
