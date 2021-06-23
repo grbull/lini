@@ -8,6 +8,7 @@ import {
   SubscriptionUpdateDto,
 } from '../../server/subscription/subscription.dto';
 import { api } from '../utils/api';
+import { scheduleActions } from './schedule';
 
 type SubscriptionState = {
   isLoading: boolean;
@@ -26,17 +27,29 @@ export const getAll = createAsyncThunk<SubscriptionDto[]>(
 
 export const create = createAsyncThunk<SubscriptionDto, SubscriptionCreateDto>(
   'subscription/create',
-  (createDto) => api.subscription.create(createDto)
+  async (createDto, thunkAPI) => {
+    const subscription = await api.subscription.create(createDto);
+    thunkAPI.dispatch(scheduleActions.get());
+    return subscription;
+  }
 );
 
 export const update = createAsyncThunk<SubscriptionDto, SubscriptionUpdateDto>(
   'subscription/update',
-  (updateDto) => api.subscription.update(updateDto)
+  async (createDto, thunkAPI) => {
+    const subscription = await api.subscription.create(createDto);
+    thunkAPI.dispatch(scheduleActions.get());
+    return subscription;
+  }
 );
 
 export const remove = createAsyncThunk<SubscriptionDto, SubscriptionRemoveDto>(
   'subscription/remove',
-  (removeDto) => api.subscription.remove(removeDto)
+  async (createDto, thunkAPI) => {
+    const subscription = await api.subscription.create(createDto);
+    thunkAPI.dispatch(scheduleActions.get());
+    return subscription;
+  }
 );
 
 export const subscription = createSlice({

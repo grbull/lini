@@ -4,6 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AuthValidateDto } from '../../server/auth/auth.dto';
 import { UserDto, UserUpdateDto } from '../../server/user/user.dto';
 import { api } from '../utils/api';
+import { scheduleActions } from './schedule';
 import { RootState } from './store';
 import { subscriptionActions } from './subscription';
 
@@ -25,6 +26,7 @@ export const get = createAsyncThunk<UserDto, void>(
   async (_, thunkAPI) => {
     const user = await api.user.get();
     thunkAPI.dispatch(subscriptionActions.getAll());
+    thunkAPI.dispatch(scheduleActions.get());
     return user;
   }
 );
