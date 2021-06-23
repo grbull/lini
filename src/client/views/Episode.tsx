@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React, { ReactElement, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import { BackgroundImageShow } from '../components/BackgroundImageShow';
 import { EpisodeInfo } from '../components/EpisodeInfo';
+import { EpisodeInfoLoading } from '../components/EpisodeInfoLoading';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { SubscribeButton } from '../components/SubscribeButton';
@@ -40,8 +40,8 @@ export function Episode({ match }: Props): ReactElement {
   if (!data || isLoading) {
     return (
       <>
-        <PageHeader title="Loading.." />
-        <p>Loading...</p>
+        <PageHeader isLoading title="Loading.." />
+        <EpisodeInfoLoading />
       </>
     );
   }
