@@ -10,8 +10,9 @@ interface Props {
 
 export function LoginForm({ onSubmit }: Props): ReactElement {
   const [email, setEmail] = useState('');
-  const [isEmailValid, setIsEmailValid] =
-    useState<boolean | undefined>(undefined);
+  const [isEmailValid, setIsEmailValid] = useState<boolean | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,6 +30,10 @@ export function LoginForm({ onSubmit }: Props): ReactElement {
 
   function changeHandler(event: ChangeEvent<HTMLInputElement>): void {
     setEmail(event.target.value);
+  }
+
+  function clickHandler(): void {
+    onSubmit(email);
   }
 
   return (
@@ -53,7 +58,7 @@ export function LoginForm({ onSubmit }: Props): ReactElement {
           'border-solid',
           {
             'border-gray-200': isEmailValid === undefined,
-            'border-green-200': isEmailValid === true,
+            'border-green-200 ': isEmailValid === true,
             'border-red-200': isEmailValid === false,
           },
           {
@@ -88,8 +93,7 @@ export function LoginForm({ onSubmit }: Props): ReactElement {
           'disabled:cursor-not-allowed'
         )}
         disabled={!isEmailValid}
-        // eslint-disable-next-line react/jsx-no-bind
-        onClick={(): void => onSubmit(email)}
+        onClick={clickHandler}
         type="button"
       >
         Request Link
