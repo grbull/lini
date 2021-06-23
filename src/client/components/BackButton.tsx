@@ -16,15 +16,14 @@ export function BackButton({ className }: Props): ReactElement {
   }
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <div
+    <button
       className={cn('w-11', 'float-left', className)}
       onClick={handleClick}
-      role="button"
       tabIndex={0}
+      type="button"
     >
       <FontAwesomeIcon className={cn('m-1', 'text-lg')} icon={faArrowLeft} />
-    </div>
+    </button>
   );
 }
 
