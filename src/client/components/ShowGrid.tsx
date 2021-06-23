@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { ShowDto } from '../../server/show/show.dto';
 import { imageShow } from '../utils/imageShow';
+import { ShowGridImage } from './ShowGridImage';
 
 interface Props {
   shows: ShowDto[];
@@ -27,19 +28,15 @@ export function ShowGrid({ shows }: Props): ReactElement {
               'border-b-2',
               'border-solid',
               { 'border-green-500': show.status === 'Running' },
-              {
-                'border-yellow-500':
-                  show.status === 'To Be Determined' ||
-                  show.status === 'In Development',
-              },
+              { 'border-yellow-500': show.status === 'To Be Determined' },
+              { 'border-yellow-500': show.status === 'In Development' },
               { 'border-red-500': show.status === 'Ended' }
             )}
             to={`/show/${show.id}`}
           >
-            <img
+            <ShowGridImage
               alt={show.name}
-              className={cn('w-full')}
-              src={imageShow(show.imageMedium)}
+              imageURL={imageShow(show.imageMedium)}
             />
             <div
               className={cn(

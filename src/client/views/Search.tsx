@@ -5,16 +5,28 @@ import { useSelector } from 'react-redux';
 import { PageHeader } from '../components/PageHeader';
 import { SearchInput } from '../components/SearchInput';
 import { ShowGrid } from '../components/ShowGrid';
+import { ShowGridLoading } from '../components/ShowGridLoading';
 import { RootState } from '../redux/store';
 
 export function Search(): ReactElement {
-  const shows = useSelector((state: RootState) => state.search.data);
+  const search = useSelector((state: RootState) => state.search);
+
+  if (search.isLoading) {
+    return (
+      <>
+        <PageHeader title="Library" />
+        <SearchInput />
+        <ShowGridLoading />
+      </>
+    );
+  }
+
   return (
     <>
       <PageHeader title="Search" />
       <SearchInput />
-      {shows && <ShowGrid shows={shows} />}
-      {!shows && <p className={cn('px-2')}>No results to display.</p>}
+      {search.data && <ShowGrid shows={search.data} />}
+      {!search.data && <p className={cn('px-2')}>No results to display.</p>}
     </>
   );
 }
