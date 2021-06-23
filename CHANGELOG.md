@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/grbull/lini/compare/v2.4.0...v2.5.0) (2021-06-23)
+
+
+### Features
+
+* added a skeleton for showinfo ([94be034](https://github.com/grbull/lini/commit/94be03471956f311dec799cf5cce48ae1704ef7c)), closes [#16](https://github.com/grbull/lini/issues/16)
+* added a skeleton to episode panel ([cb7b79a](https://github.com/grbull/lini/commit/cb7b79a81208f84bf75bbf7724185455041af7e8)), closes [#16](https://github.com/grbull/lini/issues/16)
+* added a skeleton to episodeinfo ([53c6948](https://github.com/grbull/lini/commit/53c6948a63b5a2b3de77c995a3720523fd0efbb0)), closes [#16](https://github.com/grbull/lini/issues/16)
+* added a skeleton to pageheader ([814d6ff](https://github.com/grbull/lini/commit/814d6ff889608be07f2545c00d2477874553e78a)), closes [#16](https://github.com/grbull/lini/issues/16)
+* added a skeleton to showgrid ([6ae6c22](https://github.com/grbull/lini/commit/6ae6c229327a723e2459034976bb11314c52d21c)), closes [#16](https://github.com/grbull/lini/issues/16)
+
 ## [2.4.0](https://github.com/grbull/lini/compare/v2.3.0...v2.4.0) (2021-06-22)
 
 

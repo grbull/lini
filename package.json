@@ -1,6 +1,6 @@
 {
   "name": "lini",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "A progressive web application for tracking Tv Shows.",
   "main": "index.js",
   "author": "graham.bull@gmail.com",
