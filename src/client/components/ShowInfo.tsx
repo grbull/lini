@@ -18,9 +18,10 @@ export function ShowInfo({ show }: Props): ReactElement {
         <FixedImage
           alt={show.name}
           className={cn('w-1/3', 'mr-2.5', 'float-left')}
-          fullHeight={295 / 3}
+          fullHeight={295}
           fullWidth={210}
           src={imageShow(show.imageMedium)}
+          widthMultiplier={1 / 3}
         />
         <div className={cn()}>{show.summary}</div>
       </InfoCard>
