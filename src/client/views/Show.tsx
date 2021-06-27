@@ -8,7 +8,7 @@ import { BackgroundImageShow } from '../components/BackgroundImageShow';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { ShowInfo } from '../components/ShowInfo';
-import { ShowInfoLoading } from '../components/ShowInfoLoading';
+import { ShowInfoSkeleton } from '../components/ShowInfoSkeleton';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { showActions } from '../redux/show';
 import { RootState } from '../redux/store';
@@ -42,7 +42,7 @@ export function Show({ match }: Props): ReactElement {
     return (
       <>
         <PageHeader isLoading title="Loading.." />
-        <ShowInfoLoading />
+        <ShowInfoSkeleton />
       </>
     );
   }

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { PageHeader } from '../components/PageHeader';
 import { ShowGrid } from '../components/ShowGrid';
-import { ShowGridLoading } from '../components/ShowGridLoading';
+import { ShowGridSkeleton } from '../components/ShowGridSkeleton';
 import { RootState } from '../redux/store';
 
 export function Library(): ReactElement {
@@ -16,7 +16,7 @@ export function Library(): ReactElement {
     return (
       <>
         <PageHeader title="Library" />
-        <ShowGridLoading />
+        <ShowGridSkeleton />
       </>
     );
   }

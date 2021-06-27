@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { PageHeader } from '../components/PageHeader';
 import { SearchInput } from '../components/SearchInput';
 import { ShowGrid } from '../components/ShowGrid';
-import { ShowGridLoading } from '../components/ShowGridLoading';
+import { ShowGridSkeleton } from '../components/ShowGridSkeleton';
 import { RootState } from '../redux/store';
 
 export function Search(): ReactElement {
@@ -16,7 +16,7 @@ export function Search(): ReactElement {
       <>
         <PageHeader title="Library" />
         <SearchInput />
-        <ShowGridLoading />
+        <ShowGridSkeleton />
       </>
     );
   }
