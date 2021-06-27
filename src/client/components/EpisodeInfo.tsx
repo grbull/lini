@@ -5,7 +5,7 @@ import { EpisodeDto } from '../../server/episode/episode.dto';
 import { dateToLocaleDate, dateToLocaleTime } from '../utils/date';
 import { formatEpisodeCode } from '../utils/formatEpisodeCode';
 import { imageEpisode } from '../utils/imageEpisode';
-import { EpisodeInfoImage } from './EpisodeInfoImage';
+import { FixedImage } from './FixedImage';
 import { InfoCard } from './InfoCard';
 
 interface Props {
@@ -23,9 +23,12 @@ export function EpisodeInfo({ episode }: Props): ReactElement {
         <p>{episode.airstamp ? dateToLocaleDate(episode.airstamp) : 'N/A'}</p>
         <p>{episode.airstamp ? dateToLocaleTime(episode.airstamp) : 'N/A'}</p>
       </div>
-      <EpisodeInfoImage
+      <FixedImage
         alt={episode.name}
-        imageURL={imageEpisode(episode.imageOriginal)}
+        className={cn('my-3')}
+        fullHeight={1080}
+        fullWidth={1920}
+        src={imageEpisode(episode.imageOriginal)}
       />
       <p className={cn('min-h-16')}>
         {episode.summary || 'Summary unavailable.'}

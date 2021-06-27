@@ -6,7 +6,7 @@ import { EpisodeDto } from '../../server/episode/episode.dto';
 import { dateFromNow } from '../utils/date';
 import { formatEpisodeCode } from '../utils/formatEpisodeCode';
 import { imageShow } from '../utils/imageShow';
-import { EpisodePanelImage } from './EpisodePanelImage';
+import { FixedImage } from './FixedImage';
 
 interface Props {
   episodes: EpisodeDto[];
@@ -23,9 +23,13 @@ export function EpisodePanel({ episodes }: Props): ReactElement {
           key={episode.id}
           to={`/episode/${episode.id}`}
         >
-          <EpisodePanelImage
+          <FixedImage
             alt={episode.show.name}
-            imageURL={imageShow(episode.show.imageMedium)}
+            className={cn('rounded-sm')}
+            fullHeight={295}
+            fullWidth={210}
+            skeletonClassName={cn('bg-gray-800')}
+            src={imageShow(episode.show.imageMedium)}
           />
           <div className={cn('h-18')}>
             <span

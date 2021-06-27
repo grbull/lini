@@ -4,15 +4,10 @@ import { Link } from 'react-router-dom';
 
 import { ShowDto } from '../../server/show/show.dto';
 import { imageShow } from '../utils/imageShow';
-import { ShowGridImage } from './ShowGridImage';
-
+import { FixedImage } from './FixedImage';
 interface Props {
   shows: ShowDto[];
 }
-
-// TODO: Min height, so things don't change very much when images are loading
-// I assume it needs to be % for responisive
-// Problem making the title/rating div use all available space.
 
 export function ShowGrid({ shows }: Props): ReactElement {
   return (
@@ -34,9 +29,12 @@ export function ShowGrid({ shows }: Props): ReactElement {
             )}
             to={`/show/${show.id}`}
           >
-            <ShowGridImage
+            <FixedImage
               alt={show.name}
-              imageURL={imageShow(show.imageMedium)}
+              fullHeight={295}
+              fullWidth={210}
+              skeletonClassName={cn('bg-gray-800')}
+              src={imageShow(show.imageMedium)}
             />
             <div
               className={cn(
