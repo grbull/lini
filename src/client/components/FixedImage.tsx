@@ -43,17 +43,23 @@ export function FixedImage({
       className={cn('h-0', 'relative', className)}
       style={{ paddingTop: `${imageHeightPercentage}%` }}
     >
+      <Skeleton
+        className={cn(
+          'absolute',
+          'top-0',
+          'left-0',
+          'w-full',
+          'h-full',
+          skeletonClassName,
+          { hidden: !isLoading }
+        )}
+      />
       <img
         alt={alt}
         className={cn('absolute', 'top-0', 'left-0', {
           hidden: isLoading,
         })}
         src={src}
-      />
-      <Skeleton
-        className={cn('absolute', 'top-0', 'left-0', skeletonClassName, {
-          hidden: !isLoading,
-        })}
       />
     </div>
   );
