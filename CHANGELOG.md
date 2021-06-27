@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.2](https://github.com/grbull/lini/compare/v2.5.1...v2.5.2) (2021-06-27)
+
+
+### Bug Fixes
+
+* only show schedule skeleton on initial fetch ([ab5f834](https://github.com/grbull/lini/commit/ab5f83419d1e83e624b2429e2424e599f6f1b98f))
+
 ### [2.5.1](https://github.com/grbull/lini/compare/v2.5.0...v2.5.1) (2021-06-23)
 
 
