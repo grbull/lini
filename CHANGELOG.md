@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.4](https://github.com/grbull/lini/compare/v2.5.3...v2.5.4) (2021-06-27)
+
+
+### Bug Fixes
+
+* fixed image height not being adjusted ([7261938](https://github.com/grbull/lini/commit/7261938e958608e6edd4a4001eb6714edfee9ac4))
+* fixed image not displaying skeleton ([4f4e885](https://github.com/grbull/lini/commit/4f4e885cf56ee7e32022851b7d4561c36546946a))
+
 ### [2.5.3](https://github.com/grbull/lini/compare/v2.5.2...v2.5.3) (2021-06-27)
 
 ### [2.5.2](https://github.com/grbull/lini/compare/v2.5.1...v2.5.2) (2021-06-27)
