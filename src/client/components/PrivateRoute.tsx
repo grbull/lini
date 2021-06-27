@@ -8,5 +8,5 @@ export function PrivateRoute({ ...rest }: RouteProps): ReactElement {
   const user = useSelector((state: RootState) => state.user);
 
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return user.isLoggedIn ? <Route {...rest} /> : <Redirect to="/login" />;
+  return user.data ? <Route {...rest} /> : <Redirect to="/login" />;
 }

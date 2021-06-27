@@ -29,7 +29,7 @@ export function App(): ReactElement {
     dispatch(userActions.get());
   }, [dispatch]);
 
-  if (user.isLoading) {
+  if (!user.data && user.status === 'loading') {
     return <div>Loading</div>;
   }
   return (

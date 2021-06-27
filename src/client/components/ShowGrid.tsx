@@ -10,6 +10,9 @@ interface Props {
 }
 
 export function ShowGrid({ shows }: Props): ReactElement {
+  if (shows.length === 0) {
+    return <p className={cn('px-2')}>No results to display.</p>;
+  }
   return (
     <div className={cn('flex', 'flex-row', 'flex-wrap', 'px-2')}>
       {shows.map((show) => (

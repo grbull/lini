@@ -5,19 +5,19 @@ import {
   SubscriptionCreateDto,
   SubscriptionDto,
   SubscriptionRemoveDto,
-  SubscriptionUpdateDto,
 } from '../../server/subscription/subscription.dto';
 import { api } from '../utils/api';
 import { scheduleActions } from './schedule';
 
 type SubscriptionState = {
-  isLoading: boolean;
+  status: 'init' | 'loading' | 'idle' | 'error';
+  data: SubscriptionDto[];
   error?: string;
-  data?: SubscriptionDto[];
 };
 
 const initialState: SubscriptionState = {
-  isLoading: true,
+  status: 'init',
+  data: [],
 };
 
 export const getAll = createAsyncThunk<SubscriptionDto[]>(
@@ -27,15 +27,6 @@ export const getAll = createAsyncThunk<SubscriptionDto[]>(
 
 export const create = createAsyncThunk<SubscriptionDto, SubscriptionCreateDto>(
   'subscription/create',
-  async (createDto, thunkAPI) => {
-    const subscription = await api.subscription.create(createDto);
-    thunkAPI.dispatch(scheduleActions.get());
-    return subscription;
-  }
-);
-
-export const update = createAsyncThunk<SubscriptionDto, SubscriptionUpdateDto>(
-  'subscription/update',
   async (createDto, thunkAPI) => {
     const subscription = await api.subscription.create(createDto);
     thunkAPI.dispatch(scheduleActions.get());
@@ -58,57 +49,43 @@ export const subscription = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAll.pending, (state) => {
-      state.isLoading = true;
+      state.status = 'loading';
+      state.error = undefined;
     });
     builder.addCase(getAll.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
+      state.status = 'idle';
       state.data = payload;
     });
     builder.addCase(getAll.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
 
     builder.addCase(create.pending, (state) => {
-      state.isLoading = true;
+      state.status = 'loading';
+      state.error = undefined;
     });
     builder.addCase(create.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.data?.push(payload);
+      state.status = 'idle';
+      state.data.push(payload);
     });
     builder.addCase(create.rejected, (state, { error }) => {
-      state.isLoading = false;
-      state.error = error.message;
-    });
-
-    builder.addCase(update.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(update.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.data?.splice(
-        state.data.findIndex((s) => s.show.id === payload.show.id),
-        1
-      );
-      state.data?.push(payload);
-    });
-    builder.addCase(update.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
 
     builder.addCase(remove.pending, (state) => {
-      state.isLoading = true;
+      state.status = 'loading';
+      state.error = undefined;
     });
     builder.addCase(remove.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.data?.splice(
-        state.data.findIndex((s) => s.show.id === payload.show.id),
-        1
+      state.status = 'idle';
+      state.data.splice(
+        state.data.findIndex((s) => s.show.id === payload.show.id)
       );
     });
     builder.addCase(remove.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
   },
@@ -118,6 +95,5 @@ export const subscriptionActions = {
   ...subscription.actions,
   getAll,
   create,
-  update,
   remove,
 };

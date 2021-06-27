@@ -13,21 +13,21 @@ import { Toggle } from './Toggle';
 export function Preferences(): ReactElement {
   const dispatch = useDispatch();
   const { isEnabled, toggle } = useNotifications();
-  const { profile } = useSelector((state: RootState) => state.user);
+  const user = useSelector((state: RootState) => state.user);
 
   function handleTheme(event: ChangeEvent<HTMLSelectElement>): void {
     const userUpdateDto: UserUpdateDto = {
       theme: event.target.value as 'auto' | 'light' | 'dark',
-      notifications: profile?.notifications || false,
-      dataSaving: profile?.dataSaving || false,
+      notifications: user.data?.notifications || false,
+      dataSaving: user.data?.dataSaving || false,
     };
     dispatch(userActions.update(userUpdateDto));
   }
 
   function handleDataSaving(event: ChangeEvent<HTMLInputElement>): void {
     const userUpdateDto: UserUpdateDto = {
-      theme: profile?.theme || 'auto',
-      notifications: profile?.notifications || false,
+      theme: user.data?.theme || 'auto',
+      notifications: user.data?.notifications || false,
       dataSaving: event.target.checked,
     };
     dispatch(userActions.update(userUpdateDto));
@@ -37,7 +37,7 @@ export function Preferences(): ReactElement {
     <>
       <SettingsCardRow>
         <PreferencesItem description="Some description" title="Theme">
-          <Select onChange={handleTheme} value={profile?.theme} />
+          <Select onChange={handleTheme} value={user.data?.theme} />
         </PreferencesItem>
       </SettingsCardRow>
       <SettingsCardRow>
@@ -56,7 +56,7 @@ export function Preferences(): ReactElement {
           <Toggle
             id="test"
             onChange={handleDataSaving}
-            value={profile?.dataSaving || false}
+            value={user.data?.dataSaving || false}
           />
         </PreferencesItem>
       </SettingsCardRow>

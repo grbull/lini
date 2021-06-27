@@ -10,7 +10,7 @@ import { SettingsCardRow } from '../components/SettingsCardRow';
 import { RootState } from '../redux/store';
 
 export function Settings(): ReactElement {
-  const { profile } = useSelector((state: RootState) => state.user);
+  const user = useSelector((state: RootState) => state.user);
 
   return (
     <>
@@ -19,12 +19,12 @@ export function Settings(): ReactElement {
       <SettingsCard title="Account Information">
         <SettingsCardRow>
           <span>Email:</span>
-          <span>{profile?.email}</span>
+          <span>{user.data?.email}</span>
         </SettingsCardRow>
 
         <SettingsCardRow>
           <span>Date Registered:</span>
-          <span>{profile?.dateCreated}</span>
+          <span>{user.data?.dateCreated}</span>
         </SettingsCardRow>
       </SettingsCard>
       <SettingsCard title="Preferences">

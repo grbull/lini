@@ -5,13 +5,13 @@ import { EpisodeDto } from '../../server/episode/episode.dto';
 import { api } from '../utils/api';
 
 type EpisodeState = {
-  isLoading: boolean;
-  error?: string;
+  status: 'init' | 'loading' | 'idle' | 'error';
   data?: EpisodeDto;
+  error?: string;
 };
 
 const initialState: EpisodeState = {
-  isLoading: false,
+  status: 'init',
 };
 
 export const get = createAsyncThunk<EpisodeDto, number>('episode/get', (id) =>
@@ -22,23 +22,28 @@ export const episode = createSlice({
   name: 'episode',
   initialState,
   reducers: {
-    clear: (state) => {
-      state.data = undefined;
+    reset: () => {
+      return initialState;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(get.pending, (state) => {
-      state.isLoading = true;
+      state.status = 'loading';
+      state.data = undefined;
+      state.error = undefined;
     });
     builder.addCase(get.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
+      state.status = 'idle';
       state.data = payload;
     });
     builder.addCase(get.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
   },
 });
 
-export const episodeActions = { ...episode.actions, get };
+export const episodeActions = {
+  ...episode.actions,
+  get,
+};

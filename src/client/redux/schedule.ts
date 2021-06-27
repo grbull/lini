@@ -7,19 +7,21 @@ import {
 } from '../../server/episode/episode.dto';
 import { api } from '../utils/api';
 
-type ScheduleStatus = 'init' | 'idle' | 'loading' | 'error';
-
 type ScheduleState = {
-  status: ScheduleStatus;
-  future: EpisodeDto[];
-  past: EpisodeDto[];
+  status: 'init' | 'loading' | 'idle' | 'error';
+  data: {
+    future: EpisodeDto[];
+    past: EpisodeDto[];
+  };
   error?: string;
 };
 
 const initialState: ScheduleState = {
   status: 'init',
-  future: [],
-  past: [],
+  data: {
+    future: [],
+    past: [],
+  },
 };
 
 export const get = createAsyncThunk<EpisodeScheduleDto>('schedule/get', () =>
@@ -33,11 +35,11 @@ export const schedule = createSlice({
   extraReducers: (builder) => {
     builder.addCase(get.pending, (state) => {
       state.status = 'loading';
+      state.error = undefined;
     });
     builder.addCase(get.fulfilled, (state, { payload }) => {
       state.status = 'idle';
-      state.future = payload.future;
-      state.past = payload.past;
+      state.data = payload;
     });
     builder.addCase(get.rejected, (state, { error }) => {
       state.status = 'error';

@@ -11,7 +11,6 @@ import { api } from '../utils/api';
 
 export function Login(): ReactElement {
   const [isSuccess, setIsSuccess] = useState<boolean | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState(false);
 
   // Need to display loading some how
 
@@ -23,7 +22,7 @@ export function Login(): ReactElement {
   }
 
   const user = useSelector((state: RootState) => state.user);
-  if (user.profile) {
+  if (user.data) {
     return <Redirect to="/" />;
   }
 

@@ -16,7 +16,7 @@ export function Navigation(): ReactElement {
   const { pathname } = useLocation();
 
   // Only show navigation when user is logged in
-  if (!user.isLoggedIn) {
+  if (!user.data) {
     return <div />;
   }
   // When navigating to new page, scrolls to top

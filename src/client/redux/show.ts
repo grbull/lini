@@ -5,13 +5,13 @@ import { ShowWithEpisodesDto } from '../../server/show/show.dto';
 import { api } from '../utils/api';
 
 type ShowState = {
-  isLoading: boolean;
-  error?: string;
+  status: 'init' | 'loading' | 'idle' | 'error';
   data?: ShowWithEpisodesDto;
+  error?: string;
 };
 
 const initialState: ShowState = {
-  isLoading: false,
+  status: 'init',
 };
 
 export const get = createAsyncThunk<ShowWithEpisodesDto, number>(
@@ -23,23 +23,28 @@ export const show = createSlice({
   name: 'show',
   initialState,
   reducers: {
-    clear: (state) => {
-      state.data = undefined;
+    reset: () => {
+      return initialState;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(get.pending, (state) => {
-      state.isLoading = true;
+      state.status = 'loading';
+      state.data = undefined;
+      state.error = undefined;
     });
     builder.addCase(get.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
+      state.status = 'idle';
       state.data = payload;
     });
     builder.addCase(get.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
   },
 });
 
-export const showActions = { ...show.actions, get };
+export const showActions = {
+  ...show.actions,
+  get,
+};

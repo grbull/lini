@@ -5,7 +5,7 @@ import { RootState } from '../redux/store';
 
 export function useTheme(): 'dark' | 'light' {
   const userTheme =
-    useSelector((state: RootState) => state.user.profile?.theme) || 'auto';
+    useSelector((state: RootState) => state.user.data?.theme) || 'auto';
 
   const systemTheme = useMediaPredicate('(prefers-color-scheme: dark)')
     ? 'dark'

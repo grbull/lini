@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import React, { ReactElement, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
@@ -21,24 +20,22 @@ type Props = RouteComponentProps<Params>;
 export function Show({ match }: Props): ReactElement {
   const id = parseInt(match.params.id, 10);
   const dispatch = useDispatch();
-  const { isLoading, error, data } = useSelector(
-    (state: RootState) => state.show
-  );
+  const show = useSelector((state: RootState) => state.show);
 
   useEffect(() => {
     dispatch(showActions.get(id));
   }, [dispatch, id]);
 
-  if (error) {
+  if (show.status === 'error') {
     return (
       <>
         <PageHeader title="Error" />
-        <ErrorMessage>{error}</ErrorMessage>
+        <ErrorMessage>{show.error}</ErrorMessage>
       </>
     );
   }
 
-  if (!data || isLoading) {
+  if (!show.data) {
     return (
       <>
         <PageHeader isLoading title="Loading.." />
@@ -48,25 +45,20 @@ export function Show({ match }: Props): ReactElement {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>{data.name} - Lini</title>
-      </Helmet>
-      <BackgroundImageShow imageURL={data.imageOriginal}>
-        <PageHeader
-          className={cn(
-            'p-2',
-            'fixed',
-            'top-0',
-            'text-gray-100',
-            'bg-gray-100 dark:bg-gray-700',
-            'bg-opacity-30 dark:bg-opacity-80'
-          )}
-          rightElement={<SubscribeButton showID={data.id} />}
-          title={data.name}
-        />
-        <ShowInfo show={data} />
-      </BackgroundImageShow>
-    </>
+    <BackgroundImageShow imageURL={show.data.imageOriginal}>
+      <PageHeader
+        className={cn(
+          'p-2',
+          'fixed',
+          'top-0',
+          'text-gray-100',
+          'bg-gray-100 dark:bg-gray-700',
+          'bg-opacity-30 dark:bg-opacity-80'
+        )}
+        rightElement={<SubscribeButton showID={show.data.id} />}
+        title={show.data.name}
+      />
+      <ShowInfo show={show.data} />
+    </BackgroundImageShow>
   );
 }

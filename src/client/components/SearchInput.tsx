@@ -14,7 +14,7 @@ export function SearchInput(): ReactElement {
 
   useEffect(() => {
     if (query === '') {
-      dispatch(searchActions.clear());
+      dispatch(searchActions.reset());
       return;
     }
     const timer = setTimeout(() => {

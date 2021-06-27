@@ -20,24 +20,22 @@ type Props = RouteComponentProps<Params>;
 export function Episode({ match }: Props): ReactElement {
   const id = parseInt(match.params.id, 10);
   const dispatch = useDispatch();
-  const { isLoading, error, data } = useSelector(
-    (state: RootState) => state.episode
-  );
+  const episode = useSelector((state: RootState) => state.episode);
 
   useEffect(() => {
     dispatch(episodeActions.get(id));
   }, [dispatch, id]);
 
-  if (error) {
+  if (episode.status === 'error') {
     return (
       <>
         <PageHeader title="Error" />
-        <ErrorMessage>{error}</ErrorMessage>
+        <ErrorMessage>{episode.error}</ErrorMessage>
       </>
     );
   }
 
-  if (!data || isLoading) {
+  if (!episode.data) {
     return (
       <>
         <PageHeader isLoading title="Loading.." />
@@ -47,7 +45,7 @@ export function Episode({ match }: Props): ReactElement {
   }
 
   return (
-    <BackgroundImageShow imageURL={data.show.imageOriginal}>
+    <BackgroundImageShow imageURL={episode.data.imageOriginal}>
       <PageHeader
         className={cn(
           'p-2',
@@ -57,10 +55,10 @@ export function Episode({ match }: Props): ReactElement {
           'bg-gray-100 dark:bg-gray-700',
           'bg-opacity-30 dark:bg-opacity-80'
         )}
-        rightElement={<SubscribeButton showID={data.show.id} />}
-        title={data.show.name}
+        rightElement={<SubscribeButton showID={episode.data.show.id} />}
+        title={episode.data.show.name}
       />
-      <EpisodeInfo episode={data} />
+      <EpisodeInfo episode={episode.data} />
     </BackgroundImageShow>
   );
 }

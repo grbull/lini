@@ -9,16 +9,13 @@ import { RootState } from './store';
 import { subscriptionActions } from './subscription';
 
 type UserState = {
-  isLoading: boolean;
-  isLoggedIn: boolean;
-  profile?: UserDto;
+  status: 'init' | 'loading' | 'idle' | 'error';
+  data?: UserDto;
   error?: string;
 };
 
-// should isLoading be false?
 const initialState: UserState = {
-  isLoading: true,
-  isLoggedIn: false,
+  status: 'init',
 };
 
 export const get = createAsyncThunk<UserDto, void>(
@@ -51,33 +48,50 @@ export const user = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(get.pending, (state) => {
+      state.status = 'loading';
+      state.error = undefined;
+    });
     builder.addCase(get.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.isLoggedIn = true;
-      state.profile = payload;
+      state.status = 'idle';
+      state.data = payload;
     });
     builder.addCase(get.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
+    });
+
+    builder.addCase(update.pending, (state) => {
+      state.status = 'loading';
+      state.error = undefined;
     });
     builder.addCase(update.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.profile = payload;
+      state.status = 'idle';
+      state.data = payload;
     });
     builder.addCase(update.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
+
+    builder.addCase(validateToken.pending, (state) => {
+      state.status = 'loading';
+      state.error = undefined;
+    });
     builder.addCase(validateToken.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.isLoggedIn = true;
-      state.profile = payload;
+      state.status = 'idle';
+      state.data = payload;
     });
     builder.addCase(validateToken.rejected, (state, { error }) => {
-      state.isLoading = false;
+      state.status = 'error';
       state.error = error.message;
     });
   },
 });
 
-export const userActions = { ...user.actions, get, update, validateToken };
+export const userActions = {
+  ...user.actions,
+  get,
+  update,
+  validateToken,
+};

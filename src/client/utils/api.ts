@@ -11,7 +11,7 @@ import {
   SubscriptionCreateDto,
   SubscriptionDto,
   SubscriptionRemoveDto,
-  SubscriptionUpdateDto,
+  // SubscriptionUpdateDto,
 } from '../../server/subscription/subscription.dto';
 import { UserDto, UserUpdateDto } from '../../server/user/user.dto';
 
@@ -71,12 +71,12 @@ async function subscriptionCreate(
   return response.data;
 }
 
-async function subscriptionUpdate(
-  updateDto: SubscriptionUpdateDto
-): Promise<SubscriptionDto> {
-  const response = await axios.put<SubscriptionDto>('subscription', updateDto);
-  return response.data;
-}
+// async function subscriptionUpdate(
+//   updateDto: SubscriptionUpdateDto
+// ): Promise<SubscriptionDto> {
+//   const response = await axios.put<SubscriptionDto>('subscription', updateDto);
+//   return response.data;
+// }
 
 async function subscriptionRemove(
   removeDto: SubscriptionRemoveDto
@@ -115,7 +115,7 @@ export const api = {
   subscription: {
     getAll: subscriptionGetAll,
     create: subscriptionCreate,
-    update: subscriptionUpdate,
+    // update: subscriptionUpdate,
     remove: subscriptionRemove,
   },
   push: {

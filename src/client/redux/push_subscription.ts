@@ -4,10 +4,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { PushSubscriptionCreateDto } from '../../server/push_subscription/push_subscription.dto';
 import { api } from '../utils/api';
 
-type PushSubscriptionStatus = 'idle' | 'loading' | 'error';
-
 type PushSubscriptionState = {
-  status: PushSubscriptionStatus;
+  status: 'loading' | 'idle' | 'error';
   error?: string;
 };
 
@@ -27,6 +25,7 @@ export const pushSubscription = createSlice({
   extraReducers: (builder) => {
     builder.addCase(create.pending, (state) => {
       state.status = 'loading';
+      state.error = undefined;
     });
     builder.addCase(create.fulfilled, (state) => {
       state.status = 'idle';
