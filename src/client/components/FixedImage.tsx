@@ -28,7 +28,7 @@ export function FixedImage({
   useEffect(() => {
     const imageElement = new Image();
     imageElement.onload = (): void => {
-      if (isLoading) {
+      if (!isLoading) {
         setIsLoading(false);
         setImageHeightPercentage(
           (imageElement.naturalHeight / imageElement.naturalWidth) * 100
