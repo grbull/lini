@@ -7,7 +7,6 @@ import { UserEntity } from '../user/user.entity';
 import {
   SubscriptionCreateDto,
   SubscriptionRemoveDto,
-  SubscriptionUpdateDto,
 } from './subscription.dto';
 import { SubscriptionEntity } from './subscription.entity';
 
@@ -48,26 +47,6 @@ export class SubscriptionService {
         { user: user.id, show: { id: createDto.show } },
         { relations: ['show'] }
       );
-    }
-  }
-
-  public async update(
-    user: UserEntity,
-    updateDto: SubscriptionUpdateDto
-  ): Promise<SubscriptionEntity> {
-    try {
-      const subscription = await this.subscriptionRepository.findOneOrFail({
-        where: { show: updateDto.show, user: user.id },
-      });
-      await this.subscriptionRepository.save(
-        Object.assign(subscription, updateDto)
-      );
-      return await this.subscriptionRepository.findOneOrFail(
-        { user: user.id, show: { id: updateDto.show } },
-        { relations: ['show'] }
-      );
-    } catch {
-      throw new NotFoundException();
     }
   }
 

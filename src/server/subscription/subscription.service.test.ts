@@ -10,7 +10,6 @@ import { UserEntity, UserRole, UserTheme } from '../user/user.entity';
 import {
   SubscriptionCreateDto,
   SubscriptionRemoveDto,
-  SubscriptionUpdateDto,
 } from './subscription.dto';
 import { SubscriptionEntity } from './subscription.entity';
 import { SubscriptionService } from './subscription.service';
@@ -108,7 +107,6 @@ describe('Subscription Service', () => {
     const expectedEntity = {
       dateDeleted: null,
       id: 1,
-      notifications: true,
     };
 
     it('should create a subscription', async () => {
@@ -132,32 +130,6 @@ describe('Subscription Service', () => {
     });
   });
 
-  describe('update', () => {
-    const updateDto: SubscriptionUpdateDto = {
-      show: seedShow.id,
-      notifications: false,
-    };
-    const expectedEntity = {
-      dateDeleted: null,
-      id: 1,
-      notifications: false,
-    };
-
-    it('should update a subscription', async () => {
-      const subscription = await subscriptionService.update(user, updateDto);
-
-      expect(subscription).toMatchObject({ ...expectedEntity, show });
-    });
-
-    it('should throw an error if does not exist', async () => {
-      const error = new NotFoundException();
-
-      await expect(
-        subscriptionService.update(user, { ...updateDto, show: 0 })
-      ).rejects.toThrow(error);
-    });
-  });
-
   describe('remove', () => {
     const removeDto: SubscriptionRemoveDto = {
       show: seedShow.id,
@@ -170,7 +142,6 @@ describe('Subscription Service', () => {
       );
       const expectedEntity = {
         id: 1,
-        notifications: false,
       };
 
       expect(deletedSubscription).toMatchObject({ ...expectedEntity, show });

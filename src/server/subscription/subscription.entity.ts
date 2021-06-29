@@ -1,6 +1,5 @@
 import { Exclude } from 'class-transformer';
 import {
-  Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
@@ -23,9 +22,6 @@ export class SubscriptionEntity {
 
   @ManyToOne(() => ShowEntity, (show) => show.subscriptions)
   show!: ShowEntity;
-
-  @Column({ type: 'boolean', default: true })
-  notifications!: boolean;
 
   @CreateDateColumn({ type: 'timestamptz' })
   dateCreated!: string;

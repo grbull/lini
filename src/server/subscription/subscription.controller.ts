@@ -4,7 +4,6 @@ import {
   Delete,
   Get,
   Post,
-  Put,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -16,7 +15,6 @@ import { UserEntity } from '../user/user.entity';
 import {
   SubscriptionCreateDto,
   SubscriptionRemoveDto,
-  SubscriptionUpdateDto,
 } from './subscription.dto';
 import { SubscriptionEntity } from './subscription.entity';
 import { SubscriptionService } from './subscription.service';
@@ -46,14 +44,6 @@ export class SubscriptionController {
     @Body() removeDto: SubscriptionRemoveDto
   ): Promise<SubscriptionEntity> {
     return this.subscriptionService.remove(user, removeDto);
-  }
-
-  @Put()
-  public update(
-    @User() user: UserEntity,
-    @Body() updateDto: SubscriptionUpdateDto
-  ): Promise<SubscriptionEntity> {
-    return this.subscriptionService.update(user, updateDto);
   }
 
   // Lists all you've subscribed and unsubsubscribed to??

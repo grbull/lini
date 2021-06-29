@@ -7,7 +7,6 @@ import { SubscriptionService } from './subscription.service';
 
 const subscriptionEntity = {
   id: 1,
-  notifications: true,
   dateCreated: '2021-05-20T14:27:26.876Z',
   dateDeleted: null,
   user: 1,
@@ -15,7 +14,6 @@ const subscriptionEntity = {
 };
 const removedEntity = {
   id: 1,
-  notifications: true,
   dateCreated: '2021-05-20T14:27:26.876Z',
   dateDeleted: '2021-05-20T14:28:26.876Z',
   user: 1,
@@ -39,7 +37,6 @@ describe('SUbscription Controller', () => {
   const subscriptionService = createMock<SubscriptionService>({
     getAll: jest.fn().mockReturnValue([subscriptionEntity]),
     create: jest.fn().mockReturnValue(subscriptionEntity),
-    update: jest.fn().mockReturnValue(subscriptionEntity),
     remove: jest.fn().mockReturnValue(removedEntity),
   });
   const subscriptionController = new SubscriptionController(
@@ -67,20 +64,6 @@ describe('SUbscription Controller', () => {
 
       expect(result).toMatchObject(subscriptionEntity);
       expect(jest.spyOn(subscriptionService, 'create')).toHaveBeenCalledTimes(
-        1
-      );
-    });
-  });
-
-  describe('update', () => {
-    it('should create a subscription', async () => {
-      const result = await subscriptionController.update(
-        user,
-        subscriptionEntity
-      );
-
-      expect(result).toMatchObject(subscriptionEntity);
-      expect(jest.spyOn(subscriptionService, 'update')).toHaveBeenCalledTimes(
         1
       );
     });
