@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/grbull/lini/compare/v2.6.1...v2.7.0) (2021-06-29)
+
+
+### Features
+
+* ability to download your data ([f059926](https://github.com/grbull/lini/commit/f059926319b98f3bebb00b6542b60a9309ba063d)), closes [#14](https://github.com/grbull/lini/issues/14)
+* display a banner when offline ([07ce455](https://github.com/grbull/lini/commit/07ce4557cf03bd3731482e6dc7488be4dea8efa0)), closes [#36](https://github.com/grbull/lini/issues/36)
+
+
+### Bug Fixes
+
+* remove notifications column from subscription ([45318f5](https://github.com/grbull/lini/commit/45318f53c099af9b34d85289fee2c3b43b6f40dd))
+* removed data saving as its not being used ([3702e3b](https://github.com/grbull/lini/commit/3702e3becbeaae3aaa28df1e6ac01b1fdf2fece4)), closes [#19](https://github.com/grbull/lini/issues/19)
+
 ### [2.6.1](https://github.com/grbull/lini/compare/v2.6.0...v2.6.1) (2021-06-29)
 
 
