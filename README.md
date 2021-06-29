@@ -1,4 +1,4 @@
-<p align="center"><img alt="Lini logo" src="./public/static/android-chrome-192x192.png" width="60" /></p>
+<p align="center"><img alt="Lini logo" src="./public/static/android-chrome-192x192.png" width="100" /></p>
 
 <h1 align="center">Lini</h1>
 <p align="center">   
@@ -13,6 +13,24 @@
 ## 👋 Introduction
 
 In the days of online streaming, it can be difficult to keep track of the tv shows you watch. Lini was created to be able to track them all in one place. Lini is a Progress Web Application which means it can be installed onto your computers and mobile devices, or accessed via a browser. It utilizes push notifications send reminders to users that their subscribed shows are about to air.
+
+## 🖼️ Screenshots
+
+<a href="https://github.com/grbull/lini/blob/master/docs/screenshot01.png">
+  <img alt="Screenshot 01" src="./docs/screenshot01.png" width="19%" />
+</a>
+<a href="https://github.com/grbull/lini/blob/master/docs/screenshot02.png">
+  <img alt="Screenshot 02"" src="./docs/screenshot02.png" width="19%" />
+</a>
+<a href="https://github.com/grbull/lini/blob/master/docs/screenshot03.png">
+  <img alt="Screenshot 03"" src="./docs/screenshot03.png" width="19%" />
+</a>
+<a href="https://github.com/grbull/lini/blob/master/docs/screenshot04.png">
+  <img alt="Screenshot 04"" src="./docs/screenshot04.png" width="19%" />
+</a>
+<a href="https://github.com/grbull/lini/blob/master/docs/screenshot05.png">
+  <img alt="Screenshot 05"" src="./docs/screenshot05.png" width="19%" />
+</a>
 
 ## 🚀 Technologies
 
