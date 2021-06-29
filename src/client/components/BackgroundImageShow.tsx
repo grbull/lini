@@ -36,7 +36,7 @@ export function BackgroundImageShow({
           'h-full',
           'bg-gray-100 dark:bg-gray-700',
           'bg-opacity-30 dark:bg-opacity-80',
-          'overflow-y-scroll'
+          'overflow-y-auto'
         )}
       >
         {children}
