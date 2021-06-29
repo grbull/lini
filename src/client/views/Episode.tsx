@@ -45,7 +45,7 @@ export function Episode({ match }: Props): ReactElement {
   }
 
   return (
-    <BackgroundImageShow imageURL={episode.data.imageOriginal}>
+    <BackgroundImageShow imageURL={episode.data.show.imageOriginal}>
       <PageHeader
         className={cn(
           'p-2',

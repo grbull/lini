@@ -24,7 +24,7 @@ export function Search(): ReactElement {
   if (search.status === 'loading') {
     return (
       <>
-        <PageHeader title="Library" />
+        <PageHeader title="Search" />
         <SearchInput />
         <ShowGridSkeleton />
       </>
@@ -34,7 +34,7 @@ export function Search(): ReactElement {
   if (!search.data) {
     return (
       <>
-        <PageHeader title="Library" />
+        <PageHeader title="Search" />
         <SearchInput />
         <p className={cn('px-2.5')}>No results to display.</p>
       </>

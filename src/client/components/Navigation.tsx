@@ -26,36 +26,54 @@ export function Navigation(): ReactElement {
     <nav
       className={cn(
         'h-14',
-        'flex',
-        'justify-around',
-        'items-center',
-        'overflow-hidden',
         'fixed',
-        'bottom-0',
-        'w-full'
+        'bottom-0 md:top-0',
+        'w-full',
+        'bg-gray-200 dark:bg-gray-800'
       )}
     >
-      <NavigationItem
-        icon={faHome}
-        isActive={!!['/', '/settings'].find((path) => path === pathname)}
-        to="/"
+      <div
+        className={cn(
+          'h-14',
+          'w-full',
+          'md:max-w-4xl',
+          'mx-0 md:mx-auto',
+          'md:flex',
+          'md:justify-between',
+          'md:items-center',
+          'md:px-2.5'
+        )}
       >
-        Home
-      </NavigationItem>
-      <NavigationItem
-        icon={faSearch}
-        isActive={pathname === '/search'}
-        to="/search"
-      >
-        Search
-      </NavigationItem>
-      <NavigationItem
-        icon={faFolderOpen}
-        isActive={pathname === '/library'}
-        to="/library"
-      >
-        Your Library
-      </NavigationItem>
+        <a
+          className={cn('hidden', 'md:block', 'font-semibold', 'text-2xl')}
+          href="/"
+        >
+          Lini
+        </a>
+        <div className={cn('h-full', 'flex', 'justify-around', 'items-center')}>
+          <NavigationItem
+            icon={faHome}
+            isActive={!!['/', '/settings'].find((path) => path === pathname)}
+            to="/"
+          >
+            Home
+          </NavigationItem>
+          <NavigationItem
+            icon={faSearch}
+            isActive={pathname === '/search'}
+            to="/search"
+          >
+            Search
+          </NavigationItem>
+          <NavigationItem
+            icon={faFolderOpen}
+            isActive={pathname === '/library'}
+            to="/library"
+          >
+            Your Library
+          </NavigationItem>
+        </div>
+      </div>
     </nav>
   );
 }

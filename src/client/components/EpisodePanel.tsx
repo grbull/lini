@@ -19,7 +19,11 @@ export function EpisodePanel({ episodes }: Props): ReactElement {
     >
       {episodes.map((episode) => (
         <Link
-          className={cn('inline-block', 'w-1/3', 'p-1')}
+          className={cn(
+            'inline-block',
+            'w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6',
+            'p-1'
+          )}
           key={episode.id}
           to={`/episode/${episode.id}`}
         >

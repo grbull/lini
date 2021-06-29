@@ -8,7 +8,7 @@ export function SettingsButton(): ReactElement {
   return (
     <div className={cn('pb-4')}>
       <Link className={cn('float-right')} to="/settings">
-        <FontAwesomeIcon className={cn('m-4', 'text-xl')} icon={faCog} />
+        <FontAwesomeIcon className={cn('m-3', 'text-xl')} icon={faCog} />
       </Link>
     </div>
   );

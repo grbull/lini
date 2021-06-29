@@ -16,7 +16,7 @@ export function ShowGrid({ shows }: Props): ReactElement {
   return (
     <div className={cn('flex', 'flex-row', 'flex-wrap', 'px-2')}>
       {shows.map((show) => (
-        <div className={cn('w-1/3', 'p-1')} key={show.id}>
+        <div className={cn('w-1/3 sm:w-1/4 md:w-1/5', 'p-1')} key={show.id}>
           <Link
             className={cn(
               'flex',

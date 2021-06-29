@@ -31,6 +31,7 @@ export function PageHeader({
           'flex',
           'items-center',
           'p-2',
+          'md:hidden',
           { 'justify-between': goBack, 'justify-center': !goBack },
           className
         )}
@@ -46,7 +47,7 @@ export function PageHeader({
               'mx-2',
               'font-medium',
               'text-lg',
-              'overflow-x-scroll',
+              'overflow-x-auto',
               'whitespace-nowrap'
             )}
           >

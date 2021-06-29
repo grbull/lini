@@ -20,11 +20,13 @@ export function BackgroundImageShow({
         'bg-cover',
         'bg-center',
         'bg-scroll',
-        'w-full',
+        'w-full md:max-w-4xl',
+        'mx-0 md:mx-auto',
         'h-full',
-        'left-0 top-0',
-        'pt-12',
-        'pb-14'
+        'left-0 md:left-auto',
+        'top-0',
+        'pt-12 md:pt-14',
+        'pb-14 md:pb-8'
       )}
       style={{ backgroundImage: `url(${imageShow(imageURL)})` }}
     >

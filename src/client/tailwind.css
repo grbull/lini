@@ -18,6 +18,43 @@ body.light {
   height: 100%;
 }
 
+/* Scrollbar */
+/* Works on Firefox */
+.dark {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.gray.900') theme('colors.gray.800');
+}
+
+.light {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.gray.300') theme('colors.gray.200');
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+.dark *::-webkit-scrollbar-track {
+  background: theme('colors.gray.800');
+}
+
+.light *::-webkit-scrollbar-track {
+  background: theme('colors.gray.200');
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background-color: theme('colors.gray.900');
+  /* border-radius: 20px; */
+  border: 3px solid theme('colors.gray.800');
+}
+
+.light *::-webkit-scrollbar-thumb {
+  background-color: theme('colors.gray.300');
+  /* border-radius: 20px; */
+  border: 3px solid theme('colors.gray.200');
+}
+
 /* 
 Fixed linked elements from being highlighted blue
 https://stackoverflow.com/questions/21003535/anyway-to-prevent-the-blue-highlighting-of-elements-in-chrome-when-clicking-quic

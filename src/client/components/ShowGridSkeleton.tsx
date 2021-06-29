@@ -7,7 +7,7 @@ export function ShowGridSkeleton(): ReactElement {
   return (
     <div className={cn('flex', 'flex-row', 'flex-wrap', 'px-2')}>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-        <div className={cn('w-1/3', 'p-1')} key={i}>
+        <div className={cn('w-1/3 sm:w-1/4 md:w-1/5', 'p-1')} key={i}>
           <Skeleton
             className={cn('w-full', 'h-0', 'relative', 'bg-gray-800')}
             style={{ paddingTop: `${(295 / 210) * 100}%` }}
