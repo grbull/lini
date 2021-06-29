@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/grbull/lini/compare/v2.5.5...v2.6.0) (2021-06-29)
+
+
+### Features
+
+* responsive design ([7a56b2b](https://github.com/grbull/lini/commit/7a56b2b056fa2a6563bd6586e3a8350e177ef4fe)), closes [#7](https://github.com/grbull/lini/issues/7)
+
+
+### Bug Fixes
+
+* images don't stretch ([49aeef6](https://github.com/grbull/lini/commit/49aeef6fb1c35360fc7ee13a28d75c691f8848e2))
+
 ### [2.5.5](https://github.com/grbull/lini/compare/v2.5.4...v2.5.5) (2021-06-27)
 
 
