@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://github.com/grbull/lini/compare/v2.6.0...v2.6.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* scroll is always displayed ([02e77a5](https://github.com/grbull/lini/commit/02e77a52cbd4cd659cc54e024e48c6dba107f836))
+
 ## [2.6.0](https://github.com/grbull/lini/compare/v2.5.5...v2.6.0) (2021-06-29)
 
 
