@@ -60,7 +60,7 @@ export function FixedImage({
       />
       <img
         alt={alt}
-        className={cn('absolute', 'top-0', 'left-0', {
+        className={cn('absolute', 'top-0', 'left-0', 'w-full', 'h-full', {
           hidden: isLoading,
         })}
         src={src}
