@@ -31,7 +31,19 @@ export function Settings(): ReactElement {
         <Preferences />
       </SettingsCard>
       <SettingsCard title="Other">
-        <a href={process.env.SERVER_URL + 'auth/logout'}>Logout</a>
+        <a
+          className={cn('block')}
+          download={process.env.SERVER_URL + 'user/data.json'}
+          href={process.env.SERVER_URL + 'user/data.json'}
+        >
+          Download your data.
+        </a>
+        <a
+          className={cn('block', 'mt-4')}
+          href={process.env.SERVER_URL + 'auth/logout'}
+        >
+          Logout.
+        </a>
         <div className={cn('mt-4', 'font-light', 'text-sm')}>
           Version: {packageJson.version}
         </div>

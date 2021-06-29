@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import {
   BeforeInsert,
   Column,
@@ -11,6 +12,7 @@ import { UserEntity } from '../user/user.entity';
 
 @Entity('auth_token')
 export class AuthTokenEntity {
+  @Exclude()
   @PrimaryGeneratedColumn()
   id!: number;
 

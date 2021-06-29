@@ -71,4 +71,15 @@ export class UserService {
       .skip(skip)
       .getOne();
   }
+
+  public getUserData(user: UserEntity): Promise<UserEntity | undefined> {
+    return this.userRepository
+      .createQueryBuilder('user')
+      .leftJoinAndSelect('user.authTokens', 'authToken')
+      .leftJoinAndSelect('user.pushSubscriptions', 'pushSubscription')
+      .leftJoinAndSelect('user.subscriptions', 'subscription')
+      .loadRelationIdAndMap('subscription.show', 'subscription.show')
+      .where('user.id = :id', { id: user.id })
+      .getOne();
+  }
 }
