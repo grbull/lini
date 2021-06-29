@@ -64,7 +64,6 @@ const seedUser: Omit<
   email: 'email',
   role: UserRole.USER,
   theme: UserTheme.AUTO,
-  dataSaving: false,
   notifications: false,
   pushSubscriptions: [],
 };

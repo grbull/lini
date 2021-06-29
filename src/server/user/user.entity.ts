@@ -40,9 +40,6 @@ export class UserEntity {
   @Column('enum', { enum: UserTheme, default: UserTheme.AUTO })
   theme!: UserTheme;
 
-  @Column('bool', { default: false })
-  dataSaving!: boolean;
-
   @Column('bool', { default: true })
   notifications!: boolean;
 

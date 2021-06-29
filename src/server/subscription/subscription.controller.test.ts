@@ -26,7 +26,6 @@ const user: UserEntity = {
   email: 'username@website.com',
   role: UserRole.USER,
   theme: UserTheme.AUTO,
-  dataSaving: false,
   notifications: false,
   id: 1,
   dateCreated: '2021-05-20T14:37:43.490Z',

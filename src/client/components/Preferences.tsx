@@ -19,16 +19,6 @@ export function Preferences(): ReactElement {
     const userUpdateDto: UserUpdateDto = {
       theme: event.target.value as 'auto' | 'light' | 'dark',
       notifications: user.data?.notifications || false,
-      dataSaving: user.data?.dataSaving || false,
-    };
-    dispatch(userActions.update(userUpdateDto));
-  }
-
-  function handleDataSaving(event: ChangeEvent<HTMLInputElement>): void {
-    const userUpdateDto: UserUpdateDto = {
-      theme: user.data?.theme || 'auto',
-      notifications: user.data?.notifications || false,
-      dataSaving: event.target.checked,
     };
     dispatch(userActions.update(userUpdateDto));
   }
@@ -46,18 +36,6 @@ export function Preferences(): ReactElement {
           title="Notifications"
         >
           <Toggle id="test" onChange={toggle} value={isEnabled} />
-        </PreferencesItem>
-      </SettingsCardRow>
-      <SettingsCardRow>
-        <PreferencesItem
-          description="Reduces network data usage by using loading lower resolution images."
-          title="Data Saving"
-        >
-          <Toggle
-            id="test"
-            onChange={handleDataSaving}
-            value={user.data?.dataSaving || false}
-          />
         </PreferencesItem>
       </SettingsCardRow>
     </>
