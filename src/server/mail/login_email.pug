@@ -1,0 +1,17 @@
+//- email_template.pug
+//- account email, time, device, ip
+html(style={color: '#E7F4F6', background: '#374151'})
+
+div(style={background: '#4B5563', 'max-width': '720px', margin: 'auto', padding: '10px', display: 'flex', 'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'center'})
+  h1 Lini
+  h3 Please complete the login process by clicking confirm.
+  p(style={color: '#F59E0B'}) If you did not request a magic link, please ignore this email.
+  ul
+    li <strong>Account</strong>: #{email}
+    li <strong>When:</strong> #{date}
+    li <strong>Device:</strong> #{userAgent}
+    li <strong>IP:</strong> #{ip}
+  a(
+    href=link
+    style={color: '#10B981', 'font-weight': '600'}
+  ) Confirm

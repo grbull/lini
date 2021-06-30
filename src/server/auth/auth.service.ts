@@ -57,7 +57,7 @@ export class AuthService {
       })
     );
 
-    await this.mailService.sendLogin(user.email, authTokenEntity.token);
+    await this.mailService.sendLogin(user, authTokenEntity);
   }
 
   public async validate(
