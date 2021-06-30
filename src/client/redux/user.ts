@@ -55,6 +55,7 @@ export const user = createSlice({
     builder.addCase(get.fulfilled, (state, { payload }) => {
       state.status = 'idle';
       state.data = payload;
+      state.error = undefined;
     });
     builder.addCase(get.rejected, (state, { error }) => {
       state.status = 'error';
@@ -68,6 +69,7 @@ export const user = createSlice({
     builder.addCase(update.fulfilled, (state, { payload }) => {
       state.status = 'idle';
       state.data = payload;
+      state.error = undefined;
     });
     builder.addCase(update.rejected, (state, { error }) => {
       state.status = 'error';
@@ -81,6 +83,7 @@ export const user = createSlice({
     builder.addCase(validateToken.fulfilled, (state, { payload }) => {
       state.status = 'idle';
       state.data = payload;
+      state.error = undefined;
     });
     builder.addCase(validateToken.rejected, (state, { error }) => {
       state.status = 'error';

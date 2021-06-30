@@ -12,7 +12,7 @@ export function Validate(): ReactElement {
   const user = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
-    if (token && !user.data) {
+    if (token && user.error) {
       dispatch(userActions.validateToken({ token }));
     }
   }, [token, user, dispatch]);
