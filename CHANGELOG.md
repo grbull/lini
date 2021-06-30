@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](https://github.com/grbull/lini/compare/v2.8.0...v2.9.0) (2021-06-30)
+
+
+### Features
+
+* styled magic link email ([d481e21](https://github.com/grbull/lini/commit/d481e2146ce87b33fa67b694681236949258bd23)), closes [#10](https://github.com/grbull/lini/issues/10)
+
 ## [2.8.0](https://github.com/grbull/lini/compare/v2.7.0...v2.8.0) (2021-06-30)
 
 
