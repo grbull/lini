@@ -10,7 +10,6 @@ interface Props {
   fullWidth: number;
   skeletonClassName?: string;
   src: string;
-  widthMultiplier?: number;
 }
 
 export function FixedImage({
@@ -20,11 +19,10 @@ export function FixedImage({
   fullWidth,
   skeletonClassName,
   src,
-  widthMultiplier = 1,
 }: Props): ReactElement {
   const [isLoading, setIsLoading] = useState(false);
   const [imageHeightPercentage, setImageHeightPercentage] = useState(
-    ((fullHeight * widthMultiplier) / fullWidth) * 100
+    (fullHeight / fullWidth) * 100
   );
 
   useEffect(() => {
@@ -33,14 +31,12 @@ export function FixedImage({
       if (!isLoading) {
         setIsLoading(false);
         setImageHeightPercentage(
-          ((imageElement.naturalHeight * widthMultiplier) /
-            imageElement.naturalWidth) *
-            100
+          (imageElement.naturalHeight / imageElement.naturalWidth) * 100
         );
       }
     };
     imageElement.src = src;
-  }, [src, isLoading, widthMultiplier]);
+  }, [src, isLoading]);
 
   return (
     <div
@@ -72,5 +68,4 @@ export function FixedImage({
 FixedImage.defaultProps = {
   className: undefined,
   skeletonClassName: undefined,
-  widthMultiplier: 1,
 };

@@ -15,14 +15,15 @@ export function ShowInfo({ show }: Props): ReactElement {
   return (
     <>
       <InfoCard className={cn('my-0')}>
-        <FixedImage
-          alt={show.name}
-          className={cn('w-1/3', 'mr-2.5', 'float-left')}
-          fullHeight={295}
-          fullWidth={210}
-          src={imageShow(show.imageMedium)}
-          widthMultiplier={1 / 3}
-        />
+        <div className={cn('w-1/3', 'mr-2.5', 'float-left')}>
+          <FixedImage
+            alt={show.name}
+            fullHeight={295}
+            fullWidth={210}
+            src={imageShow(show.imageMedium)}
+          />
+        </div>
+
         <div className={cn()}>{show.summary}</div>
       </InfoCard>
 
