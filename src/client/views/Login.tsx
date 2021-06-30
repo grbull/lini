@@ -34,24 +34,29 @@ export function Login(): ReactElement {
 
       <main
         className={cn(
-          'h-screen',
-          'flex',
-          'flex-col',
-          'justify-center',
-          'items-center',
-          'px-8'
+          'absolute',
+          'left-1/2',
+          'top-1/2',
+          'm-auto',
+          'w-80',
+          'h-96',
+          '-ml-40',
+          '-mt-48'
         )}
       >
-        <div className={cn('h-64')}>
-          <h1 className={cn('text-2xl', 'mb-6', 'text-center')}>Login</h1>
-          {isSuccess === undefined && <LoginForm onSubmit={submitHandler} />}
-          {isSuccess === true && <div>Success, please check your email</div>}
-          {isSuccess === false && (
-            <ErrorMessage className={cn('mb-3')}>
-              A link was recently issued.
-            </ErrorMessage>
-          )}
-        </div>
+        <img
+          alt="logo"
+          className={cn('w-28', 'mx-auto')}
+          src="/android-chrome-192x192.png"
+        />
+        <h1 className={cn('text-2xl', 'my-6', 'text-center')}>Login</h1>
+        {isSuccess === undefined && <LoginForm onSubmit={submitHandler} />}
+        {isSuccess === true && <div>Success, please check your email</div>}
+        {isSuccess === false && (
+          <ErrorMessage className={cn('mb-3')}>
+            A link was recently issued.
+          </ErrorMessage>
+        )}
       </main>
     </>
   );
