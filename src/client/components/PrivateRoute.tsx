@@ -7,6 +7,10 @@ import { RootState } from '../redux/store';
 export function PrivateRoute({ ...rest }: RouteProps): ReactElement {
   const user = useSelector((state: RootState) => state.user);
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return user.data ? <Route {...rest} /> : <Redirect to="/login" />;
+  return user.data && !user.error ? (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <Route {...rest} />
+  ) : (
+    <Redirect to="/login" />
+  );
 }

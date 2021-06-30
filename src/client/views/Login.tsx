@@ -22,7 +22,7 @@ export function Login(): ReactElement {
   }
 
   const user = useSelector((state: RootState) => state.user);
-  if (user.data) {
+  if (user.data && !user.error) {
     return <Redirect to="/" />;
   }
 
