@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/grbull/lini/compare/v2.7.0...v2.8.0) (2021-06-30)
+
+
+### Features
+
+* handle non javascript users better ([6fadc3b](https://github.com/grbull/lini/commit/6fadc3b69a5e9a9199061bf2841455910b4881ea)), closes [#34](https://github.com/grbull/lini/issues/34)
+
+
+### Bug Fixes
+
+* accordion gets highlighted blue when focused ([989149d](https://github.com/grbull/lini/commit/989149df192ebfe78ace67a41972b5890e090860)), closes [#30](https://github.com/grbull/lini/issues/30)
+* increase vertical spacing on episode panels ([7aed9a0](https://github.com/grbull/lini/commit/7aed9a0b61c59509b8c54d9116ae0fb1ae959482)), closes [#37](https://github.com/grbull/lini/issues/37)
+* login flow was broken ([d8abd2e](https://github.com/grbull/lini/commit/d8abd2e885c3f44ff67af354f298bd53a6d98565))
+* notification badge not maskable ([831876e](https://github.com/grbull/lini/commit/831876e1c6118d78cdc00380daa6cde88df0bf8a)), closes [#24](https://github.com/grbull/lini/issues/24)
+* notifications no longer use server time ([89d9960](https://github.com/grbull/lini/commit/89d9960876aba827a699425d5e4bac8d56bbdfae)), closes [#35](https://github.com/grbull/lini/issues/35)
+* style login page ([888cc64](https://github.com/grbull/lini/commit/888cc641fe437e0e7ca98d306c3d6eabc5388a82)), closes [#38](https://github.com/grbull/lini/issues/38)
+* unable to log out ([6ab6df6](https://github.com/grbull/lini/commit/6ab6df68f8f2813c4947da8b0eab72bc60e2ae35)), closes [#42](https://github.com/grbull/lini/issues/42)
+* user data endpoint not being served by nginx ([c40e5d8](https://github.com/grbull/lini/commit/c40e5d8f11889790f7de5900ec5eb7816aaafb63))
+
 ## [2.7.0](https://github.com/grbull/lini/compare/v2.6.1...v2.7.0) (2021-06-29)
 
 
