@@ -3,4 +3,5 @@ export class NotificationDto {
   message!: string;
   icon?: string;
   url!: string;
+  date!: string | null;
 }

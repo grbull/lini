@@ -9,9 +9,10 @@ async function bootstrap(): Promise<void> {
   await pushService.sendNotificationToUser(1, {
     title: 'DAVE - S01E01',
     message:
-      "2021-06-24T02:00:00.000Z\n\nDave and Benny's friendship blossoms in strange and unexpected ways, leading them to confront questions of privilege, race, sexuality, and dermatology. Meanwhile, Mike's isolation deepens, and a chance encounter sheds light on the root of his anger.",
+      "Dave and Benny's friendship blossoms in strange and unexpected ways, leading them to confront questions of privilege, race, sexuality, and dermatology. Meanwhile, Mike's isolation deepens, and a chance encounter sheds light on the root of his anger.",
     icon: 'https://lini.s1acker.com/uploads/images/medium_portrait/320/801177.jpg',
     url: 'https://liniv2.s1acker.com/show/216',
+    date: '2021-06-24T02:00:00.000Z',
   });
   app.close();
 }

@@ -6,7 +6,6 @@ import { EpisodeService } from '../episode/episode.service';
 import { LoggerService } from '../logger/logger.service';
 import { PushSubscriptionService } from '../push_subscription/push_subscription.service';
 import { UserService } from '../user/user.service';
-import { dateToLocaleDateTime } from '../utils/date';
 import { formatEpisodeCode } from '../utils/formatEpisodeCode';
 import { NotificationDto } from './notification.dto';
 
@@ -55,13 +54,9 @@ export class NotificationService {
             episode.number
           )}`;
 
-          const airDate = episode.airdate
-            ? dateToLocaleDateTime(episode.airdate)
-            : 'Date unavailable.';
-
           const message = episode.summary
-            ? `${airDate}\n\n${episode.summary}`
-            : `${airDate}`;
+            ? `${episode.summary}`
+            : 'Summary unavailable.';
 
           const url = `${this.configService.get('CLIENT_URL')}/episode/${
             episode.id
@@ -72,6 +67,7 @@ export class NotificationService {
             message,
             url,
             icon: subscription.show.imageMedium || undefined,
+            date: episode.airdate,
           };
 
           await this.pushSubscriptionService.sendNotificationToUser(
