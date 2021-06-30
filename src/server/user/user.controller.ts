@@ -36,7 +36,7 @@ export class UserController {
     return this.userService.updateOne(user, userUpdateDto);
   }
 
-  @Get('data.json')
+  @Get('data')
   public async getUserData(
     @User() user: UserEntity,
     @Res() res: Response

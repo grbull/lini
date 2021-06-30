@@ -33,8 +33,8 @@ export function Settings(): ReactElement {
       <SettingsCard title="Other">
         <a
           className={cn('block')}
-          download={process.env.SERVER_URL + 'user/data.json'}
-          href={process.env.SERVER_URL + 'user/data.json'}
+          download={process.env.SERVER_URL + 'user/data'}
+          href={process.env.SERVER_URL + 'user/data'}
         >
           Download your data.
         </a>
