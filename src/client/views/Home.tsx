@@ -27,7 +27,9 @@ export function Home(): ReactElement {
         <SettingsButton />
         <h2 className={cn('ml-2', 'text-xl', 'font-bold')}>Airing Next</h2>
         <EpisodePanelSkeleton />
-        <h2 className={cn('ml-2', 'text-xl', 'font-bold')}>Aired Recently</h2>
+        <h2 className={cn('ml-2', 'text-xl', 'font-bold', 'md:mt-8')}>
+          Aired Recently
+        </h2>
         <EpisodePanelSkeleton />
       </>
     );
@@ -38,7 +40,9 @@ export function Home(): ReactElement {
       <SettingsButton />
       <h2 className={cn('ml-2', 'text-xl', 'font-bold')}>Airing Next</h2>
       <EpisodePanel episodes={schedule.data.future} />
-      <h2 className={cn('ml-2', 'text-xl', 'font-bold')}>Aired Recently</h2>
+      <h2 className={cn('ml-2', 'text-xl', 'font-bold', 'md:mt-8')}>
+        Aired Recently
+      </h2>
       <EpisodePanel episodes={schedule.data.past} />
     </>
   );
