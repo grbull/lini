@@ -59,7 +59,8 @@ body.light {
 Fixed linked elements from being highlighted blue
 https://stackoverflow.com/questions/21003535/anyway-to-prevent-the-blue-highlighting-of-elements-in-chrome-when-clicking-quic
 */
-a {
+a,
+div {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
