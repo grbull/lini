@@ -29,7 +29,7 @@ sw.addEventListener('push', (event) => {
     sw.registration.showNotification(notificationDto.title, {
       body: `${date}\n\n${notificationDto.message}`,
       icon: notificationDto.icon,
-      badge: process.env.CLIENT_URL + '/android-chrome-192x192.png',
+      badge: process.env.CLIENT_URL + '/maskable-icon.png',
       data: { url: notificationDto.url },
     });
   }
