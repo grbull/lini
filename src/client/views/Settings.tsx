@@ -8,6 +8,7 @@ import { Preferences } from '../components/Preferences';
 import { SettingsCard } from '../components/SettingsCard';
 import { SettingsCardRow } from '../components/SettingsCardRow';
 import { RootState } from '../redux/store';
+import { dateToLocaleDateTime } from '../utils/date';
 
 export function Settings(): ReactElement {
   const user = useSelector((state: RootState) => state.user);
@@ -24,7 +25,11 @@ export function Settings(): ReactElement {
 
         <SettingsCardRow>
           <span>Date Registered:</span>
-          <span>{user.data?.dateCreated}</span>
+          <span>
+            {user.data
+              ? dateToLocaleDateTime(user.data.dateCreated)
+              : 'Date unavailable.'}
+          </span>
         </SettingsCardRow>
       </SettingsCard>
       <SettingsCard title="Preferences">
