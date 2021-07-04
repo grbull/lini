@@ -26,7 +26,10 @@ export function Preferences(): ReactElement {
   return (
     <>
       <SettingsCardRow>
-        <PreferencesItem description="Some description" title="Theme">
+        <PreferencesItem
+          description="When set to auto, the app will use your system setting's to determine the theme."
+          title="Theme"
+        >
           <Select onChange={handleTheme} value={user.data?.theme} />
         </PreferencesItem>
       </SettingsCardRow>
