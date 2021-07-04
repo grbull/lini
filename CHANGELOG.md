@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.1](https://github.com/grbull/lini/compare/v2.9.0...v2.9.1) (2021-07-04)
+
+
+### Bug Fixes
+
+* episode accordion not sorted correctly ([99e55f8](https://github.com/grbull/lini/commit/99e55f8570369737c29301c3fe3b5cf692a289c0))
+
 ## [2.9.0](https://github.com/grbull/lini/compare/v2.8.0...v2.9.0) (2021-06-30)
 
 
