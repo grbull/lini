@@ -26,6 +26,8 @@ sw.addEventListener('push', (event) => {
       ? dateToLocaleTime(notificationDto.date)
       : 'Date unavailable.';
 
+    // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
+    // https://developers.google.com/web/fundamentals/push-notifications/display-a-notification
     sw.registration.showNotification(notificationDto.title, {
       body: `${date}\n\n${notificationDto.message}`,
       icon: notificationDto.icon,
