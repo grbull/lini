@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.2](https://github.com/grbull/lini/compare/v2.9.1...v2.9.2) (2021-07-04)
+
+
+### Bug Fixes
+
+* maskable badge for notifications incorrect ([85c3277](https://github.com/grbull/lini/commit/85c327756a1e9d6108bae24d90a20e3545415977)), closes [#24](https://github.com/grbull/lini/issues/24)
+
 ### [2.9.1](https://github.com/grbull/lini/compare/v2.9.0...v2.9.1) (2021-07-04)
 
 
