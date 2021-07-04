@@ -63,7 +63,7 @@ export class ShowService {
         .leftJoinAndSelect('show.webChannel', 'webChannel')
         .leftJoinAndSelect('webChannel.country', 'webChannelCountry')
         .leftJoinAndSelect('show.episodes', 'episode')
-        .orderBy('episode.airdate', 'ASC')
+        .orderBy('episode.number', 'ASC')
         .getOneOrFail();
     } catch {
       throw new NotFoundException();
