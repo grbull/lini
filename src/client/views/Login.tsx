@@ -6,6 +6,7 @@ import { Redirect } from 'react-router';
 
 import { ErrorMessage } from '../components/ErrorMessage';
 import { LoginForm } from '../components/LoginForm';
+import { SuccessMessage } from '../components/SuccessMessage';
 import { RootState } from '../redux/store';
 import { api } from '../utils/api';
 
@@ -52,9 +53,9 @@ export function Login(): ReactElement {
         <h1 className={cn('text-2xl', 'my-6', 'text-center')}>Login</h1>
         {isSuccess === undefined && <LoginForm onSubmit={submitHandler} />}
         {isSuccess === true && (
-          <div className={cn('text-center')}>
+          <SuccessMessage className={cn('mb-3')}>
             Success, please check your email.
-          </div>
+          </SuccessMessage>
         )}
         {isSuccess === false && (
           <ErrorMessage className={cn('mb-3')}>
