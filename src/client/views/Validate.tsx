@@ -4,6 +4,7 @@ import { Redirect, useLocation } from 'react-router';
 
 import { RootState } from '../redux/store';
 import { userActions } from '../redux/user';
+import { Error } from './Error';
 
 export function Validate(): ReactElement {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export function Validate(): ReactElement {
   }
 
   if (user.status === 'error') {
-    return <div>Error {user.error}</div>;
+    return <Error error={user.error} />;
   }
 
   return <div>Lets do this</div>;

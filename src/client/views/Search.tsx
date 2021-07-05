@@ -2,23 +2,18 @@ import cn from 'classnames';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { SearchInput } from '../components/SearchInput';
 import { ShowGrid } from '../components/ShowGrid';
 import { ShowGridSkeleton } from '../components/ShowGridSkeleton';
 import { RootState } from '../redux/store';
+import { Error } from './Error';
 
 export function Search(): ReactElement {
   const search = useSelector((state: RootState) => state.search);
 
   if (search.status === 'error') {
-    return (
-      <>
-        <PageHeader title="Error" />
-        <ErrorMessage>{search.error}</ErrorMessage>
-      </>
-    );
+    return <Error error={search.error} />;
   }
 
   if (search.status === 'loading') {

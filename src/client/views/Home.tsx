@@ -4,21 +4,15 @@ import { useSelector } from 'react-redux';
 
 import { EpisodePanel } from '../components/EpisodePanel';
 import { EpisodePanelSkeleton } from '../components/EpisodePanelSkeleton';
-import { ErrorMessage } from '../components/ErrorMessage';
-import { PageHeader } from '../components/PageHeader';
 import { SettingsButton } from '../components/SettingsButton';
 import { RootState } from '../redux/store';
+import { Error } from './Error';
 
 export function Home(): ReactElement {
   const schedule = useSelector((state: RootState) => state.schedule);
 
   if (schedule.status === 'error') {
-    return (
-      <>
-        <PageHeader title="Error" />
-        <ErrorMessage>{schedule.error}</ErrorMessage>
-      </>
-    );
+    return <Error error={schedule.error} />;
   }
 
   if (schedule.status === 'init') {

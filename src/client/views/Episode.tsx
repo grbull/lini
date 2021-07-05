@@ -6,11 +6,11 @@ import { RouteComponentProps } from 'react-router';
 import { BackgroundImageShow } from '../components/BackgroundImageShow';
 import { EpisodeInfo } from '../components/EpisodeInfo';
 import { EpisodeInfoSkeleton } from '../components/EpisodeInfoSkeleton';
-import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { episodeActions } from '../redux/episode';
 import { RootState } from '../redux/store';
+import { Error } from './Error';
 
 interface Params {
   id: string;
@@ -27,12 +27,7 @@ export function Episode({ match }: Props): ReactElement {
   }, [dispatch, id]);
 
   if (episode.status === 'error') {
-    return (
-      <>
-        <PageHeader title="Error" />
-        <ErrorMessage>{episode.error}</ErrorMessage>
-      </>
-    );
+    return <Error error={episode.error} />;
   }
 
   if (!episode.data) {

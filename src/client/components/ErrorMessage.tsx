@@ -4,14 +4,19 @@ import React, { ReactElement, ReactNode } from 'react';
 interface Props {
   children: string | ReactNode;
   className?: string;
+  illustration?: boolean;
 }
 
-export function ErrorMessage({ children, className }: Props): ReactElement {
+export function ErrorMessage({
+  children,
+  className,
+  illustration = false,
+}: Props): ReactElement {
   return (
-    <p
+    <div
       className={cn(
-        'w-full',
-        'p-1',
+        'px-2',
+        'py-2.5',
         'bg-red-400',
         'bg-opacity-50',
         'border',
@@ -20,9 +25,22 @@ export function ErrorMessage({ children, className }: Props): ReactElement {
         className
       )}
     >
-      Error: {children}
-    </p>
+      <div
+        className={cn('flex', 'flex-col', 'items-center', 'justify-center', {
+          hidden: !illustration,
+        })}
+      >
+        <img
+          alt="Frustrated Illustration"
+          className={cn('opacity-80', 'mb-2.5')}
+          src="frustrated.png"
+          width={80}
+        />
+      </div>
+      <h2 className={cn('font-bold')}>Error</h2>
+      <p>{children}</p>
+    </div>
   );
 }
 
-ErrorMessage.defaultProps = { className: undefined };
+ErrorMessage.defaultProps = { className: undefined, illustration: false };

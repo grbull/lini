@@ -2,11 +2,11 @@ import cn from 'classnames';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { ShowGrid } from '../components/ShowGrid';
 import { ShowGridSkeleton } from '../components/ShowGridSkeleton';
 import { RootState } from '../redux/store';
+import { Error } from './Error';
 
 export function Library(): ReactElement {
   const subscriptions = useSelector((state: RootState) => state.subscription);
@@ -15,12 +15,7 @@ export function Library(): ReactElement {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   if (subscriptions.status === 'error') {
-    return (
-      <>
-        <PageHeader title="Error" />
-        <ErrorMessage>{subscriptions.error}</ErrorMessage>
-      </>
-    );
+    return <Error error={subscriptions.error} />;
   }
 
   if (subscriptions.status === 'loading') {

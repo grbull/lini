@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import { BackgroundImageShow } from '../components/BackgroundImageShow';
-import { ErrorMessage } from '../components/ErrorMessage';
 import { PageHeader } from '../components/PageHeader';
 import { ShowInfo } from '../components/ShowInfo';
 import { ShowInfoSkeleton } from '../components/ShowInfoSkeleton';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { showActions } from '../redux/show';
 import { RootState } from '../redux/store';
+import { Error } from './Error';
 
 interface Params {
   id: string;
@@ -27,12 +27,7 @@ export function Show({ match }: Props): ReactElement {
   }, [dispatch, id]);
 
   if (show.status === 'error') {
-    return (
-      <>
-        <PageHeader title="Error" />
-        <ErrorMessage>{show.error}</ErrorMessage>
-      </>
-    );
+    return <Error error={show.error} />;
   }
 
   if (!show.data) {
