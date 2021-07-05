@@ -5,7 +5,6 @@ export const sw: ServiceWorkerGlobalScope & typeof globalThis = self as any;
 import { precacheAndRoute } from 'workbox-precaching';
 
 import { NotificationDto } from '../server/notification/notification.dto';
-import { dateToLocaleTime } from './utils/date';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: __WB_MANIFEST is a placeholder filled by workbox-webpack-plugin with the list of dependecies to be cached
@@ -22,8 +21,9 @@ sw.addEventListener('push', (event) => {
   if (event.data) {
     const notificationDto = event.data.json() as NotificationDto;
 
+    const { locale } = Intl.DateTimeFormat().resolvedOptions();
     const date = notificationDto.date
-      ? dateToLocaleTime(notificationDto.date)
+      ? new Date(notificationDto.date).toLocaleString(locale)
       : 'Date unavailable.';
 
     // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
