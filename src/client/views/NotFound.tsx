@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 
+import { Error } from './Error';
+
 export function NotFound(): ReactElement {
-  return <div>Page not found</div>;
+  return <Error error="Page not found." />;
 }
