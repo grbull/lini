@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.11.0](https://github.com/grbull/lini/compare/v2.10.0...v2.11.0) (2021-07-05)
+
+
+### Features
+
+* link to series from episode view ([61bc881](https://github.com/grbull/lini/commit/61bc881ae08f46c28cd39fdd2ac4f88891a4b003)), closes [#48](https://github.com/grbull/lini/issues/48)
+* style not found page ([cc94dec](https://github.com/grbull/lini/commit/cc94dec46ce1cd3bca3170dbad81adc5828b0956)), closes [#46](https://github.com/grbull/lini/issues/46)
+* success message component ([38b8016](https://github.com/grbull/lini/commit/38b8016e96f47ec1d1bd132f12740c4495ae00f3)), closes [#47](https://github.com/grbull/lini/issues/47)
+* when clicking accordion, scrolls down ([8e26ca4](https://github.com/grbull/lini/commit/8e26ca4a37e9ec4c180e253f5c2bfc540123ede9)), closes [#45](https://github.com/grbull/lini/issues/45)
+
+
+### Bug Fixes
+
+* sw imports luxon ([f8fed4c](https://github.com/grbull/lini/commit/f8fed4cbf19dfa0f79627521a50ed63257ff6a33)), closes [#43](https://github.com/grbull/lini/issues/43)
+
 ## [2.10.0](https://github.com/grbull/lini/compare/v2.9.4...v2.10.0) (2021-07-05)
 
 
