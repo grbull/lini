@@ -40,7 +40,7 @@ export function SearchInput(): ReactElement {
           'focus:border-gray-400'
         )}
         onChange={changeHandler}
-        placeholder="Search for a show..."
+        placeholder="Search..."
         type="search"
         value={query}
       />
