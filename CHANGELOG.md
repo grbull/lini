@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0](https://github.com/grbull/lini/compare/v2.9.4...v2.10.0) (2021-07-05)
+
+
+### Features
+
+* add an illustration to error component ([fc7f25e](https://github.com/grbull/lini/commit/fc7f25e1311db856d327de04ca4ff5998697be0a)), closes [#9](https://github.com/grbull/lini/issues/9)
+* improved series grid display of no results ([f0e2b70](https://github.com/grbull/lini/commit/f0e2b706465b23f8f84f505c037567b5dc292be0)), closes [#17](https://github.com/grbull/lini/issues/17)
+
+
+### Bug Fixes
+
+* add description to theme preference ([6d4a8d9](https://github.com/grbull/lini/commit/6d4a8d983357185deac4bf66ccd2a2f161d50801)), closes [#44](https://github.com/grbull/lini/issues/44)
+* date not formatted on settings view ([16724ee](https://github.com/grbull/lini/commit/16724ee3f4ad3b076544929615f94965b13c664e))
+* login success message is not centered ([9b1ceb4](https://github.com/grbull/lini/commit/9b1ceb49f5dd016e910ef9ef235ec50128a153fb))
+
 ### [2.9.4](https://github.com/grbull/lini/compare/v2.9.3...v2.9.4) (2021-07-04)
 
 
