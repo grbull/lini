@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React, { ReactElement, ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 import { BackButton } from './BackButton';
 
@@ -8,16 +9,18 @@ interface Props {
   className?: string;
   goBack?: boolean;
   isLoading?: boolean;
-  title: string;
   rightElement?: ReactNode;
+  title: string;
+  titleLink?: string;
 }
 
 export function PageHeader({
   className,
   goBack,
   isLoading,
-  title,
   rightElement,
+  title,
+  titleLink,
 }: Props): ReactElement {
   return (
     <>
@@ -41,6 +44,19 @@ export function PageHeader({
           <div
             className={cn('w-2/3', 'h-3/4', 'animate-pulse', 'bg-gray-600')}
           />
+        ) : titleLink ? (
+          <Link
+            className={cn(
+              'mx-2',
+              'font-medium',
+              'text-lg',
+              'overflow-x-auto',
+              'whitespace-nowrap'
+            )}
+            to={titleLink}
+          >
+            {title}
+          </Link>
         ) : (
           <h1
             className={cn(
@@ -65,4 +81,5 @@ PageHeader.defaultProps = {
   goBack: true,
   isLoading: false,
   rightElement: undefined,
+  titleLink: undefined,
 };

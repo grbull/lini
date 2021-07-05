@@ -52,6 +52,7 @@ export function Episode({ match }: Props): ReactElement {
         )}
         rightElement={<SubscribeButton showID={episode.data.show.id} />}
         title={episode.data.show.name}
+        titleLink={`/show/${episode.data.show.id}`}
       />
       <EpisodeInfo episode={episode.data} />
     </BackgroundImageShow>
