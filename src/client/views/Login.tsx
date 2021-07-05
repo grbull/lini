@@ -51,7 +51,11 @@ export function Login(): ReactElement {
         />
         <h1 className={cn('text-2xl', 'my-6', 'text-center')}>Login</h1>
         {isSuccess === undefined && <LoginForm onSubmit={submitHandler} />}
-        {isSuccess === true && <div>Success, please check your email</div>}
+        {isSuccess === true && (
+          <div className={cn('text-center')}>
+            Success, please check your email.
+          </div>
+        )}
         {isSuccess === false && (
           <ErrorMessage className={cn('mb-3')}>
             A link was recently issued.
