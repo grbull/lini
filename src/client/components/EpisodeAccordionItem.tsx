@@ -21,7 +21,6 @@ export function EpisodeAccordionItem({
 }: Props): ReactElement {
   function clickHandler(): void {
     setExpanded(isExpanded ? 0 : season);
-    // TODO: Scroll to bottom
   }
 
   return (

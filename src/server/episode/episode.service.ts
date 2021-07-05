@@ -32,40 +32,6 @@ export class EpisodeService {
     }
   }
 
-  // public getByShow(id: number): Promise<EpisodeEntity[]> {
-  //   return this.episodeRepository
-  //     .createQueryBuilder('episode')
-  //     .where('episode.show.id = :id', { id })
-  //     .orderBy('episode.airdate', 'ASC')
-  //     .getMany();
-  // }
-
-  // public async getUpcoming(user: UserEntity): Promise<EpisodeEntity[]> {
-  //   const subscriptions = await this.subscriptionService.getAll(user);
-  //   let upcomingEpisodes: EpisodeEntity[] = [];
-
-  //   const oneMonthAhead = new Date();
-  //   oneMonthAhead.setMonth(new Date().getMonth() + 1);
-
-  //   for (const key of subscriptions) {
-  //     const episodes = await this.episodeRepository.find({
-  //       where: {
-  //         // between now and 1 month ahead
-  //         // airstamp: Raw(
-  //         //   (alias) => `${alias} < '${oneMonthAhead.toISOString()}'`
-  //         // ),
-  //         airstamp: Between(new Date(), oneMonthAhead),
-  //         show: key.show,
-  //       },
-  //     });
-  //     console.log(episodes);
-  //     if (episodes) {
-  //       upcomingEpisodes = [...upcomingEpisodes, ...episodes];
-  //     }
-  //   }
-  //   return upcomingEpisodes;
-  // }
-
   public async getFuture(user: UserEntity): Promise<EpisodeEntity[]> {
     const subscriptions = await this.subscriptionService.getAll(user);
 
@@ -112,7 +78,7 @@ export class EpisodeService {
     });
   }
 
-  // The belowe is used for seeding and updating
+  // The below is used for seeding and updating
   public createOrUpdateMany(
     episodes: TvMazeEpisode[],
     showId: number

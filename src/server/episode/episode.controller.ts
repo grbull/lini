@@ -32,9 +32,4 @@ export class EpisodeController {
   public getOne(@Param('id') id: number): Promise<EpisodeEntity> {
     return this.episodeService.getOne(id);
   }
-
-  // @Get('show/:id')
-  // public getByShow(@Param('id') id: number): Promise<EpisodeEntity[]> {
-  //   return this.episodeService.getByShow(id);
-  // }
 }

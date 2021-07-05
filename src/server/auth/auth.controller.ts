@@ -55,7 +55,6 @@ export class AuthController {
 
   @Get('logout')
   public logout(@Req() req: Request, @Res() res: Response): void {
-    // req.session?.destroy((): void => undefined);
     req.logout();
     res.clearCookie(this.cookie);
     return res.redirect(this.clientURL);

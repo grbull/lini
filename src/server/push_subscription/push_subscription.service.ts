@@ -34,11 +34,6 @@ export class PushSubscriptionService {
     webpush.setVapidDetails(clientURL, publicKey, privateKey);
   }
 
-  //  if user disables notifications, then we can remove all of them
-
-  // when we send a user a notification, we can send to all of their devices
-  // when we catch the error no longer valid, we shall remove it
-
   public async create(
     user: UserEntity,
     createDto: PushSubscriptionCreateDto

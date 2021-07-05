@@ -45,7 +45,4 @@ export class SubscriptionController {
   ): Promise<SubscriptionEntity> {
     return this.subscriptionService.remove(user, removeDto);
   }
-
-  // Lists all you've subscribed and unsubsubscribed to??
-  // public history() {}
 }

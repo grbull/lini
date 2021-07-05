@@ -25,8 +25,6 @@ export class AuthService {
     ip: string,
     userAgent?: string
   ): Promise<void> {
-    // must validate email
-
     // See if user exists
     let user = await this.userService.findOne({ email });
     if (user) {

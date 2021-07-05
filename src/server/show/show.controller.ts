@@ -23,7 +23,6 @@ export class ShowController {
     return this.showService.autocomplete(query);
   }
 
-  // TODO: Implement pagination
   @Get('search/:searchQuery')
   public search(
     @Param('searchQuery') searchQuery: string
@@ -35,10 +34,4 @@ export class ShowController {
   public getOne(@Param('id') id: number): Promise<ShowEntity> {
     return this.showService.getOne(id);
   }
-
-  // public getShowsByLanguage() {}
-
-  // public getShowsByNetwork() {}
-
-  // public getShowsByWebChannel() {}
 }

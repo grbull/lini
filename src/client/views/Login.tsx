@@ -13,7 +13,7 @@ export function Login(): ReactElement {
   const [isSuccess, setIsSuccess] = useState<boolean | undefined>(undefined);
 
   // Need to display loading some how
-
+  // Should we add this to user reducer
   function submitHandler(email: string): void {
     api.user
       .login({ email })
