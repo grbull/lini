@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
@@ -19,8 +19,15 @@ export function EpisodeAccordionItem({
   season,
   setExpanded,
 }: Props): ReactElement {
+  const refEl = useRef<HTMLDivElement>(null);
+
   function clickHandler(): void {
     setExpanded(isExpanded ? 0 : season);
+    refEl.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
   }
 
   return (
@@ -36,6 +43,7 @@ export function EpisodeAccordionItem({
         className={cn('flex', 'justify-between', 'items-center', {
           'font-bold': isExpanded,
         })}
+        ref={refEl}
       >
         <span>Season {season}</span>
         <span>{episodes.length} Episodes</span>
