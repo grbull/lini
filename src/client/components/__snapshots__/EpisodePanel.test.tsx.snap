@@ -39,7 +39,7 @@ exports[`EpisodePanel Component matches the snapshot 1`] = `
           class="block"
           datetime="2021-07-07T12:00:00.000Z"
         >
-          in 21 hours
+          in 20 hours
         </time>
       </div>
     </a>

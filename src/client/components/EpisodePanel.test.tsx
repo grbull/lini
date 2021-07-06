@@ -51,6 +51,9 @@ const episodes: EpisodeDto[] = [
 
 describe('EpisodePanel Component', () => {
   let history: MemoryHistory<unknown>;
+  Date.now.bind(global.Date);
+  const dateNowStub = jest.fn(() => 1625584251217);
+  global.Date.now = dateNowStub;
 
   beforeEach(() => {
     history = createMemoryHistory();
