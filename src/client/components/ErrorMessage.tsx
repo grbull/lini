@@ -10,7 +10,7 @@ interface Props {
 export function ErrorMessage({
   children,
   className,
-  illustration = false,
+  illustration,
 }: Props): ReactElement {
   return (
     <div
@@ -25,18 +25,19 @@ export function ErrorMessage({
         className
       )}
     >
-      <div
-        className={cn('flex', 'flex-col', 'items-center', 'justify-center', {
-          hidden: !illustration,
-        })}
-      >
-        <img
-          alt="Frustrated Illustration"
-          className={cn('opacity-80', 'mb-2.5')}
-          src="frustrated.png"
-          width={80}
-        />
-      </div>
+      {illustration && (
+        <div
+          className={cn('flex', 'flex-col', 'items-center', 'justify-center')}
+        >
+          <img
+            alt="Frustrated Illustration"
+            className={cn('opacity-80', 'mb-2.5')}
+            src="frustrated.png"
+            width={80}
+          />
+        </div>
+      )}
+
       <h2 className={cn('font-bold')}>Error</h2>
       <p>{children}</p>
     </div>
