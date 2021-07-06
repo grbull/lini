@@ -10,12 +10,12 @@ export class ShowDto {
   language?: string;
   genres!: string[];
   status!: string;
-  runtime?: number;
+  runtime!: number | null;
   runtimeAverage?: number;
   datePremiered?: string;
   officialSite?: string;
-  scheduleTime?: string;
-  scheduleDays!: DayOfWeek[];
+  scheduleTime!: string | null;
+  scheduleDays!: (keyof typeof DayOfWeek)[];
   rating?: number;
   network?: NetworkDto;
   webChannel?: WebChannelDto;
