@@ -7,7 +7,7 @@ import { dateToLocaleDateMed } from '../utils/date';
 import { formatEpisodeNumber } from '../utils/formatEpisodeNumber';
 
 interface Props {
-  episodes: EpisodeDto[];
+  episodes: Omit<EpisodeDto, 'show'>[];
   isExpanded: boolean;
   season: number;
   setExpanded: (row: number) => void;
@@ -22,12 +22,16 @@ export function EpisodeAccordionItem({
   const refEl = useRef<HTMLDivElement>(null);
 
   function clickHandler(): void {
-    setExpanded(isExpanded ? 0 : season);
-    refEl.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-      inline: 'end',
-    });
+    if (isExpanded) {
+      setExpanded(0);
+    } else {
+      setExpanded(season);
+      refEl.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'end',
+      });
+    }
   }
 
   return (

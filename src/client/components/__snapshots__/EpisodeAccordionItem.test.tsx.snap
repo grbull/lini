@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodeAccordionItem Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="py-1"
+    role="button"
+    tabindex="1"
+  >
+    <div
+      class="flex justify-between items-center"
+    >
+      <span>
+        Season 1
+      </span>
+      <span>
+        1 Episodes
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
