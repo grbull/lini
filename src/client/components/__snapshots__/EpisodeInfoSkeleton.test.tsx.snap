@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodeInfoSkeleton Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="m-2 px-2 py-3 bg-gray-200 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-80 overflow-hidden"
+  >
+    <div
+      class="animate-pulse bg-gray-700 w-full h-12"
+    />
+    <div
+      class="animate-pulse bg-gray-700 w-full h-0 relative my-3"
+      style="padding-top: 56.25%;"
+    />
+    <div
+      class="animate-pulse bg-gray-700 w-full h-16"
+    />
+  </div>
+</DocumentFragment>
+`;
