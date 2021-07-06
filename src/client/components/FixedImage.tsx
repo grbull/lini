@@ -20,7 +20,7 @@ export function FixedImage({
   skeletonClassName,
   src,
 }: Props): ReactElement {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [imageHeightPercentage, setImageHeightPercentage] = useState(
     (fullHeight / fullWidth) * 100
   );

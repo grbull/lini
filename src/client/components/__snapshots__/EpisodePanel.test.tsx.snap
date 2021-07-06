@@ -14,11 +14,11 @@ exports[`EpisodePanel Component matches the snapshot 1`] = `
         style="padding-top: 140.47619047619045%;"
       >
         <div
-          class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full bg-gray-800 hidden"
+          class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full bg-gray-800"
         />
         <img
           alt="Loki"
-          class="absolute top-0 left-0 w-full h-full"
+          class="absolute top-0 left-0 w-full h-full hidden"
           src="undefined/uploads/images/medium_portrait/320/801227.jpg"
         />
       </div>

@@ -32,11 +32,11 @@ exports[`EpisodeInfo Component matches the snapshot 1`] = `
       style="padding-top: 56.25%;"
     >
       <div
-        class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full hidden"
+        class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full"
       />
       <img
         alt="Red Moon"
-        class="absolute top-0 left-0 w-full h-full"
+        class="absolute top-0 left-0 w-full h-full hidden"
         src="undefined/uploads/images/original_untouched/218/545490.jpg"
       />
     </div>
