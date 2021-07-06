@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodePanel Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full overflow-x-auto whitespace-nowrap px-1"
+  >
+    <a
+      class="inline-block w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6 p-1"
+      href="/episode/2095477"
+    >
+      <div
+        class="h-0 relative rounded-sm"
+        style="padding-top: 140.47619047619045%;"
+      >
+        <div
+          class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full bg-gray-800 hidden"
+        />
+        <img
+          alt="Loki"
+          class="absolute top-0 left-0 w-full h-full"
+          src="undefined/uploads/images/medium_portrait/320/801227.jpg"
+        />
+      </div>
+      <div
+        class="h-18"
+      >
+        <span
+          class="block whitespace-nowrap overflow-hidden overflow-ellipsis font-bold mt-1"
+        >
+          Loki
+        </span>
+        <span
+          class="block"
+        >
+          S01E05
+        </span>
+        <time
+          class="block"
+          datetime="2021-07-07T12:00:00.000Z"
+        >
+          in 21 hours
+        </time>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
