@@ -7,7 +7,7 @@ export class EpisodeDto {
   number!: number;
   type!: string;
   airdate?: string;
-  airtime?: string;
+  airtime!: string | null;
   airstamp?: string;
   runtime?: number;
   imageMedium?: string;
