@@ -26,7 +26,7 @@ export function EpisodeAccordionItem({
     refEl.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
-      inline: 'nearest',
+      inline: 'end',
     });
   }
 
@@ -36,6 +36,7 @@ export function EpisodeAccordionItem({
       className={cn('py-1')}
       key={season}
       onClick={clickHandler}
+      ref={refEl}
       role="button"
       tabIndex={season}
     >
@@ -43,7 +44,6 @@ export function EpisodeAccordionItem({
         className={cn('flex', 'justify-between', 'items-center', {
           'font-bold': isExpanded,
         })}
-        ref={refEl}
       >
         <span>Season {season}</span>
         <span>{episodes.length} Episodes</span>
