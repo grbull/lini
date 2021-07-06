@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodeInfo Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="m-2 px-2 py-3 bg-gray-200 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-80 overflow-hidden"
+  >
+    <div
+      class="w-full h-6 flex justify-between"
+    >
+      <h2
+        class="font-bold"
+      >
+        Red Moon
+      </h2>
+      <p>
+        S01E01
+      </p>
+    </div>
+    <div
+      class="w-full h-6 flex justify-between"
+    >
+      <p>
+        November 1, 2019
+      </p>
+      <p>
+        12:00:00 PM GMT
+      </p>
+    </div>
+    <div
+      class="h-0 relative my-3"
+      style="padding-top: 56.25%;"
+    >
+      <div
+        class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full hidden"
+      />
+      <img
+        alt="Red Moon"
+        class="absolute top-0 left-0 w-full h-full"
+        src="undefined/uploads/images/original_untouched/218/545490.jpg"
+      />
+    </div>
+    <p
+      class="min-h-16"
+    >
+      NASA is in crisis as the Soviets land the first man on the moon in 1969, the beginning of an alternate history.
+    </p>
+  </div>
+</DocumentFragment>
+`;
