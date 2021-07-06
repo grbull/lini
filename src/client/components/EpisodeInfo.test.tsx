@@ -54,14 +54,14 @@ describe('EpisodeInfo Component', () => {
 
   it('should render episodes without an airstamp', () => {
     const { getAllByText } = render(
-      <EpisodeInfo episode={{ ...episode, airstamp: undefined }} />
+      <EpisodeInfo episode={{ ...episode, airstamp: null }} />
     );
     expect(getAllByText('N/A')).toHaveLength(2);
   });
 
   it('should render episodes without a summary', () => {
     const { getByText } = render(
-      <EpisodeInfo episode={{ ...episode, summary: undefined }} />
+      <EpisodeInfo episode={{ ...episode, summary: null }} />
     );
     expect(getByText('Summary unavailable.')).toBeTruthy();
   });

@@ -51,7 +51,10 @@ export function EpisodePanel({ episodes }: Props): ReactElement {
             <span className={cn('block')}>
               {formatEpisodeCode(episode.season, episode.number)}
             </span>
-            <time className={cn('block')} dateTime={episode.airstamp}>
+            <time
+              className={cn('block')}
+              dateTime={episode.airstamp || undefined}
+            >
               {episode.airstamp ? dateFromNow(episode.airstamp) : 'N/A'}
             </time>
           </div>

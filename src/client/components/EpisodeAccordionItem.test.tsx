@@ -105,7 +105,7 @@ describe('EpisodeAccordionItem Component', () => {
     const { getByText } = render(
       <Router history={history}>
         <EpisodeAccordionItem
-          episodes={[{ ...episodes[0], airstamp: undefined }]}
+          episodes={[{ ...episodes[0], airstamp: null }]}
           isExpanded
           season={1}
           setExpanded={handleExpanded}

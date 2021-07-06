@@ -6,13 +6,13 @@ export class EpisodeDto {
   season!: number;
   number!: number;
   type!: string;
-  airdate?: string;
+  airdate!: string | null;
   airtime!: string | null;
-  airstamp?: string;
-  runtime?: number;
-  imageMedium?: string;
-  imageOriginal?: string;
-  summary?: string;
+  airstamp!: string | null;
+  runtime!: number | null;
+  imageMedium!: string | null;
+  imageOriginal!: string | null;
+  summary!: string | null;
   show!: ShowDto;
 }
 
