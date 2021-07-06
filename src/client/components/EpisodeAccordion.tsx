@@ -5,7 +5,7 @@ import { EpisodeDto } from '../../server/episode/episode.dto';
 import { EpisodeAccordionItem } from './EpisodeAccordionItem';
 
 interface Props {
-  episodes: EpisodeDto[];
+  episodes: Omit<EpisodeDto, 'show'>[];
 }
 
 export function EpisodeAccordion({ episodes }: Props): ReactElement {
