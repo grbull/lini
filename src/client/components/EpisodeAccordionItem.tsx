@@ -3,7 +3,7 @@ import React, { ReactElement, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
-import { dateToLocaleDate } from '../utils/date';
+import { dateToLocaleDateMed } from '../utils/date';
 import { formatEpisodeNumber } from '../utils/formatEpisodeNumber';
 
 interface Props {
@@ -51,18 +51,26 @@ export function EpisodeAccordionItem({
       {isExpanded &&
         episodes.map((episode) => (
           <Link
-            className={cn('py-1', 'flex', 'justify-between', 'items-center')}
+            className={cn(
+              'py-1',
+              'flex',
+              'justify-between',
+              'items-center',
+              'whitespace-nowrap'
+            )}
             key={episode.number}
             to={`/episode/${episode.id}`}
           >
-            <span>
+            <span
+              className={cn('overflow-hidden', 'overflow-ellipsis', 'pr-2.5')}
+            >
               <span className={cn('mr-1', 'text-gray-400')}>
                 E{formatEpisodeNumber(episode.number)}
               </span>
               <span>{episode.name}</span>
             </span>
             <span>
-              {episode.airstamp ? dateToLocaleDate(episode.airstamp) : 'N/A'}
+              {episode.airstamp ? dateToLocaleDateMed(episode.airstamp) : 'N/A'}
             </span>
           </Link>
         ))}

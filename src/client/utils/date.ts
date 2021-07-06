@@ -13,6 +13,14 @@ export function dateToLocaleDate(airstamp: string): string {
   );
 }
 
+export function dateToLocaleDateMed(airstamp: string): string {
+  const { locale } = Intl.DateTimeFormat().resolvedOptions();
+  return (
+    DateTime.fromISO(airstamp, { locale }).toLocaleString(DateTime.DATE_MED) ||
+    airstamp
+  );
+}
+
 export function dateToLocaleTime(airstamp: string): string {
   const { locale } = Intl.DateTimeFormat().resolvedOptions();
   return (
