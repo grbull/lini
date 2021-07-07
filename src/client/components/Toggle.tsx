@@ -12,6 +12,7 @@ export function Toggle({ id, onChange, value }: Props): ReactElement {
   return (
     <div className="relative inline-block w-10 mr-0 align-middle select-none transition duration-200 ease-in">
       <input
+        aria-label="toggle"
         checked={value}
         className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
         id={id}
