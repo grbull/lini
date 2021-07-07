@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FixedImage Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="h-0 relative"
+    style="padding-top: 56.25%;"
+  >
+    <div
+      class="animate-pulse bg-gray-700 absolute top-0 left-0 w-full h-full"
+    />
+    <img
+      alt="image"
+      class="absolute top-0 left-0 w-full h-full hidden"
+      src="/image.png"
+    />
+  </div>
+</DocumentFragment>
+`;
