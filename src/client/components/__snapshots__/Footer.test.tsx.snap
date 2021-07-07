@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="h-8 fixed bottom-0 hidden md:block w-full bg-gray-100 dark:bg-gray-600"
+  >
+    <div
+      class="max-w-4xl h-full mx-auto flex items-center justify-center font-light text-sm"
+    >
+      <span>
+        Lini 2021 ©
+      </span>
+      <span
+        class="px-4"
+      >
+        •
+      </span>
+      <span>
+        Version: 2.11.0
+      </span>
+      <span
+        class="px-4"
+      >
+        •
+      </span>
+      <a
+        class="underline"
+        href="https://github.com/grbull/lini"
+      >
+        Source
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
