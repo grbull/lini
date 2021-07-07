@@ -1,5 +1,18 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { persistReducer, persistStore } from 'redux-persist';
+import {
+  combineReducers,
+  configureStore,
+  getDefaultMiddleware,
+} from '@reduxjs/toolkit';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { episode } from './episode';
@@ -10,7 +23,7 @@ import { show } from './show';
 import { subscription } from './subscription';
 import { user } from './user';
 
-const reducers = combineReducers({
+export const reducers = combineReducers({
   user: user.reducer,
   search: search.reducer,
   subscription: subscription.reducer,
@@ -30,6 +43,12 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  // https://github.com/rt2zz/redux-persist/issues/988#issuecomment-552242978
+  middleware: getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
   devTools: process.env.NODE_ENV === 'development',
 });
 
