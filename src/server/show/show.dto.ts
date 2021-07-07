@@ -25,5 +25,5 @@ export class ShowDto {
 }
 
 export class ShowWithEpisodesDto extends ShowDto {
-  episodes!: EpisodeDto[];
+  episodes!: Omit<EpisodeDto, 'show'>[];
 }
