@@ -10,7 +10,7 @@ interface Props {
 export function SuccessMessage({
   children,
   className,
-  illustration = false,
+  illustration,
 }: Props): ReactElement {
   return (
     <div
