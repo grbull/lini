@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfflineBanner Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;
+
+exports[`OfflineBanner Component matches the snapshot when offline 1`] = `
+<DocumentFragment>
+  <div
+    class="fixed bottom-14 md:bottom-8 h-6 w-full bg-red-500 flex items-center justify-center"
+  >
+    You are currently offline.
+  </div>
+</DocumentFragment>
+`;
