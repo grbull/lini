@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoCard Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="m-2 px-2 py-3 bg-gray-200 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-80 overflow-hidden"
+  >
+    Generic children
+  </div>
+</DocumentFragment>
+`;
