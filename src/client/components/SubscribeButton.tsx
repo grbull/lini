@@ -2,7 +2,7 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cn from 'classnames';
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '../redux/store';
@@ -16,7 +16,7 @@ export function SubscribeButton({ showID }: Props): ReactElement {
   const dispatch = useDispatch();
   const subscription = useSelector((state: RootState) => state.subscription);
 
-  const isSubscribed = !!subscription.data?.find(
+  const isSubscribed = !!subscription.data.find(
     ({ show }) => show.id === showID
   );
 
@@ -30,6 +30,7 @@ export function SubscribeButton({ showID }: Props): ReactElement {
 
   return (
     <FontAwesomeIcon
+      aria-label="subscribe-button"
       className={cn('float-right', 'm-1', 'text-xl')}
       icon={isSubscribed ? faHeartSolid : faHeartRegular}
       onClick={clickHandler}
