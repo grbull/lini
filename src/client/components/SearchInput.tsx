@@ -27,6 +27,7 @@ export function SearchInput(): ReactElement {
   return (
     <div className={cn('px-2')}>
       <input
+        aria-label="search-input"
         className={cn(
           'w-full',
           'mb-4',

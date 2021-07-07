@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="px-2"
+  >
+    <input
+      aria-label="search-input"
+      class="w-full mb-4 p-1 text-xl text-center bg-gray-200 dark:bg-gray-600 border border-solid border-gray-800 focus:border-gray-400"
+      placeholder="Search..."
+      type="search"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
