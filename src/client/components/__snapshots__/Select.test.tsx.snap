@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <select
+    aria-label="theme-select"
+    class="bg-gray-500 py-1 rounded"
+    id="theme"
+    name="theme"
+  >
+    <option
+      selected=""
+      value="auto"
+    >
+      Auto (system)
+    </option>
+    <option
+      value="dark"
+    >
+      Dark
+    </option>
+    <option
+      value="light"
+    >
+      Light
+    </option>
+  </select>
+</DocumentFragment>
+`;
