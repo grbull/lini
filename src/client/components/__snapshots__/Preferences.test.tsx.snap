@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preferences Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex justify-between items-center py-1"
+  >
+    <div
+      class="flex flex-col"
+    >
+      <span
+        class="font-medium"
+      >
+        Theme:
+      </span>
+      <span
+        class="font-light"
+      >
+        When set to auto, the app will use your system setting's to determine the theme.
+      </span>
+    </div>
+    <span>
+      <select
+        aria-label="theme-select"
+        class="bg-gray-500 py-1 rounded"
+        id="theme"
+        name="theme"
+      >
+        <option
+          selected=""
+          value="auto"
+        >
+          Auto (system)
+        </option>
+        <option
+          value="dark"
+        >
+          Dark
+        </option>
+        <option
+          value="light"
+        >
+          Light
+        </option>
+      </select>
+    </span>
+  </div>
+  <div
+    class="flex justify-between items-center py-1"
+  >
+    <div
+      class="flex flex-col"
+    >
+      <span
+        class="font-medium"
+      >
+        Notifications:
+      </span>
+      <span
+        class="font-light"
+      >
+        When enabled, displays push notifications regarding soon to be aired episodes.
+      </span>
+    </div>
+    <span>
+      <div
+        class="relative inline-block w-10 mr-0 align-middle select-none transition duration-200 ease-in"
+      >
+        <input
+          class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+          id="test"
+          name="test"
+          type="checkbox"
+        />
+        <label
+          class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
+          for="test"
+        />
+      </div>
+    </span>
+  </div>
+</DocumentFragment>
+`;
