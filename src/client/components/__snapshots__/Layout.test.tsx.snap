@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="pb-14 md:pb-10 pt-0 md:pt-18 md:max-w-4xl mx-0 md:mx-auto"
+  >
+    Generic children
+  </main>
+  <div />
+  <nav
+    class="h-14 fixed bottom-0 md:top-0 w-full bg-gray-200 dark:bg-gray-800"
+  >
+    <div
+      class="h-14 w-full md:max-w-4xl mx-0 md:mx-auto md:flex md:justify-between md:items-center md:px-2.5"
+    >
+      <a
+        class="hidden md:block font-semibold text-2xl"
+        href="/"
+      >
+        Lini
+      </a>
+      <div
+        class="h-full flex justify-around items-center"
+      >
+        <a
+          class="w-full h-full flex flex-col md:flex-row justify-center items-center text-sm focus:outline-none md:ml-4 md:px-2 whitespace-nowrap bg-gray-300 text-gray-800 dark:bg-gray-800 dark:text-white"
+          href="/"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-home fa-w-18 m-1 text-lg md:mr-1"
+            data-icon="home"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"
+              fill="currentColor"
+            />
+          </svg>
+          Home
+        </a>
+        <a
+          class="w-full h-full flex flex-col md:flex-row justify-center items-center text-sm focus:outline-none md:ml-4 md:px-2 whitespace-nowrap bg-gray-200 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+          href="/search"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-search fa-w-16 m-1 text-lg md:mr-1"
+            data-icon="search"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+              fill="currentColor"
+            />
+          </svg>
+          Search
+        </a>
+        <a
+          class="w-full h-full flex flex-col md:flex-row justify-center items-center text-sm focus:outline-none md:ml-4 md:px-2 whitespace-nowrap bg-gray-200 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+          href="/library"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-folder-open fa-w-18 m-1 text-lg md:mr-1"
+            data-icon="folder-open"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M572.694 292.093L500.27 416.248A63.997 63.997 0 0 1 444.989 448H45.025c-18.523 0-30.064-20.093-20.731-36.093l72.424-124.155A64 64 0 0 1 152 256h399.964c18.523 0 30.064 20.093 20.73 36.093zM152 224h328v-48c0-26.51-21.49-48-48-48H272l-64-64H48C21.49 64 0 85.49 0 112v278.046l69.077-118.418C86.214 242.25 117.989 224 152 224z"
+              fill="currentColor"
+            />
+          </svg>
+          Your Library
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div
+    class="h-8 fixed bottom-0 hidden md:block w-full bg-gray-100 dark:bg-gray-600"
+  >
+    <div
+      class="max-w-4xl h-full mx-auto flex items-center justify-center font-light text-sm"
+    >
+      <span>
+        Lini 2021 ©
+      </span>
+      <span
+        class="px-4"
+      >
+        •
+      </span>
+      <span>
+        Version: 2.11.0
+      </span>
+      <span
+        class="px-4"
+      >
+        •
+      </span>
+      <a
+        class="underline"
+        href="https://github.com/grbull/lini"
+      >
+        Source
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
