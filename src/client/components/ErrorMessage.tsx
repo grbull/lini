@@ -32,7 +32,7 @@ export function ErrorMessage({
           <img
             alt="Frustrated Illustration"
             className={cn('opacity-80', 'mb-2.5')}
-            src="frustrated.png"
+            src="/frustrated.png"
             width={80}
           />
         </div>

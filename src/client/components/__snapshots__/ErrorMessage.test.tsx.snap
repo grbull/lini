@@ -28,7 +28,7 @@ exports[`ErrorMessage Component renders with an illustration 1`] = `
       <img
         alt="Frustrated Illustration"
         class="opacity-80 mb-2.5"
-        src="frustrated.png"
+        src="/frustrated.png"
         width="80"
       />
     </div>
