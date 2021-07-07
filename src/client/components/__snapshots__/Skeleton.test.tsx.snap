@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="animate-pulse bg-gray-700 any"
+  />
+</DocumentFragment>
+`;
