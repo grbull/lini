@@ -6,7 +6,7 @@ import { imageShow } from '../utils/imageShow';
 
 interface Props {
   children: ReactNode;
-  imageURL?: string;
+  imageURL: string | null;
 }
 
 export function BackgroundImageShow({
@@ -47,5 +47,3 @@ export function BackgroundImageShow({
     </div>
   );
 }
-
-BackgroundImageShow.defaultProps = { imageURL: undefined };

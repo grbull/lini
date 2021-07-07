@@ -45,6 +45,8 @@ const episodes: EpisodeDto[] = [
       imageOriginal: '/uploads/images/original_untouched/320/801227.jpg',
       summary:
         'Loki follows the trickster and shape-shifter god who pops up throughout human history as an unlikely influencer on historical events.',
+      network: null,
+      webChannel: null,
     },
   },
 ];

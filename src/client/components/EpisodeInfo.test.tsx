@@ -43,6 +43,8 @@ const episode: EpisodeDto = {
     imageOriginal: '/uploads/images/original_untouched/293/732962.jpg',
     summary:
       'Imagine a world where the global space race never ended. This "what if" take on history from Ronald D. Moore (Outlander, Battlestar Galactica) spotlights the lives of NASA astronauts—the heroes and rock stars of their time—and their families.',
+    network: null,
+    webChannel: null,
   },
 };
 

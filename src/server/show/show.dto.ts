@@ -7,21 +7,21 @@ export class ShowDto {
   id!: number;
   name!: string;
   type!: string;
-  language?: string;
+  language!: string | null;
   genres!: string[];
   status!: string;
   runtime!: number | null;
-  runtimeAverage?: number;
-  datePremiered?: string;
-  officialSite?: string;
+  runtimeAverage!: number | null;
+  datePremiered!: string | null;
+  officialSite!: string | null;
   scheduleTime!: string | null;
   scheduleDays!: (keyof typeof DayOfWeek)[];
-  rating?: number;
-  network?: NetworkDto;
-  webChannel?: WebChannelDto;
-  imageMedium?: string;
-  imageOriginal?: string;
-  summary?: string;
+  rating!: number | null;
+  network!: NetworkDto | null;
+  webChannel!: WebChannelDto | null;
+  imageMedium!: string | null;
+  imageOriginal!: string | null;
+  summary!: string | null;
 }
 
 export class ShowWithEpisodesDto extends ShowDto {
