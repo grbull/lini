@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsCard Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="p-2.5 py-3"
+  >
+    <h2
+      class="pb-2 text-lg font-bold"
+    >
+      Testing
+    </h2>
+    <div
+      class=""
+    >
+      More testing
+    </div>
+  </div>
+</DocumentFragment>
+`;
