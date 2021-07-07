@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreferencesItem Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col"
+  >
+    <span
+      class="font-medium"
+    >
+      testing:
+    </span>
+    <span
+      class="font-light"
+    >
+      testing
+    </span>
+  </div>
+  <span>
+    Generic child
+  </span>
+</DocumentFragment>
+`;
