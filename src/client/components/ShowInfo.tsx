@@ -31,7 +31,8 @@ export function ShowInfo({ show }: Props): ReactElement {
         <h2 className={cn('text-xl')}>Show Info</h2>
         <ul>
           <li className={cn('mt-2')}>
-            <b>Network</b>: {show.network?.name ?? show.webChannel?.name}
+            <b>Network</b>:{' '}
+            {show.network?.name ?? show.webChannel?.name ?? 'N/A'}
           </li>
           <li className={cn('mt-0.5')}>
             <b>Schedule</b>:{' '}
@@ -39,7 +40,7 @@ export function ShowInfo({ show }: Props): ReactElement {
               <span>
                 {show.scheduleDays.map((day) => day + 's').join(', ')}
                 {show.scheduleTime && (
-                  <span> at {show.scheduleTime?.substr(0, 5)}</span>
+                  <span> at {show.scheduleTime.substr(0, 5)}</span>
                 )}
                 {show.runtime && <span> ({show.runtime} min)</span>}
               </span>
