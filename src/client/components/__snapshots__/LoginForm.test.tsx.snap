@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <form>
+    <p
+      class="mb-6"
+    >
+      Enter your email address and you will be sent a link to login with.
+    </p>
+    <input
+      aria-label="email-input"
+      autocomplete="email"
+      class="w-full mb-6 p-2 text-gray-600 bg-gray-200 border-2 border-solid border-gray-200 hover:border-blue-300 focus:border-blue-300"
+      name="email"
+      placeholder="Email"
+      value=""
+    />
+    <button
+      class="w-28 py-2 border-2 border-solid border-green-200 text-green-200 hover:border-green-300 hover:text-green-300 disabled:opacity-50 disabled:border-gray-200 disabled:text-gray-200 disabled:cursor-not-allowed"
+      disabled=""
+      type="button"
+    >
+      Request Link
+    </button>
+  </form>
+</DocumentFragment>
+`;

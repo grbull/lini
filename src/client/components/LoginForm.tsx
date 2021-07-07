@@ -47,6 +47,7 @@ export function LoginForm({ onSubmit }: Props): ReactElement {
         </ErrorMessage>
       )}
       <input
+        aria-label="email-input"
         autoComplete="email"
         className={cn(
           'w-full',
