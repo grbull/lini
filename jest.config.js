@@ -20,4 +20,7 @@ module.exports = {
   ],
   maxConcurrency: 1,
   maxWorkers: 1,
+  moduleNameMapper: {
+    'package.json': '<rootDir>/src/client/utils/mockPackageJson.json',
+  },
 };

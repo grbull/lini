@@ -7,7 +7,7 @@ import { Router } from 'react-router-dom';
 
 import { reducers, RootState } from '../redux/store';
 
-export function mockServiceWorker(): void {
+function mockServiceWorker(): void {
   Object.defineProperties(navigator, {
     serviceWorker: {
       value: {
@@ -20,7 +20,7 @@ export function mockServiceWorker(): void {
   });
 }
 
-export function mockNotification(): void {
+function mockNotification(): void {
   Object.defineProperties(window, {
     Notification: { value: { permission: 'denied' }, writable: true },
   });
