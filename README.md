@@ -1,12 +1,18 @@
 <p align="center"><img alt="Lini logo" src="./public/static/android-chrome-192x192.png" width="100" /></p>
 
 <h1 align="center">Lini</h1>
-<p align="center">   
-  <a href="https://github.com/grbull/lini/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/grbull/lini?style=flat-square" />
+<p align="center">
+  <a href="https://app.circleci.com/pipelines/github/grbull/lini">
+    <img src="https://img.shields.io/circleci/build/github/grbull/lini?style=flat-square" />
   </a>
   <a href="https://github.com/grbull/lini/blob/master/CHANGELOG.md">
     <img src="https://img.shields.io/github/package-json/v/grbull/lini?style=flat-square" />
+  </a>
+  <a href="https://github.com/grbull/lini/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/grbull/lini?style=flat-square" />
+  </a>
+  <a href="https://app.codecov.io/gh/grbull/lini">
+    <img src="https://img.shields.io/codecov/c/gh/grbull/lini?style=flat-square" />
   </a>
 </p>
 
