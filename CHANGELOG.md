@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.1](https://github.com/grbull/lini/compare/v2.11.0...v2.11.1) (2021-07-08)
+
+
+### Bug Fixes
+
+*  broken error illustration url ([23b7d71](https://github.com/grbull/lini/commit/23b7d71b8f94b37f4e5e5e5880ac33f4d8d20b4d))
+* console error regarding redux persist ([6548766](https://github.com/grbull/lini/commit/6548766dc92b71912a6b20e86e9d5f43b785db34))
+* episode dto incorrect type ([6ad2496](https://github.com/grbull/lini/commit/6ad2496355516c526aa90cc273ea80755ba537da))
+* episode endpoint not providing proper dto ([b543e89](https://github.com/grbull/lini/commit/b543e890fdbe7e6e8be9e6e944417842065b6203))
+* fix schedule endpoint missing dto data ([7bc4d2e](https://github.com/grbull/lini/commit/7bc4d2efcc795da354416ffd5851077e335dbf8f))
+* fixed image doesn't start off as loading ([ecf26d0](https://github.com/grbull/lini/commit/ecf26d02b935986478726cea697f84770af81d6f))
+* fixed image not loading correctly ([27d03c5](https://github.com/grbull/lini/commit/27d03c510f0952d30599dce81367a692e637c567))
+* incorrect episode dto types ([f4e0bdf](https://github.com/grbull/lini/commit/f4e0bdf653fe3b1468089125cbc64b749e8044a9))
+* long episode names wrap in accordion ([2d130af](https://github.com/grbull/lini/commit/2d130afc1dd2c603fcced3e8b09376d1d7ae09d2)), closes [#49](https://github.com/grbull/lini/issues/49)
+* show dto has incorrect types ([8d0f7d7](https://github.com/grbull/lini/commit/8d0f7d71a4d5c89e556ecfd57c67958ad67dbc86))
+* show dto has incorrect types ([52a6411](https://github.com/grbull/lini/commit/52a64117eb12990d6d6fc14a442e048d6c2bcf46))
+* show info doesn't handle null networks ([1e35328](https://github.com/grbull/lini/commit/1e35328b52c1a1cf55393a2d763d0ad9096718b4))
+* show with episode dto has incorrect type ([2bda0ba](https://github.com/grbull/lini/commit/2bda0ba5e4ac36062c5fcebf55d06fa99c555a87))
+* web channel dto types are wrong ([763ffe8](https://github.com/grbull/lini/commit/763ffe826c091df2c339c460ff84c09b9437c23c))
+* when clicking accordion, scrolls down ([d8a7946](https://github.com/grbull/lini/commit/d8a79461ae66ee932df3167a473bc92b8b233246)), closes [#45](https://github.com/grbull/lini/issues/45)
+
 ## [2.11.0](https://github.com/grbull/lini/compare/v2.10.0...v2.11.0) (2021-07-05)
 
 
