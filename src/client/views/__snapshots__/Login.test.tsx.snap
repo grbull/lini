@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login View matches the snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="absolute left-1/2 top-1/2 m-auto w-80 h-96 -ml-40 -mt-48"
+  >
+    <img
+      alt="logo"
+      class="w-28 mx-auto"
+      src="/android-chrome-192x192.png"
+    />
+    <h1
+      class="text-2xl my-6 text-center"
+    >
+      Login
+    </h1>
+    <form>
+      <p
+        class="mb-6"
+      >
+        Enter your email address and you will be sent a link to login with.
+      </p>
+      <input
+        aria-label="email-input"
+        autocomplete="email"
+        class="w-full mb-6 p-2 text-gray-600 bg-gray-200 border-2 border-solid border-gray-200 hover:border-blue-300 focus:border-blue-300"
+        name="email"
+        placeholder="Email"
+        value=""
+      />
+      <button
+        class="w-28 py-2 border-2 border-solid border-green-200 text-green-200 hover:border-green-300 hover:text-green-300 disabled:opacity-50 disabled:border-gray-200 disabled:text-gray-200 disabled:cursor-not-allowed"
+        disabled=""
+        type="button"
+      >
+        Request Link
+      </button>
+    </form>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`Login View matches the snapshot when api call is error 1`] = `
+<DocumentFragment>
+  <main
+    class="absolute left-1/2 top-1/2 m-auto w-80 h-96 -ml-40 -mt-48"
+  >
+    <img
+      alt="logo"
+      class="w-28 mx-auto"
+      src="/android-chrome-192x192.png"
+    />
+    <h1
+      class="text-2xl my-6 text-center"
+    >
+      Login
+    </h1>
+    <div
+      class="px-2 py-2.5 bg-red-400 bg-opacity-50 border border-solid border-red-400 mb-3"
+    >
+      <h2
+        class="font-bold"
+      >
+        Error
+      </h2>
+      <p>
+        A link was recently issued.
+      </p>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`Login View matches the snapshot when api call is success 1`] = `
+<DocumentFragment>
+  <main
+    class="absolute left-1/2 top-1/2 m-auto w-80 h-96 -ml-40 -mt-48"
+  >
+    <img
+      alt="logo"
+      class="w-28 mx-auto"
+      src="/android-chrome-192x192.png"
+    />
+    <h1
+      class="text-2xl my-6 text-center"
+    >
+      Login
+    </h1>
+    <div
+      class="px-2 py-2.5 bg-green-400 bg-opacity-50 border border-solid border-green-400 mb-3"
+    >
+      <div
+        class="flex flex-col items-center justify-center hidden"
+      >
+        <img
+          alt="Happy Illustration"
+          class="opacity-80 mb-2.5"
+          src="happy.png"
+          width="80"
+        />
+      </div>
+      <h2
+        class="font-bold"
+      >
+        Success
+      </h2>
+      <p>
+        Success, please check your email.
+      </p>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`Login View matches the snapshot when logged in 1`] = `
+<DocumentFragment>
+  <div
+    class="px-2 py-2.5 bg-green-400 bg-opacity-50 border border-solid border-green-400"
+  >
+    <div
+      class="flex flex-col items-center justify-center hidden"
+    >
+      <img
+        alt="Happy Illustration"
+        class="opacity-80 mb-2.5"
+        src="happy.png"
+        width="80"
+      />
+    </div>
+    <h2
+      class="font-bold"
+    >
+      Success
+    </h2>
+    <p />
+  </div>
+</DocumentFragment>
+`;
