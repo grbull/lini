@@ -7,6 +7,25 @@ import { Router } from 'react-router-dom';
 
 import { reducers, RootState } from '../redux/store';
 
+export function mockServiceWorker(): void {
+  Object.defineProperties(navigator, {
+    serviceWorker: {
+      value: {
+        ready: {
+          pushManager: { getSubscription: () => null, subscribe: jest.fn() },
+        },
+      },
+      writable: true,
+    },
+  });
+}
+
+export function mockNotification(): void {
+  Object.defineProperties(window, {
+    Notification: { value: { permission: 'denied' }, writable: true },
+  });
+}
+
 export interface TestSetupProps {
   history?: MemoryHistory;
   state?: Partial<RootState>;
@@ -35,6 +54,9 @@ export function testSetup(
 
   const scrollTo = jest.fn();
   window.scrollTo = scrollTo;
+
+  mockServiceWorker();
+  mockNotification();
 
   const utils = render(
     <Router history={history}>

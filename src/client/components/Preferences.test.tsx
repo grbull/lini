@@ -25,24 +25,6 @@ describe('Preferences Component', () => {
     },
   };
 
-  beforeAll(() => {
-    // Mock ssome ervice worker
-    Object.defineProperties(navigator, {
-      serviceWorker: {
-        value: {
-          ready: {
-            pushManager: { getSubscription: () => null, subscribe: jest.fn() },
-          },
-        },
-        writable: true,
-      },
-    });
-
-    Object.defineProperties(window, {
-      Notification: { value: { permission: 'denied' }, writable: true },
-    });
-  });
-
   it('matches the snapshot', () => {
     const { asFragment } = testSetup(<Preferences />, {
       state: initialState,
