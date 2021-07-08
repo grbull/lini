@@ -11,7 +11,7 @@ import { Error } from './Error';
 export function Library(): ReactElement {
   const subscriptions = useSelector((state: RootState) => state.subscription);
   const shows = subscriptions.data
-    ?.map((subscription) => subscription.show)
+    .map((subscription) => subscription.show)
     .sort((a, b) => a.name.localeCompare(b.name));
 
   if (subscriptions.status === 'error') {
