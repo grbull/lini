@@ -23,7 +23,13 @@ export class SubscriptionService {
   public getAll(user: UserEntity): Promise<SubscriptionEntity[]> {
     return this.subscriptionRepository.find({
       where: { user: user.id },
-      relations: ['show'],
+      relations: [
+        'show',
+        'show.network',
+        'show.network.country',
+        'show.webChannel',
+        'show.webChannel.country',
+      ],
     });
   }
 
