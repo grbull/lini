@@ -62,9 +62,6 @@ jobs:
             POSTGRES_USER: root
             POSTGRES_PASS: password
             POSTGRES_DATABASE_TEST: test_db
-            # TZ is necessary because of our snapshots formatting times to
-            # local timezone
-            TZ: GMT
       - codecov/upload:
           file: .coverage/clover.xml
 

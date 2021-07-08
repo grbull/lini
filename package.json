@@ -27,7 +27,7 @@
     "lint": "eslint 'src/**/*.ts' && prettier --check 'src/**/*.ts'",
     "prepare": "husky install",
     "release": "standard-version",
-    "test": "jest"
+    "test": "TZ=GMT jest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
