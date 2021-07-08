@@ -4,29 +4,25 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { SuccessMessage } from './SuccessMessage';
-
-function setup(withIllustration = false): RenderResult {
-  const utils = render(
-    <SuccessMessage illustration={withIllustration}>
-      Generic children
-    </SuccessMessage>
-  );
-
-  return { ...utils };
-}
 
 describe('SuccessMessage Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(
+      <SuccessMessage>Generic children</SuccessMessage>
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot with illustration', () => {
-    const { asFragment } = setup(true);
+    const { asFragment } = testSetup(
+      <SuccessMessage illustration>Generic children</SuccessMessage>
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

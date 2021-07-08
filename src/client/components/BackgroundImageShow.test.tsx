@@ -4,16 +4,17 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { BackgroundImageShow } from './BackgroundImageShow';
 
 describe('BackgroundImageShow Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = render(
+    const { asFragment } = testSetup(
       <BackgroundImageShow imageURL="/image.png">Children</BackgroundImageShow>
     );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

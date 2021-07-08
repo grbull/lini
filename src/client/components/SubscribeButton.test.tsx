@@ -4,13 +4,12 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { configureStore } from '@reduxjs/toolkit';
-import { fireEvent, render, RenderResult } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import React from 'react';
-import { Provider } from 'react-redux';
 
 import { ShowDto } from '../../server/show/show.dto';
-import { reducers } from '../redux/store';
+import { RootState } from '../redux/store';
+import { testSetup } from '../utils/testSetup';
 import { SubscribeButton } from './SubscribeButton';
 
 const showDto: ShowDto = {
@@ -34,43 +33,30 @@ const showDto: ShowDto = {
   network: null,
   webChannel: { id: 287, name: 'Disney+', country: null },
 };
-
-function setup(id: number): RenderResult & {
-  button: HTMLButtonElement;
-  dispatch: typeof jest.fn;
-} {
-  const store = configureStore({
-    reducer: reducers,
-    preloadedState: {
-      subscription: {
-        status: 'idle',
-        data: [{ show: showDto, dateCreated: '' }],
-      },
-    },
-  });
-
-  const dispatch = jest.fn();
-  store.dispatch = dispatch;
-
-  const utils = render(
-    <Provider store={store}>
-      <SubscribeButton showID={id} />
-    </Provider>
-  );
-
-  const button = utils.getByLabelText('subscribe-button') as HTMLButtonElement;
-
-  return { button, dispatch, ...utils };
-}
-
 describe('SubscribeButton Component', () => {
+  const initialState: Partial<RootState> = {
+    subscription: {
+      status: 'idle',
+      data: [{ show: showDto, dateCreated: '' }],
+    },
+  };
+
   it('matches the snapshot', () => {
-    const { asFragment } = setup(showDto.id);
+    const { asFragment } = testSetup(<SubscribeButton showID={showDto.id} />, {
+      state: initialState,
+    });
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('can subscribe', () => {
-    const { button, dispatch } = setup(0);
+    const { getByLabelText, dispatch } = testSetup(
+      <SubscribeButton showID={0} />,
+      {
+        state: initialState,
+      }
+    );
+    const button = getByLabelText('subscribe-button') as HTMLButtonElement;
 
     fireEvent.click(button);
 
@@ -78,7 +64,13 @@ describe('SubscribeButton Component', () => {
   });
 
   it('can unsubscribe', () => {
-    const { button, dispatch } = setup(showDto.id);
+    const { getByLabelText, dispatch } = testSetup(
+      <SubscribeButton showID={showDto.id} />,
+      {
+        state: initialState,
+      }
+    );
+    const button = getByLabelText('subscribe-button') as HTMLButtonElement;
 
     fireEvent.click(button);
 

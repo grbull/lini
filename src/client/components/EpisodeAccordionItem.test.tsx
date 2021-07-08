@@ -1,15 +1,14 @@
 /**
  * @jest-environment jsdom
  */
-/* eslint-disable init-declarations */
+
 import '@testing-library/jest-dom/extend-expect';
 
-import { fireEvent, render } from '@testing-library/react';
-import { createMemoryHistory, MemoryHistory } from 'history';
+import { fireEvent } from '@testing-library/react';
 import React from 'react';
-import { Router } from 'react-router-dom';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
+import { testSetup } from '../utils/testSetup';
 import { EpisodeAccordionItem } from './EpisodeAccordionItem';
 
 const episodes: Omit<EpisodeDto, 'show'>[] = [
@@ -33,17 +32,16 @@ const episodes: Omit<EpisodeDto, 'show'>[] = [
 // Unfortunately I can't get 100% line coverage because of optional chaining.
 
 describe('EpisodeAccordionItem Component', () => {
-  let history: MemoryHistory<unknown>;
-  let handleExpanded: (n: number) => void;
+  // eslint-disable-next-line init-declarations
+  let handleExpanded: typeof jest.fn;
 
   beforeEach(() => {
     handleExpanded = jest.fn();
-    history = createMemoryHistory();
     window.HTMLElement.prototype.scrollIntoView = jest.fn();
   });
 
   it('matches the snapshot', () => {
-    const { asFragment } = render(
+    const { asFragment } = testSetup(
       <EpisodeAccordionItem
         episodes={episodes}
         isExpanded={false}
@@ -51,27 +49,28 @@ describe('EpisodeAccordionItem Component', () => {
         setExpanded={handleExpanded}
       />
     );
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('handles being clicked when expanded', () => {
-    const { getByRole } = render(
-      <Router history={history}>
-        <EpisodeAccordionItem
-          episodes={episodes}
-          isExpanded
-          season={1}
-          setExpanded={handleExpanded}
-        />
-      </Router>
+    const { getByRole } = testSetup(
+      <EpisodeAccordionItem
+        episodes={episodes}
+        isExpanded
+        season={1}
+        setExpanded={handleExpanded}
+      />
     );
+
     fireEvent.click(getByRole('button'));
+
     expect(handleExpanded).toHaveBeenCalled();
     expect(getByRole('button').scrollIntoView).toBeCalledTimes(0);
   });
 
   it('handles being clicked when not expanded', () => {
-    const { getByRole } = render(
+    const { getByRole } = testSetup(
       <EpisodeAccordionItem
         episodes={episodes}
         isExpanded={false}
@@ -79,22 +78,23 @@ describe('EpisodeAccordionItem Component', () => {
         setExpanded={handleExpanded}
       />
     );
+
     fireEvent.click(getByRole('button'));
+
     expect(handleExpanded).toBeCalledTimes(1);
     expect(getByRole('button').scrollIntoView).toBeCalledTimes(1);
   });
 
   it('episodes should have a link to their page', () => {
-    const { getByText } = render(
-      <Router history={history}>
-        <EpisodeAccordionItem
-          episodes={episodes}
-          isExpanded
-          season={1}
-          setExpanded={handleExpanded}
-        />
-      </Router>
+    const { getByText } = testSetup(
+      <EpisodeAccordionItem
+        episodes={episodes}
+        isExpanded
+        season={1}
+        setExpanded={handleExpanded}
+      />
     );
+
     expect(getByText('Red Moon').closest('a')).toHaveAttribute(
       'href',
       '/episode/1627015'
@@ -102,16 +102,15 @@ describe('EpisodeAccordionItem Component', () => {
   });
 
   it('should render episodes without an airstamp', () => {
-    const { getByText } = render(
-      <Router history={history}>
-        <EpisodeAccordionItem
-          episodes={[{ ...episodes[0], airstamp: null }]}
-          isExpanded
-          season={1}
-          setExpanded={handleExpanded}
-        />
-      </Router>
+    const { getByText } = testSetup(
+      <EpisodeAccordionItem
+        episodes={[{ ...episodes[0], airstamp: null }]}
+        isExpanded
+        season={1}
+        setExpanded={handleExpanded}
+      />
     );
+
     expect(getByText('N/A')).toBeTruthy();
   });
 });

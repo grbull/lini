@@ -4,24 +4,19 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { PreferencesItem } from './PreferencesItem';
-
-function setup(): RenderResult {
-  const utils = render(
-    <PreferencesItem description="testing" title="testing">
-      Generic child
-    </PreferencesItem>
-  );
-
-  return { ...utils };
-}
 
 describe('PreferencesItem Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(
+      <PreferencesItem description="testing" title="testing">
+        Generic child
+      </PreferencesItem>
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

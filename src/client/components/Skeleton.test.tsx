@@ -4,20 +4,15 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { Skeleton } from './Skeleton';
-
-function setup(): RenderResult {
-  const utils = render(<Skeleton className="any" />);
-
-  return { ...utils };
-}
 
 describe('Skeleton Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(<Skeleton className="any" />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

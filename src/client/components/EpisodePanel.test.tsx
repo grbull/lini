@@ -1,16 +1,13 @@
 /**
  * @jest-environment jsdom
  */
-/* eslint-disable init-declarations */
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render } from '@testing-library/react';
-import { createMemoryHistory, MemoryHistory } from 'history';
 import React from 'react';
-import { Router } from 'react-router-dom';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
+import { testSetup } from '../utils/testSetup';
 import { EpisodePanel } from './EpisodePanel';
 
 const episodes: EpisodeDto[] = [
@@ -52,30 +49,23 @@ const episodes: EpisodeDto[] = [
 ];
 
 describe('EpisodePanel Component', () => {
-  let history: MemoryHistory<unknown>;
-  Date.now.bind(global.Date);
-  const dateNowStub = jest.fn(() => 1625584251217);
-  global.Date.now = dateNowStub;
-
-  beforeEach(() => {
-    history = createMemoryHistory();
+  beforeAll(() => {
+    // For snapshot consistency we need to fake the date
+    Date.now.bind(global.Date);
+    global.Date.now = jest.fn(() => 1625584251217);
   });
 
   it('matches the snapshot', () => {
-    const { asFragment } = render(
-      <Router history={history}>
-        <EpisodePanel episodes={episodes} />
-      </Router>
-    );
+    const { asFragment } = testSetup(<EpisodePanel episodes={episodes} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render episodes without an airstamp', () => {
-    const { getByText } = render(
-      <Router history={history}>
-        <EpisodePanel episodes={[{ ...episodes[0], airstamp: null }]} />
-      </Router>
+    const { getByText } = testSetup(
+      <EpisodePanel episodes={[{ ...episodes[0], airstamp: null }]} />
     );
+
     expect(getByText('N/A')).toBeTruthy();
   });
 });

@@ -4,10 +4,10 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render } from '@testing-library/react';
 import React from 'react';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
+import { testSetup } from '../utils/testSetup';
 import { EpisodeInfo } from './EpisodeInfo';
 
 const episode: EpisodeDto = {
@@ -50,21 +50,24 @@ const episode: EpisodeDto = {
 
 describe('EpisodeInfo Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = render(<EpisodeInfo episode={episode} />);
+    const { asFragment } = testSetup(<EpisodeInfo episode={episode} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render episodes without an airstamp', () => {
-    const { getAllByText } = render(
+    const { getAllByText } = testSetup(
       <EpisodeInfo episode={{ ...episode, airstamp: null }} />
     );
+
     expect(getAllByText('N/A')).toHaveLength(2);
   });
 
   it('should render episodes without a summary', () => {
-    const { getByText } = render(
+    const { getByText } = testSetup(
       <EpisodeInfo episode={{ ...episode, summary: null }} />
     );
+
     expect(getByText('Summary unavailable.')).toBeTruthy();
   });
 });

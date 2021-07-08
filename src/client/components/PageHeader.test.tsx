@@ -4,39 +4,29 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import React from 'react';
-import { Router } from 'react-router-dom';
 
+import { testSetup } from '../utils/testSetup';
 import { PageHeader } from './PageHeader';
-
-function setup({ ...props }: Record<string, unknown>): RenderResult {
-  const history = createMemoryHistory();
-
-  const utils = render(
-    <Router history={history}>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <PageHeader title="Testing" {...props} />
-    </Router>
-  );
-
-  return { ...utils };
-}
 
 describe('PageHeader Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup({});
+    const { asFragment } = testSetup(<PageHeader title="Testing" />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot when loading', () => {
-    const { asFragment } = setup({ isLoading: true });
+    const { asFragment } = testSetup(<PageHeader isLoading title="Testing" />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot with a titleLink', () => {
-    const { asFragment } = setup({ titleLink: '/' });
+    const { asFragment } = testSetup(
+      <PageHeader title="Testing" titleLink="/" />
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -4,20 +4,15 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { OfflineBanner } from './OfflineBanner';
-
-function setup(): RenderResult {
-  const utils = render(<OfflineBanner />);
-
-  return { ...utils };
-}
 
 describe('OfflineBanner Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(<OfflineBanner />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -30,7 +25,8 @@ describe('OfflineBanner Component', () => {
         }
       });
 
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(<OfflineBanner />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

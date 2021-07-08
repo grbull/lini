@@ -4,12 +4,10 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
-import React, { ReactNode } from 'react';
-import { Router } from 'react-router-dom';
+import React from 'react';
 
 import { ShowDto } from '../../server/show/show.dto';
+import { testSetup } from '../utils/testSetup';
 import { ShowGrid } from './ShowGrid';
 
 const showDto: ShowDto = {
@@ -42,22 +40,16 @@ const showDto: ShowDto = {
   webChannel: null,
 };
 
-function setup(children: ReactNode): RenderResult {
-  const history = createMemoryHistory();
-
-  const utils = render(<Router history={history}>{children}</Router>);
-
-  return { ...utils };
-}
-
 describe('ShowGrid Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup(<ShowGrid shows={[showDto]} />);
+    const { asFragment } = testSetup(<ShowGrid shows={[showDto]} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot when empty', () => {
-    const { asFragment } = setup(<ShowGrid shows={[]} />);
+    const { asFragment } = testSetup(<ShowGrid shows={[]} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

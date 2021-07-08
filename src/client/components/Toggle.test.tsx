@@ -4,31 +4,33 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { fireEvent, render, RenderResult } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { Toggle } from './Toggle';
 
-function setup(): RenderResult & {
-  onChange: typeof jest.fn;
-  input: HTMLInputElement;
-} {
-  const onChange = jest.fn();
-  const utils = render(<Toggle id="test" onChange={onChange} value={false} />);
-
-  const input = utils.getByLabelText('toggle') as HTMLInputElement;
-
-  return { onChange, input, ...utils };
-}
-
 describe('Toggle Component', () => {
+  // eslint-disable-next-line init-declarations
+  let onChange: typeof jest.fn;
+
+  beforeEach(() => {
+    onChange = jest.fn();
+  });
+
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(
+      <Toggle id="test" onChange={onChange} value={false} />
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('can be toggled', () => {
-    const { onChange, input } = setup();
+    const { getByLabelText } = testSetup(
+      <Toggle id="test" onChange={onChange} value={false} />
+    );
+    const input = getByLabelText('toggle') as HTMLInputElement;
 
     fireEvent.click(input);
 

@@ -4,28 +4,15 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import React from 'react';
-import { Router } from 'react-router-dom';
 
+import { testSetup } from '../utils/testSetup';
 import { SettingsButton } from './SettingsButton';
-
-function setup(): RenderResult {
-  const history = createMemoryHistory();
-
-  const utils = render(
-    <Router history={history}>
-      <SettingsButton />
-    </Router>
-  );
-
-  return { ...utils };
-}
 
 describe('SettingsButton Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(<SettingsButton />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

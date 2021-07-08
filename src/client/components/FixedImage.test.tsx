@@ -4,14 +4,14 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { FixedImage } from './FixedImage';
 
 describe('FixedImage Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = render(
+    const { asFragment } = testSetup(
       <FixedImage
         alt="image"
         fullHeight={1080}
@@ -19,6 +19,7 @@ describe('FixedImage Component', () => {
         src="/image.png"
       />
     );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

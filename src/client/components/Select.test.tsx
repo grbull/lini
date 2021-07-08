@@ -4,37 +4,33 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import {
-  fireEvent,
-  render,
-  RenderResult,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { Select } from './Select';
 
-function setup(): RenderResult & {
-  onChange: typeof jest.fn;
-  select: HTMLSelectElement;
-} {
-  const onChange = jest.fn();
-
-  const utils = render(<Select onChange={onChange} value="auto" />);
-
-  const select = utils.getByLabelText('theme-select') as HTMLSelectElement;
-
-  return { onChange, select, ...utils };
-}
-
 describe('Select Component', () => {
+  // eslint-disable-next-line init-declarations
+  let onChange: typeof jest.fn;
+
+  beforeEach(() => {
+    onChange = jest.fn();
+  });
+
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(
+      <Select onChange={onChange} value="auto" />
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('handles value change', async () => {
-    const { onChange, select } = setup();
+    const { getByLabelText } = testSetup(
+      <Select onChange={onChange} value="auto" />
+    );
+    const select = getByLabelText('theme-select') as HTMLSelectElement;
 
     fireEvent.change(select, { target: { value: 'light' } });
     fireEvent.focusOut(select);

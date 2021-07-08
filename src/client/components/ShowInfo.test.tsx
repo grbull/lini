@@ -4,10 +4,10 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
 
 import { ShowWithEpisodesDto } from '../../server/show/show.dto';
+import { testSetup } from '../utils/testSetup';
 import { ShowInfo } from './ShowInfo';
 
 const showDto: ShowWithEpisodesDto = {
@@ -123,20 +123,15 @@ const showDto: ShowWithEpisodesDto = {
   ],
 };
 
-function setup(show: ShowWithEpisodesDto): RenderResult {
-  const utils = render(<ShowInfo show={show} />);
-
-  return { ...utils };
-}
-
 describe('ShowInfo Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup(showDto);
+    const { asFragment } = testSetup(<ShowInfo show={showDto} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot with null values', () => {
-    const { asFragment } = setup({
+    const showWithNullValues = {
       ...showDto,
       network: null,
       webChannel: null,
@@ -145,12 +140,14 @@ describe('ShowInfo Component', () => {
       runtime: null,
       officialSite: null,
       rating: null,
-    });
+    };
+    const { asFragment } = testSetup(<ShowInfo show={showWithNullValues} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot with network value', () => {
-    const { asFragment } = setup({
+    const showWithNetwork = {
       ...showDto,
       network: {
         id: 1,
@@ -161,16 +158,20 @@ describe('ShowInfo Component', () => {
           timezone: 'London/Europe',
         },
       },
-    });
+    };
+    const { asFragment } = testSetup(<ShowInfo show={showWithNetwork} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('matches the snapshot with a schedule', () => {
-    const { asFragment } = setup({
+    const showWithSchedule = {
       ...showDto,
       scheduleTime: '20:00',
       runtime: 60,
-    });
+    };
+    const { asFragment } = testSetup(<ShowInfo show={showWithSchedule} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

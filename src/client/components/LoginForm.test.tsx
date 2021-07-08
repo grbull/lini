@@ -4,42 +4,29 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import {
-  fireEvent,
-  render,
-  RenderResult,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { LoginForm } from './LoginForm';
 
-function setup(): RenderResult & {
-  onSubmit: typeof jest.fn;
-  input: HTMLInputElement;
-  button: HTMLButtonElement;
-} {
-  const onSubmit = jest.fn();
-  const utils = render(<LoginForm onSubmit={onSubmit} />);
-  const input = utils.getByLabelText('email-input') as HTMLInputElement;
-  const button = utils.getByText('Request Link') as HTMLButtonElement;
-  return {
-    onSubmit,
-    input,
-    button,
-    ...utils,
-  };
-}
-
 describe('LoginForm Component', () => {
+  // eslint-disable-next-line init-declarations
+  let onSubmit: typeof jest.fn;
+
+  beforeEach(() => {
+    onSubmit = jest.fn();
+  });
+
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(<LoginForm onSubmit={onSubmit} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('handles input', () => {
-    const { input } = setup();
+    const { getByLabelText } = testSetup(<LoginForm onSubmit={onSubmit} />);
+    const input = getByLabelText('email-input') as HTMLInputElement;
 
     fireEvent.change(input, { target: { value: 'test@email.com' } });
 
@@ -47,7 +34,11 @@ describe('LoginForm Component', () => {
   });
 
   it('handles correct values', async () => {
-    const { onSubmit, button, input } = setup();
+    const { getByLabelText, getByText } = testSetup(
+      <LoginForm onSubmit={onSubmit} />
+    );
+    const input = getByLabelText('email-input') as HTMLInputElement;
+    const button = getByText('Request Link') as HTMLButtonElement;
 
     expect(button).toBeDisabled();
 
@@ -61,7 +52,11 @@ describe('LoginForm Component', () => {
   });
 
   it('handles incorrect values', async () => {
-    const { onSubmit, button, input } = setup();
+    const { getByLabelText, getByText } = testSetup(
+      <LoginForm onSubmit={onSubmit} />
+    );
+    const input = getByLabelText('email-input') as HTMLInputElement;
+    const button = getByText('Request Link') as HTMLButtonElement;
 
     expect(button).toBeDisabled();
 

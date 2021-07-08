@@ -4,20 +4,17 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render, RenderResult } from '@testing-library/react';
 import React from 'react';
 
+import { testSetup } from '../utils/testSetup';
 import { SettingsCardRow } from './SettingsCardRow';
-
-function setup(): RenderResult {
-  const utils = render(<SettingsCardRow>More testing</SettingsCardRow>);
-
-  return { ...utils };
-}
 
 describe('SettingsCardRow Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = setup();
+    const { asFragment } = testSetup(
+      <SettingsCardRow>More testing</SettingsCardRow>
+    );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });

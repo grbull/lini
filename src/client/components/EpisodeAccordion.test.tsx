@@ -4,10 +4,10 @@
 
 import '@testing-library/jest-dom/extend-expect';
 
-import { render } from '@testing-library/react';
 import React from 'react';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
+import { testSetup } from '../utils/testSetup';
 import { EpisodeAccordion } from './EpisodeAccordion';
 
 const episodes: Omit<EpisodeDto, 'show'>[] = [
@@ -60,12 +60,16 @@ const episodes: Omit<EpisodeDto, 'show'>[] = [
 
 describe('EpisodeAccordion Component', () => {
   it('matches the snapshot', () => {
-    const { asFragment } = render(<EpisodeAccordion episodes={episodes} />);
+    const { asFragment } = testSetup(<EpisodeAccordion episodes={episodes} />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render two episode accordion items', async () => {
-    const { findAllByRole } = render(<EpisodeAccordion episodes={episodes} />);
+    const { findAllByRole } = testSetup(
+      <EpisodeAccordion episodes={episodes} />
+    );
+
     expect(await findAllByRole('button')).toHaveLength(2);
   });
 });
