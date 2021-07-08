@@ -25,6 +25,10 @@ export class EpisodeService {
       return await this.episodeRepository
         .createQueryBuilder('episode')
         .leftJoinAndSelect('episode.show', 'show')
+        .leftJoinAndSelect('show.network', 'network')
+        .leftJoinAndSelect('network.country', 'networkCountry')
+        .leftJoinAndSelect('show.webChannel', 'webChannel')
+        .leftJoinAndSelect('webChannel.country', 'webChannelCountry')
         .where('episode.id = :id', { id })
         .getOneOrFail();
     } catch {
