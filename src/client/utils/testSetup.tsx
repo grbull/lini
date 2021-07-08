@@ -8,6 +8,7 @@ import { Router } from 'react-router-dom';
 import { reducers, RootState } from '../redux/store';
 
 export interface TestSetupProps {
+  history?: MemoryHistory;
   state?: Partial<RootState>;
 }
 
@@ -21,7 +22,7 @@ export function testSetup(
   children: ReactNode,
   props?: TestSetupProps
 ): TestSetupResult {
-  const history = createMemoryHistory();
+  const history = props?.history || createMemoryHistory();
   const store = configureStore({
     reducer: reducers,
     preloadedState: props?.state || undefined,
