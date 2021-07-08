@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 
+import '@testing-library/jest-dom/extend-expect';
+
 import React from 'react';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';

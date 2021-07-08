@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 
+import '@testing-library/jest-dom/extend-expect';
+
 import { createLocation, createMemoryHistory } from 'history';
 import React from 'react';
 import { match } from 'react-router-dom';
