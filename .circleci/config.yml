@@ -1,0 +1,74 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.0.2
+
+jobs:
+  test:
+    docker:
+      # Development and Production use Node v12.21
+      # Using a Node base image
+      # https://circleci.com/docs/2.0/circleci-images/#next-gen-language-images
+      - image: cimg/node:12.21.0
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+
+      # Development and Production use Postgres 13.2
+      # https://hub.docker.com/r/circleci/postgres/tags?page=1&ordering=last_updated&name=13.2
+      - image: circleci/postgres:13.2
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+        # These variables are used when postgres is setup.
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: test_db
+    steps:
+      - checkout
+      - run:
+          name: Waiting for Postgres to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z localhost 5432 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for Postgres && exit 1
+      - restore_cache:
+          # See the configuration reference documentation for more details on using restore_cache and save_cache steps
+          # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
+          keys:
+            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+      - run:
+          name: install packages
+          command: npm ci
+      - save_cache:
+          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          paths:
+            - ~/.npm
+      - run:
+          name: Run linter
+          command: npm run lint
+      - run:
+          name: Run Tests
+          command: npm run test
+          # Variables for lini
+          environment:
+            POSTGRES_HOST: localhost
+            POSTGRES_PORT: 5432
+            POSTGRES_USER: root
+            POSTGRES_PASS: password
+            POSTGRES_DATABASE_TEST: test_db
+            # TZ is necessary because of our snapshots formatting times to
+            # local timezone
+            TZ: GMT
+      - codecov/upload:
+          file: .coverage/clover.xml
+
+workflows:
+  test:
+    jobs:
+      - test
