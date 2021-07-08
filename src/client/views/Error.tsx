@@ -8,9 +8,7 @@ interface Props {
   error?: string;
 }
 
-export function Error({
-  error = 'Something went wrong.',
-}: Props): ReactElement {
+export function Error({ error }: Props): ReactElement {
   return (
     <>
       <PageHeader title="Error" />
