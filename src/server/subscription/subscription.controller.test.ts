@@ -33,7 +33,7 @@ const user: UserEntity = {
   pushSubscriptions: [],
 };
 
-describe('SUbscription Controller', () => {
+describe('Subscription Controller', () => {
   const subscriptionService = createMock<SubscriptionService>({
     getAll: jest.fn().mockReturnValue([subscriptionEntity]),
     create: jest.fn().mockReturnValue(subscriptionEntity),
