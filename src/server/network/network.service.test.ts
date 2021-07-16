@@ -42,9 +42,14 @@ describe('Network Service', () => {
         },
       };
       const networkEntity = {
-        country: 1,
         id: 10,
         name: 'Adult Swim',
+        country: {
+          id: 1,
+          name: 'United States',
+          code: 'US',
+          timezone: 'America/New_York',
+        },
       };
 
       expect(await networkService.createOrUpdate(tvMazeNetwork)).toStrictEqual(

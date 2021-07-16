@@ -11,5 +11,5 @@ export class NetworkEntity {
   name!: string;
 
   @ManyToOne(() => CountryEntity, (country) => country.id)
-  country!: number;
+  country!: CountryEntity;
 }

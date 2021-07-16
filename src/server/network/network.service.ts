@@ -20,6 +20,6 @@ export class NetworkService {
 
   public async createOrUpdate(network: TvMazeNetwork): Promise<NetworkEntity> {
     const country = await this.countryService.findOrCreate(network.country);
-    return this.networkRepository.save({ ...network, country: country.id });
+    return this.networkRepository.save({ ...network, country: country });
   }
 }
