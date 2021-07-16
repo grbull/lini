@@ -16,32 +16,10 @@ export class UserService {
     this.loggerService.setContext('UserService');
   }
 
-  public findOneOrFail(where: FindConditions<UserEntity>): Promise<UserEntity> {
-    return this.userRepository.findOneOrFail({ where });
-  }
-
-  public findOne(
-    where: FindConditions<UserEntity>
-  ): Promise<UserEntity | undefined> {
-    return this.userRepository.findOne({ where });
-  }
-
-  public async createOne(email: string): Promise<UserEntity> {
-    if ((await this.userRepository.count()) === 0) {
-      return this.userRepository.save(
-        this.userRepository.create({ email, role: UserRole.ADMIN })
-      );
-    }
+  public createOne(email: string): Promise<UserEntity> {
     return this.userRepository.save(this.userRepository.create({ email }));
   }
 
-  public markVerified(user: UserEntity): Promise<UserEntity> {
-    return this.userRepository.save({ ...user, isVerified: true });
-  }
-
-  /**
-   * Called to update a user's preferences
-   */
   public async updateOne(
     user: UserEntity,
     userUpdateDto: UserUpdateDto
@@ -57,6 +35,21 @@ export class UserService {
     }
   }
 
+  public findOne(
+    where: FindConditions<UserEntity>
+  ): Promise<UserEntity | undefined> {
+    return this.userRepository.findOne({ where });
+  }
+
+  public findOneOrFail(where: FindConditions<UserEntity>): Promise<UserEntity> {
+    return this.userRepository.findOneOrFail({ where });
+  }
+
+  public markVerified(user: UserEntity): Promise<UserEntity> {
+    const role = user.id === 1 ? UserRole.ADMIN : UserRole.USER;
+    return this.userRepository.save({ ...user, role });
+  }
+
   // Used by notification service
   public getCount(): Promise<number> {
     return this.userRepository.count();
@@ -68,6 +61,7 @@ export class UserService {
       .createQueryBuilder('user')
       .leftJoinAndSelect('user.subscriptions', 'subscription')
       .leftJoinAndSelect('subscription.show', 'show')
+      .orderBy('user.id', 'ASC')
       .skip(skip)
       .getOne();
   }
