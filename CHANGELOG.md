@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.4](https://github.com/grbull/lini/compare/v2.11.3...v2.11.4) (2021-07-17)
+
+
+### Bug Fixes
+
+* missing maskable icon ([9fcc634](https://github.com/grbull/lini/commit/9fcc634b0eb885690d4e36edf3ec331ec2bdec73))
+
 ### [2.11.3](https://github.com/grbull/lini/compare/v2.11.2...v2.11.3) (2021-07-17)
 
 
