@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.5](https://github.com/grbull/lini/compare/v2.11.4...v2.11.5) (2021-07-17)
+
+
+### Bug Fixes
+
+* missing icon in index.html ([090e219](https://github.com/grbull/lini/commit/090e219b247ba6b4bea4af7e02e718222bcf16be))
+
 ### [2.11.4](https://github.com/grbull/lini/compare/v2.11.3...v2.11.4) (2021-07-17)
 
 
