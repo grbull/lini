@@ -18,7 +18,7 @@ export class PushSubscriptionService {
     private readonly pushSubscriptionRepository: Repository<PushSubscriptionEntity>,
     private readonly configService: ConfigService
   ) {
-    this.loggerService.setContext('PushSubscriptionService ');
+    this.loggerService.setContext('PushSubscriptionService');
     this.setVapidDetails();
   }
 
@@ -44,12 +44,9 @@ export class PushSubscriptionService {
     });
 
     if (existingSub) {
-      await this.sendNotification(existingSub, {
-        title: 'Success',
-        message: 'Push notifications already enabled for this device.',
-      });
       return;
     }
+
     const pushSubscription = await this.pushSubscriptionRepository.save(
       this.pushSubscriptionRepository.create({ user: user.id, ...createDto })
     );
