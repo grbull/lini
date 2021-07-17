@@ -103,7 +103,7 @@ describe('TvMaze Utils', () => {
         runtime: 30,
         runtimeAverage: 30,
         scheduleDays: ['Sunday'],
-        scheduleTime: '23:00',
+        scheduleTime: '23:00:00',
         status: 'Running',
         summary:
           'Rick is a mentally gifted, but sociopathic and alcoholic scientist and a grandfather to Morty; an awkward, impressionable, and somewhat spineless teenage boy. Rick moves into the family home of Morty, where he immediately becomes a bad influence.',
@@ -205,7 +205,7 @@ describe('TvMaze Utils', () => {
       const episodeEntity = {
         airdate: '2013-12-02',
         airstamp: '2013-12-03T03:30:00+00:00',
-        airtime: '22:30',
+        airtime: '22:30:00',
         id: '14308',
         imageMedium: '/uploads/images/medium_landscape/292/730352.jpg',
         imageOriginal: '/uploads/images/original_untouched/292/730352.jpg',

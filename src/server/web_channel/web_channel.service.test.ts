@@ -43,7 +43,12 @@ describe('Network Service', () => {
       const networkEntity = {
         id: 1,
         name: 'Netflix',
-        country: 1,
+        country: {
+          code: 'US',
+          id: 1,
+          name: 'United States',
+          timezone: 'America/New_York',
+        },
       };
 
       expect(

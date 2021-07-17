@@ -1,5 +1,7 @@
 import { EpisodeEntity } from '../episode/episode.entity';
+import { NetworkEntity } from '../network/network.entity';
 import { ShowEntity } from '../show/show.entity';
+import { WebChannelEntity } from '../web_channel/web_channel.entity';
 import {
   DayOfWeek,
   TvMazeEpisode,
@@ -28,8 +30,8 @@ export function isValidTime(time: string): boolean {
 
 export function TvMazeShowToEntity(
   show: TvMazeShow | TvMazeShowEmbedded,
-  network: number | null,
-  webChannel: number | null
+  network: NetworkEntity | null,
+  webChannel: WebChannelEntity | null
 ): Omit<
   ShowEntity,
   'dateCreated' | 'dateUpdated' | 'episodes' | 'isSeeded' | 'subscriptions'
@@ -45,7 +47,9 @@ export function TvMazeShowToEntity(
     runtimeAverage: show.averageRuntime || null,
     datePremiered: show.premiered || null,
     officialSite: show.officialSite || null,
-    scheduleTime: isValidTime(show.schedule.time) ? show.schedule.time : null,
+    scheduleTime: isValidTime(show.schedule.time)
+      ? show.schedule.time + ':00'
+      : null,
     scheduleDays: show.schedule.days.map((day) => DayOfWeek[day]),
     rating: show.rating.average || null,
     weight: show.weight,
@@ -71,7 +75,7 @@ export function tvMazeEpisodeToEntity(
     number: episode.number,
     type: episode.type,
     airdate: episode.airdate.length !== 0 ? episode.airdate : null,
-    airtime: isValidTime(episode.airtime) ? episode.airtime : null,
+    airtime: isValidTime(episode.airtime) ? episode.airtime + ':00' : null,
     airstamp: episode.airstamp,
     runtime: episode.runtime,
     imageMedium: sanitizeUrl(episode.image?.medium),

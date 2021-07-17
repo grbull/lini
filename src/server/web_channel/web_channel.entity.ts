@@ -11,5 +11,5 @@ export class WebChannelEntity {
   name!: string;
 
   @ManyToOne(() => CountryEntity, (country) => country.id, { nullable: true })
-  country!: number | null;
+  country!: CountryEntity | null;
 }

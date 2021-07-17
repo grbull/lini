@@ -26,7 +26,7 @@ export class WebChannelService {
       : null;
     return this.webChannelRepository.save({
       ...webChannel,
-      country: country?.id,
+      country,
     });
   }
 }

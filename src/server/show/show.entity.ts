@@ -52,7 +52,7 @@ export class ShowEntity {
   scheduleTime!: string | null;
 
   @Column('enum', { enum: DayOfWeek, array: true })
-  scheduleDays!: DayOfWeek[];
+  scheduleDays!: (keyof typeof DayOfWeek)[];
 
   @Column('float', { nullable: true })
   rating!: number | null;
@@ -64,12 +64,12 @@ export class ShowEntity {
   @ManyToOne(() => NetworkEntity, (network) => network.id, {
     nullable: true,
   })
-  network!: number | null;
+  network!: NetworkEntity | null;
 
   @ManyToOne(() => WebChannelEntity, (webChannel) => webChannel.id, {
     nullable: true,
   })
-  webChannel!: number | null;
+  webChannel!: WebChannelEntity | null;
 
   @Column('integer', { nullable: true })
   @Exclude()
