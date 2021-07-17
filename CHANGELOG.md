@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.2](https://github.com/grbull/lini/compare/v2.11.1...v2.11.2) (2021-07-17)
+
+
+### Bug Fixes
+
+* admins didnt need to verify email ([2d703fd](https://github.com/grbull/lini/commit/2d703fd8cf1eb3db2e093f24ca0d7d827d40e3d9))
+* incorrect tvmaze types ([d472015](https://github.com/grbull/lini/commit/d4720157bb67c4fbc42928d3bc282dfd65ed0de6))
+* some joins were using id ([c4609c0](https://github.com/grbull/lini/commit/c4609c0cb4b14bee72385893bf8c54e5b9cd9d84))
+
 ### [2.11.1](https://github.com/grbull/lini/compare/v2.11.0...v2.11.1) (2021-07-08)
 
 
