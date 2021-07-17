@@ -6,7 +6,7 @@ import { LoggerService } from '../logger/logger.service';
 import { ShowEntity } from '../show/show.entity';
 import { SubscriptionEntity } from '../subscription/subscription.entity';
 import { SubscriptionService } from '../subscription/subscription.service';
-import { DayOfWeek, TvMazeShow } from '../tvmaze/tvmaze.types';
+import { TvMazeEpisode, TvMazeShow } from '../tvmaze/tvmaze.types';
 import { TvMazeShowToEntity } from '../tvmaze/tvmaze.utils';
 import { EpisodeEntity } from './episode.entity';
 import { EpisodeService } from './episode.service';
@@ -23,9 +23,9 @@ const seedShow: TvMazeShow = {
   averageRuntime: 30,
   premiered: '2013-12-02',
   officialSite: 'http://www.adultswim.com/videos/rick-and-morty',
-  schedule: { time: '23:30', days: [DayOfWeek.Sunday] },
+  schedule: { time: '23:00', days: ['Sunday'] },
   rating: { average: 9 },
-  weight: 99,
+  weight: 100,
   network: {
     id: 10,
     name: 'Adult Swim',
@@ -35,6 +35,7 @@ const seedShow: TvMazeShow = {
       timezone: 'America/New_York',
     },
   },
+  webChannel: null,
   dvdCountry: null,
   externals: { tvrage: 33381, thetvdb: 275274, imdb: 'tt2861424' },
   image: {
@@ -45,15 +46,15 @@ const seedShow: TvMazeShow = {
   },
   summary:
     '<p>Rick is a mentally gifted, but sociopathic and alcoholic scientist and a grandfather to Morty; an awkward, impressionable, and somewhat spineless teenage boy. Rick moves into the family home of Morty, where he immediately becomes a bad influence.</p>',
-  updated: 1621162918,
+  updated: 1626299432,
   _links: {
     self: { href: 'https://api.tvmaze.com/shows/216' },
-    previousepisode: { href: 'https://api.tvmaze.com/episodes/1839344' },
-    nextepisode: { href: 'https://api.tvmaze.com/episodes/2055782' },
+    previousepisode: { href: 'https://api.tvmaze.com/episodes/2121946' },
+    nextepisode: { href: 'https://api.tvmaze.com/episodes/2125581' },
   },
 };
 
-const seedEpisodes = [
+const seedEpisodes: TvMazeEpisode[] = [
   {
     id: 14308,
     url: 'https://www.tvmaze.com/episodes/14308/rick-and-morty-1x01-pilot',

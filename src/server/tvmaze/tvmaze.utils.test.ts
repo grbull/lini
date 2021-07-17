@@ -1,4 +1,4 @@
-import { DayOfWeek, TvMazeShow } from './tvmaze.types';
+import { TvMazeShow } from './tvmaze.types';
 import {
   isValidTime,
   sanitizeUrl,
@@ -12,8 +12,9 @@ describe('TvMaze Utils', () => {
     it('should strip html', () => {
       expect(stripHtml('<p>Test</p>')).toBe('Test');
     });
+
     it('should return null', () => {
-      expect(stripHtml(undefined)).toBe(null);
+      expect(stripHtml(null)).toBe(null);
     });
   });
 
@@ -24,6 +25,7 @@ describe('TvMaze Utils', () => {
       );
       expect(sanitizedUrl).toBe('/uploads/images/medium_portrait/1/3603.jpg');
     });
+
     it('should return null', () => {
       expect(sanitizeUrl(undefined)).toBe(null);
     });
@@ -34,6 +36,7 @@ describe('TvMaze Utils', () => {
       expect(isValidTime('00:00')).toBeTruthy();
       expect(isValidTime('23:59')).toBeTruthy();
     });
+
     it('should return false', () => {
       expect(isValidTime('24:00')).toBeFalsy();
       expect(isValidTime('23:60')).toBeFalsy();
@@ -55,9 +58,9 @@ describe('TvMaze Utils', () => {
         averageRuntime: 30,
         premiered: '2013-12-02',
         officialSite: 'http://www.adultswim.com/videos/rick-and-morty',
-        schedule: { time: '23:30', days: [DayOfWeek.Sunday] },
+        schedule: { time: '23:00', days: ['Sunday'] },
         rating: { average: 9 },
-        weight: 99,
+        weight: 100,
         network: {
           id: 10,
           name: 'Adult Swim',
@@ -67,6 +70,7 @@ describe('TvMaze Utils', () => {
             timezone: 'America/New_York',
           },
         },
+        webChannel: null,
         dvdCountry: null,
         externals: { tvrage: 33381, thetvdb: 275274, imdb: 'tt2861424' },
         image: {
@@ -77,11 +81,11 @@ describe('TvMaze Utils', () => {
         },
         summary:
           '<p>Rick is a mentally gifted, but sociopathic and alcoholic scientist and a grandfather to Morty; an awkward, impressionable, and somewhat spineless teenage boy. Rick moves into the family home of Morty, where he immediately becomes a bad influence.</p>',
-        updated: 1621162918,
+        updated: 1626299432,
         _links: {
           self: { href: 'https://api.tvmaze.com/shows/216' },
-          previousepisode: { href: 'https://api.tvmaze.com/episodes/1839344' },
-          nextepisode: { href: 'https://api.tvmaze.com/episodes/2055782' },
+          previousepisode: { href: 'https://api.tvmaze.com/episodes/2121946' },
+          nextepisode: { href: 'https://api.tvmaze.com/episodes/2125581' },
         },
       };
       const showEntity = {
@@ -99,7 +103,7 @@ describe('TvMaze Utils', () => {
         runtime: 30,
         runtimeAverage: 30,
         scheduleDays: ['Sunday'],
-        scheduleTime: '23:30',
+        scheduleTime: '23:00',
         status: 'Running',
         summary:
           'Rick is a mentally gifted, but sociopathic and alcoholic scientist and a grandfather to Morty; an awkward, impressionable, and somewhat spineless teenage boy. Rick moves into the family home of Morty, where he immediately becomes a bad influence.',
@@ -107,7 +111,7 @@ describe('TvMaze Utils', () => {
         tvrage: 33381,
         type: 'Animation',
         webChannel: null,
-        weight: 99,
+        weight: 100,
       };
       expect(TvMazeShowToEntity(tvMazeShow, null, null)).toStrictEqual(
         showEntity
@@ -115,34 +119,31 @@ describe('TvMaze Utils', () => {
     });
 
     it('should handle null/undefined values', () => {
-      const tvMazeShow = {
+      const tvMazeShow: TvMazeShow = {
         id: 216,
         url: 'https://www.tvmaze.com/shows/216/rick-and-morty',
         name: 'Rick and Morty',
         type: 'Animation',
+        language: null,
         genres: ['Comedy', 'Adventure', 'Science-Fiction'],
         status: 'Running',
-        schedule: { time: '', days: [] },
-        rating: {},
-        weight: 99,
-        network: {
-          id: 10,
-          name: 'Adult Swim',
-          country: {
-            name: 'United States',
-            code: 'US',
-            timezone: 'America/New_York',
-          },
-        },
+        runtime: null,
+        averageRuntime: null,
+        premiered: null,
+        officialSite: null,
+        schedule: { time: '', days: ['Sunday'] },
+        rating: { average: null },
+        weight: 100,
+        network: null,
+        webChannel: null,
         dvdCountry: null,
-        externals: {},
-        summary:
-          '<p>Rick is a mentally gifted, but sociopathic and alcoholic scientist and a grandfather to Morty; an awkward, impressionable, and somewhat spineless teenage boy. Rick moves into the family home of Morty, where he immediately becomes a bad influence.</p>',
-        updated: 1621162918,
+        externals: { tvrage: null, thetvdb: null, imdb: null },
+        image: null,
+        summary: null,
+        updated: 1626299432,
         _links: {
           self: { href: 'https://api.tvmaze.com/shows/216' },
-          previousepisode: { href: 'https://api.tvmaze.com/episodes/1839344' },
-          nextepisode: { href: 'https://api.tvmaze.com/episodes/2055782' },
+          previousepisode: { href: 'https://api.tvmaze.com/episodes/2121946' },
         },
       };
       const showEntity = {
@@ -159,16 +160,15 @@ describe('TvMaze Utils', () => {
         rating: null,
         runtime: null,
         runtimeAverage: null,
-        scheduleDays: [],
+        scheduleDays: ['Sunday'],
         scheduleTime: null,
         status: 'Running',
-        summary:
-          'Rick is a mentally gifted, but sociopathic and alcoholic scientist and a grandfather to Morty; an awkward, impressionable, and somewhat spineless teenage boy. Rick moves into the family home of Morty, where he immediately becomes a bad influence.',
+        summary: null,
         thetvdb: null,
         tvrage: null,
         type: 'Animation',
         webChannel: null,
-        weight: 99,
+        weight: 100,
       };
 
       expect(TvMazeShowToEntity(tvMazeShow, null, null)).toStrictEqual(
@@ -236,8 +236,8 @@ describe('TvMaze Utils', () => {
         airtime: '',
         airstamp: '2013-12-03T03:30:00+00:00',
         runtime: 30,
-        summary:
-          "<p>Rick takes Morty to another dimension to get some seeds for him but Morty's parents are considering to put Rick in a retirement home for keeping Morty away from school to help him in his lab.</p>",
+        image: null,
+        summary: null,
         _links: {
           self: { href: 'https://api.tvmaze.com/episodes/14308' },
         },
@@ -254,8 +254,7 @@ describe('TvMaze Utils', () => {
         runtime: 30,
         season: 1,
         show: 216,
-        summary:
-          "Rick takes Morty to another dimension to get some seeds for him but Morty's parents are considering to put Rick in a retirement home for keeping Morty away from school to help him in his lab.",
+        summary: null,
         type: 'regular',
       };
 

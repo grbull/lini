@@ -10,11 +10,11 @@ export enum DayOfWeek {
 
 interface Schedule {
   time: string;
-  days: DayOfWeek[];
+  days: (keyof typeof DayOfWeek)[];
 }
 
 interface Rating {
-  average?: number;
+  average: number | null;
 }
 
 export interface TvMazeCountry {
@@ -32,13 +32,13 @@ export interface TvMazeNetwork {
 export interface TvMazeWebChannel {
   id: number;
   name: string;
-  country?: TvMazeCountry;
+  country: TvMazeCountry | null;
 }
 
 interface Externals {
-  tvrage?: number;
-  thetvdb?: number;
-  imdb?: string;
+  tvrage: number | null;
+  thetvdb: number | null;
+  imdb: string | null;
 }
 
 interface Image {
@@ -61,7 +61,7 @@ interface Nextepisode {
 interface LinksShow {
   self: Self;
   previousepisode: Previousepisode;
-  nextepisode: Nextepisode;
+  nextepisode?: Nextepisode;
 }
 
 interface LinksEpisode {
@@ -74,24 +74,24 @@ export interface TvMazeShow {
   url: string;
   name: string;
   type: string;
-  language?: string;
+  language: string | null;
   genres: string[];
   status: string;
-  runtime?: number;
-  premiered?: string;
-  officialSite?: string;
+  runtime: number | null;
+  averageRuntime: number | null;
+  premiered: string | null;
+  officialSite: string | null;
   schedule: Schedule;
   rating: Rating;
   weight: number;
-  network?: TvMazeNetwork;
-  webChannel?: TvMazeWebChannel;
-  dvdCountry?: unknown;
+  network: TvMazeNetwork | null;
+  webChannel: TvMazeWebChannel | null;
+  dvdCountry: unknown | null;
   externals: Externals;
-  image?: Image;
-  summary: string;
+  image: Image | null;
+  summary: string | null;
   updated: number;
   _links: LinksShow;
-  averageRuntime?: number;
 }
 
 export interface TvMazeShowEmbedded extends TvMazeShow {
@@ -107,12 +107,12 @@ export interface TvMazeEpisode {
   season: number;
   number: number;
   type: string;
-  airdate: string;
-  airtime: string;
+  airdate: string; // Can sometimes return ""
+  airtime: string; // Can sometimes return ""
   airstamp: string;
   runtime: number;
-  image?: Image;
-  summary: string;
+  image: Image | null;
+  summary: string | null;
   _links: LinksEpisode;
 }
 

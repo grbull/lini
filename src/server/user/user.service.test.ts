@@ -22,6 +22,7 @@ describe('User Service', () => {
     userService = new UserService(loggerService, userRepository);
   });
   afterAll(async () => await connection.close());
+
   describe('createOne', () => {
     it('should create a user with id 1', async () => {
       const user: Partial<UserEntity> = {

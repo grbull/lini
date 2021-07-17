@@ -1,8 +1,13 @@
 import { EpisodeEntity } from '../episode/episode.entity';
 import { ShowEntity } from '../show/show.entity';
-import { TvMazeEpisode, TvMazeShow, TvMazeShowEmbedded } from './tvmaze.types';
+import {
+  DayOfWeek,
+  TvMazeEpisode,
+  TvMazeShow,
+  TvMazeShowEmbedded,
+} from './tvmaze.types';
 
-export function stripHtml(string?: string): string | null {
+export function stripHtml(string: string | null): string | null {
   if (string) {
     return string.replace(/<\/?[^>]+(>|$)/gu, '');
   }
@@ -41,7 +46,7 @@ export function TvMazeShowToEntity(
     datePremiered: show.premiered || null,
     officialSite: show.officialSite || null,
     scheduleTime: isValidTime(show.schedule.time) ? show.schedule.time : null,
-    scheduleDays: show.schedule.days,
+    scheduleDays: show.schedule.days.map((day) => DayOfWeek[day]),
     rating: show.rating.average || null,
     weight: show.weight,
     network,

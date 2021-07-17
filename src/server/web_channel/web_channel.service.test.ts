@@ -34,11 +34,16 @@ describe('Network Service', () => {
       const tvMazeWebChannel = {
         id: 1,
         name: 'Netflix',
+        country: {
+          name: 'United States',
+          code: 'US',
+          timezone: 'America/New_York',
+        },
       };
       const networkEntity = {
-        country: undefined,
         id: 1,
         name: 'Netflix',
+        country: 1,
       };
 
       expect(

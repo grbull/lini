@@ -38,6 +38,7 @@ const seedShow: TvMazeShow = {
       timezone: 'America/New_York',
     },
   },
+  webChannel: null,
   dvdCountry: null,
   externals: { tvrage: 33381, thetvdb: 275274, imdb: 'tt2861424' },
   image: {
