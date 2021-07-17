@@ -25,7 +25,7 @@ export class ShowService {
    * Used for search and autocomplete when typing in a search box. Returns 5 items
    * Considering returning paginated result for search. TBD
    */
-  public autocomplete(query: string): Promise<ShowEntity[]> {
+  public autoComplete(query: string): Promise<ShowEntity[]> {
     return this.showRepository
       .createQueryBuilder('show')
       .where({

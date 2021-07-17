@@ -20,7 +20,7 @@ export class ShowController {
 
   @Get('autocomplete')
   public autoComplete(@Query('q') query: string): Promise<ShowEntity[]> {
-    return this.showService.autocomplete(query);
+    return this.showService.autoComplete(query);
   }
 
   @Get('search/:searchQuery')
