@@ -24,7 +24,7 @@
     "util:seed": "npm run server:build && node --max-old-space-size=250 dist/server/scripts/seed.js",
     "util:updateTest": "npm run server:build && node --max-old-space-size=250 dist/server/scripts/update.js",
     "util:pushTest": "npm run server:build && node --max-old-space-size=250 dist/server/scripts/test_push.js",
-    "lint": "eslint 'src/**/*.ts' && prettier --check 'src/**/*.ts'",
+    "lint": "eslint 'src/**/*.{tsx,ts}' && prettier --check 'src/**/*.(ts|tsx)'",
     "prepare": "husky install",
     "release": "standard-version",
     "test": "TZ=GMT jest"
