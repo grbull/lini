@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.3](https://github.com/grbull/lini/compare/v2.11.2...v2.11.3) (2021-07-17)
+
+
+### Bug Fixes
+
+* missing a meta description for seo ([5aeffda](https://github.com/grbull/lini/commit/5aeffda566731457916110e592e3d55c3ef2775c))
+* missing a title on home view ([80b21e2](https://github.com/grbull/lini/commit/80b21e26333fdf5c00b6d8620c8aa4e76c651033))
+
 ### [2.11.2](https://github.com/grbull/lini/compare/v2.11.1...v2.11.2) (2021-07-17)
 
 
