@@ -53,9 +53,9 @@ export class ShowService {
       .getMany();
   }
 
-  public getOne(id: number): Promise<ShowEntity> {
+  public async getOne(id: number): Promise<ShowEntity> {
     try {
-      return this.showRepository
+      return await this.showRepository
         .createQueryBuilder('show')
         .where('show.id = :id', { id })
         .leftJoinAndSelect('show.network', 'network')
@@ -71,14 +71,40 @@ export class ShowService {
   }
 
   // All of the below is used primarily for seeding and updating from tvmaze
-  private async createOneFromTvMaze(
+
+  /**
+   * Used when seeding series. We filter out existing to avoid altering
+   * the update column. We want to avoid marking series as updated, when we
+   * havn't updated the relevant episodes.
+   */
+  public async createMany(shows: TvMazeShow[]): Promise<ShowEntity[]> {
+    // Filter out existing shows
+    const existingShows = await this.showRepository.find({
+      select: ['id'],
+      where: shows.map((show) => ({ id: show.id })),
+    });
+    const showsToCreate = shows.filter(
+      (show) => !existingShows.find(({ id }) => id === show.id)
+    );
+
+    const showEntities: ShowEntity[] = [];
+
+    // Must be done synchronously to avoid duplicate relations
+    for (const show of showsToCreate) {
+      showEntities.push(await this.createOne(show));
+    }
+
+    return this.showRepository.save(showEntities);
+  }
+
+  private async createOne(
     show: TvMazeShow | TvMazeShowEmbedded
   ): Promise<ShowEntity> {
     const webChannel = show.webChannel
-      ? (await this.webChannelService.createOrUpdate(show.webChannel)).id
+      ? await this.webChannelService.createOrUpdate(show.webChannel)
       : null;
     const network = show.network
-      ? (await this.networkService.createOrUpdate(show.network)).id
+      ? await this.networkService.createOrUpdate(show.network)
       : null;
 
     return this.showRepository.create(
@@ -86,50 +112,12 @@ export class ShowService {
     );
   }
 
-  private async createManyFromTvMaze(
-    shows: TvMazeShow[] | TvMazeShowEmbedded[]
-  ): Promise<ShowEntity[]> {
-    const showEntities: ShowEntity[] = [];
-
-    // Must be done synchronously to avoid duplicate relations
-    for (const show of shows) {
-      showEntities.push(await this.createOneFromTvMaze(show));
-    }
-    return showEntities;
-  }
-
-  private async filterExisting(shows: TvMazeShow[]): Promise<TvMazeShow[]> {
-    const existingShows = await this.showRepository.find({
-      select: ['id'],
-      where: shows.map((show) => Object({ id: show.id })),
-    });
-
-    return shows.filter(
-      (show) =>
-        !existingShows.find((existingShow) => existingShow.id === show.id)
-    );
-  }
-
-  /**
-   * Used when seeding series. We filter out existing to avoid altering
-   * the update column. We want to avoid marking series as updated, when we
-   * havn't updated the relevant episodes.
-   */
-  public async createManyIfDoesNotExist(
-    shows: TvMazeShow[]
-  ): Promise<ShowEntity[]> {
-    const showsToCreate = await this.filterExisting(shows);
-    const showEntities = await this.createManyFromTvMaze(showsToCreate);
-
-    return this.showRepository.save(showEntities);
-  }
-
-  public async deleteOneById(showId: number): Promise<void> {
+  public async deleteOne(showId: number): Promise<void> {
     await this.showRepository.delete(showId);
   }
 
-  public async updateShow(show: TvMazeShowEmbedded): Promise<ShowEntity> {
-    const showEntity = await this.createOneFromTvMaze(show);
+  public async updateOne(show: TvMazeShowEmbedded): Promise<ShowEntity> {
+    const showEntity = await this.createOne(show);
     return this.showRepository.save(showEntity);
   }
 

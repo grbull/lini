@@ -57,7 +57,7 @@ export class TvMazeService {
 
       try {
         const shows = await tvMazeApi.fetchShowsByIndex(currentPage);
-        await this.showService.createManyIfDoesNotExist(shows);
+        await this.showService.createMany(shows);
       } catch (error) {
         if (error.response.status === 404) {
           // If we get a 404 response code, we've gone through all the pages.
@@ -133,7 +133,7 @@ export class TvMazeService {
         this.loggerService.debug(
           `Show no longer exists on API, deleting show. ID: ${showId}`
         );
-        await this.showService.deleteOneById(showId);
+        await this.showService.deleteOne(showId);
       }
       this.loggerService.error(error);
     }
@@ -148,7 +148,7 @@ export class TvMazeService {
     for (const showId of showsToUpdate) {
       const showEmbedded = await this.updateEpisodes(showId);
       if (showEmbedded) {
-        await this.showService.updateShow(showEmbedded);
+        await this.showService.updateOne(showEmbedded);
       }
     }
 
