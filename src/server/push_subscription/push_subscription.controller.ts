@@ -26,7 +26,6 @@ export class PushSubscriptionController {
     @User() user: UserEntity,
     @Body() createDto: PushSubscriptionCreateDto
   ): Promise<void> {
-    console.log(createDto);
     return this.pushSubscriptionService.create(user, createDto);
   }
 }
