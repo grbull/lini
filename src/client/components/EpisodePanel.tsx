@@ -42,17 +42,18 @@ export function EpisodePanel({ episodes }: Props): ReactElement {
                 'whitespace-nowrap',
                 'overflow-hidden',
                 'overflow-ellipsis',
-                'font-bold',
+                'text-lg',
+                'font-semibold',
                 'mt-1'
               )}
             >
               {episode.show.name}
             </span>
-            <span className={cn('block')}>
+            <span className={cn('block', 'text-sm', '')}>
               {formatEpisodeCode(episode.season, episode.number)}
             </span>
             <time
-              className={cn('block')}
+              className={cn('block', 'text-sm', 'font-light')}
               dateTime={episode.airstamp || undefined}
             >
               {episode.airstamp ? dateFromNow(episode.airstamp) : 'N/A'}

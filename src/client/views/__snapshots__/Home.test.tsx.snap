@@ -115,17 +115,17 @@ exports[`Home View matches the snapshot when loaded with data 1`] = `
         class="h-18"
       >
         <span
-          class="block whitespace-nowrap overflow-hidden overflow-ellipsis font-bold mt-1"
+          class="block whitespace-nowrap overflow-hidden overflow-ellipsis text-lg font-semibold mt-1"
         >
           Rick and Morty
         </span>
         <span
-          class="block"
+          class="block text-sm"
         >
           S01E01
         </span>
         <time
-          class="block"
+          class="block text-sm font-light"
           datetime="2013-12-03T03:30:00.000Z"
         >
           7 years ago
@@ -162,17 +162,17 @@ exports[`Home View matches the snapshot when loaded with data 1`] = `
         class="h-18"
       >
         <span
-          class="block whitespace-nowrap overflow-hidden overflow-ellipsis font-bold mt-1"
+          class="block whitespace-nowrap overflow-hidden overflow-ellipsis text-lg font-semibold mt-1"
         >
           Rick and Morty
         </span>
         <span
-          class="block"
+          class="block text-sm"
         >
           S01E01
         </span>
         <time
-          class="block"
+          class="block text-sm font-light"
           datetime="2013-12-03T03:30:00.000Z"
         >
           7 years ago

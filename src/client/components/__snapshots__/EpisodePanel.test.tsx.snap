@@ -26,17 +26,17 @@ exports[`EpisodePanel Component matches the snapshot 1`] = `
         class="h-18"
       >
         <span
-          class="block whitespace-nowrap overflow-hidden overflow-ellipsis font-bold mt-1"
+          class="block whitespace-nowrap overflow-hidden overflow-ellipsis text-lg font-semibold mt-1"
         >
           Loki
         </span>
         <span
-          class="block"
+          class="block text-sm"
         >
           S01E05
         </span>
         <time
-          class="block"
+          class="block text-sm font-light"
           datetime="2021-07-07T12:00:00.000Z"
         >
           in 20 hours
