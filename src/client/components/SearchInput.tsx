@@ -28,6 +28,8 @@ export function SearchInput(): ReactElement {
     <div className={cn('px-2')}>
       <input
         aria-label="search-input"
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus
         className={cn(
           'w-full',
           'mb-4',
