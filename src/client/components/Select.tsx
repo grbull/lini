@@ -14,7 +14,7 @@ export function Select({ onChange, value }: Props): ReactElement {
       defaultValue={value}
       id="theme"
       name="theme"
-      onBlur={onChange}
+      onChange={onChange}
     >
       <option value="auto">Auto (system)</option>
 

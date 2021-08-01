@@ -8,6 +8,7 @@
   "extends": ["gbx", "gbx/react", "gbx/typescript"],
   "rules": {
     "@typescript-eslint/no-var-requires": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "jsx-a11y/no-onchange": "off"
   }
 }
