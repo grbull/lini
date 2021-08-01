@@ -28,12 +28,14 @@ export function ShowGrid({ shows }: Props): ReactElement {
               { 'border-green-500': show.status === 'Running' },
               { 'border-yellow-500': show.status === 'To Be Determined' },
               { 'border-yellow-500': show.status === 'In Development' },
-              { 'border-red-500': show.status === 'Ended' }
+              { 'border-red-500': show.status === 'Ended' },
+              'shadow'
             )}
             to={`/show/${show.id}`}
           >
             <FixedImage
               alt={show.name}
+              className={cn('box-border', 'p-1', 'border-2', 'border-gray-800')}
               fullHeight={295}
               fullWidth={210}
               skeletonClassName={cn('bg-gray-800')}
