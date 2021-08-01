@@ -77,6 +77,7 @@ export class EpisodeService {
       order: {
         airstamp: 'DESC',
         number: 'DESC',
+        name: 'ASC',
       },
       relations: ['show'],
     });
