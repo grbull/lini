@@ -113,6 +113,12 @@ exports[`Episode View matches the snapshot when there is an episode 1`] = `
       <div
         class="m-2 px-2 py-3 bg-gray-200 dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-80 overflow-hidden"
       >
+        <a
+          class="hidden md:block text-xl text-center mb-4"
+          href="/show/216"
+        >
+          Rick and Morty
+        </a>
         <div
           class="w-full h-6 flex justify-between"
         >

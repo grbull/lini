@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 import { EpisodeDto } from '../../server/episode/episode.dto';
 import { dateToLocaleDate, dateToLocaleTime } from '../utils/date';
@@ -15,6 +16,12 @@ interface Props {
 export function EpisodeInfo({ episode }: Props): ReactElement {
   return (
     <InfoCard>
+      <Link
+        className={cn('hidden md:block', 'text-xl', 'text-center', 'mb-4')}
+        to={`/show/${episode.show.id}`}
+      >
+        {episode.show.name}
+      </Link>
       <div className={cn('w-full', 'h-6', 'flex', 'justify-between')}>
         <h2 className={cn('font-bold')}>{episode.name}</h2>
         <p>{formatEpisodeCode(episode.season, episode.number)}</p>
