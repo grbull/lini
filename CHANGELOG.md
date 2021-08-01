@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/grbull/lini/compare/v2.11.6...v2.12.0) (2021-08-01)
+
+
+### Features
+
+* added a border to showgrid item ([864d58a](https://github.com/grbull/lini/commit/864d58a19955dc1f063b277dd6922e131e2ecb9c)), closes [#64](https://github.com/grbull/lini/issues/64)
+* improve typography in episode panel ([c1f6fab](https://github.com/grbull/lini/commit/c1f6fab489b96f35a41fd3868d2e8a9554c55d3f))
+
+
+### Bug Fixes
+
+* episodes with same numer and time ([2775568](https://github.com/grbull/lini/commit/277556880d58c9d6a36d485a97781fe02916e58e)), closes [#58](https://github.com/grbull/lini/issues/58)
+* missing link to show in episode view ([8590f0f](https://github.com/grbull/lini/commit/8590f0f3f3d13b07399c8f2e30cd9f7d6956c028)), closes [#65](https://github.com/grbull/lini/issues/65)
+* search doesn't autofocus ([8571a64](https://github.com/grbull/lini/commit/8571a6412826ad37d4bab3190102f91a5ea37107)), closes [#60](https://github.com/grbull/lini/issues/60)
+* search error is persistent ([799af21](https://github.com/grbull/lini/commit/799af21783bbd984061c11d59f41b4d7854fbd80))
+* select is changed on blur ([e9dc810](https://github.com/grbull/lini/commit/e9dc810643b5354ec2881443bc23923036eacaac)), closes [#61](https://github.com/grbull/lini/issues/61)
+* some light mode styles ([d82d963](https://github.com/grbull/lini/commit/d82d96352c0284c9bb103d6fba19f785a93af3f4))
+
 ### [2.11.6](https://github.com/grbull/lini/compare/v2.11.4...v2.11.6) (2021-07-17)
 
 
