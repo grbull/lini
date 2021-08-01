@@ -22,7 +22,7 @@ exports[`Preferences Component matches the snapshot 1`] = `
     <span>
       <select
         aria-label="theme-select"
-        class="bg-gray-500 py-1 rounded"
+        class="bg-gray-200 dark:bg-gray-500 py-1 rounded"
         id="theme"
         name="theme"
       >

@@ -106,7 +106,7 @@ exports[`Library View matches the snapshot when loaded with data 1`] = `
         href="/show/41007"
       >
         <div
-          class="h-0 relative box-border p-1 border-2 border-gray-800"
+          class="h-0 relative box-border p-1 border-2 border-gray-200 dark:border-gray-800"
           style="padding-top: 140.47619047619045%;"
         >
           <div
@@ -137,7 +137,7 @@ exports[`Library View matches the snapshot when loaded with data 1`] = `
         href="/show/216"
       >
         <div
-          class="h-0 relative box-border p-1 border-2 border-gray-800"
+          class="h-0 relative box-border p-1 border-2 border-gray-200 dark:border-gray-800"
           style="padding-top: 140.47619047619045%;"
         >
           <div

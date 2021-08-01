@@ -10,7 +10,7 @@ export function Select({ onChange, value }: Props): ReactElement {
   return (
     <select
       aria-label="theme-select"
-      className={cn('bg-gray-500', 'py-1', 'rounded')}
+      className={cn('bg-gray-200 dark:bg-gray-500', 'py-1', 'rounded')}
       defaultValue={value}
       id="theme"
       name="theme"

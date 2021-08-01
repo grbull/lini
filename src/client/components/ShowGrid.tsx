@@ -35,7 +35,12 @@ export function ShowGrid({ shows }: Props): ReactElement {
           >
             <FixedImage
               alt={show.name}
-              className={cn('box-border', 'p-1', 'border-2', 'border-gray-800')}
+              className={cn(
+                'box-border',
+                'p-1',
+                'border-2',
+                'border-gray-200 dark:border-gray-800'
+              )}
               fullHeight={295}
               fullWidth={210}
               skeletonClassName={cn('bg-gray-800')}
