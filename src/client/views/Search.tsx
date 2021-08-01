@@ -1,16 +1,22 @@
 import cn from 'classnames';
-import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import React, { ReactElement, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { PageHeader } from '../components/PageHeader';
 import { SearchInput } from '../components/SearchInput';
 import { ShowGrid } from '../components/ShowGrid';
 import { ShowGridSkeleton } from '../components/ShowGridSkeleton';
+import { searchActions } from '../redux/search';
 import { RootState } from '../redux/store';
 import { Error } from './Error';
 
 export function Search(): ReactElement {
   const search = useSelector((state: RootState) => state.search);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(searchActions.reset());
+  }, [dispatch]);
 
   if (search.status === 'error') {
     return <Error error={search.error} />;
