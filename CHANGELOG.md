@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.12.1](https://github.com/grbull/lini/compare/v2.12.0...v2.12.1) (2021-08-04)
+
+
+### Bug Fixes
+
+* broken login flow ([9ee35d3](https://github.com/grbull/lini/commit/9ee35d347a52e33e3b89d602de84c92ce2964dc0)), closes [#57](https://github.com/grbull/lini/issues/57)
+* home screen icon has white border ([bde359e](https://github.com/grbull/lini/commit/bde359e6e04fcbd027fc95e6217f45ed951b808b)), closes [#59](https://github.com/grbull/lini/issues/59)
+* ip is incorrect in magic link email ([1273e6f](https://github.com/grbull/lini/commit/1273e6f0292f7ee1466015a00b1e3cadba83321f)), closes [#55](https://github.com/grbull/lini/issues/55)
+
 ## [2.12.0](https://github.com/grbull/lini/compare/v2.11.6...v2.12.0) (2021-08-01)
 
 
