@@ -27,6 +27,9 @@ async function bootstrap(): Promise<void> {
       origin: configService.get('CLIENT_URL'),
       credentials: true,
     });
+    // Productiopn only settings
+  } else {
+    app.set('trust proxy', true);
   }
 
   // Initialize express session using a redis store
