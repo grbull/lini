@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.12.2](https://github.com/grbull/lini/compare/v2.12.1...v2.12.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* attempt to home screen / splash icon ([f918651](https://github.com/grbull/lini/commit/f918651ed4a5410e873be935a40e95bf2763804e)), closes [#59](https://github.com/grbull/lini/issues/59)
+* broken email layout on mobile ([94a468f](https://github.com/grbull/lini/commit/94a468f9a19028312083620a31dfb6c019fd4f3c)), closes [#56](https://github.com/grbull/lini/issues/56)
+* home screen icon has white border ([977b802](https://github.com/grbull/lini/commit/977b8024babcbcedd848fb33dd0b2f83d2a4bc98)), closes [#67](https://github.com/grbull/lini/issues/67) [#59](https://github.com/grbull/lini/issues/59)
+* login button in light theme difficult to see ([1989c2c](https://github.com/grbull/lini/commit/1989c2c68662488b31c5a578696d34fe8654e7d5)), closes [#54](https://github.com/grbull/lini/issues/54)
+
 ### [2.12.1](https://github.com/grbull/lini/compare/v2.12.0...v2.12.1) (2021-08-04)
 
 
