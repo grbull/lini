@@ -59,7 +59,7 @@ export function LoginForm({ onSubmit }: Props): ReactElement {
           'border-solid',
           {
             'border-gray-200': isEmailValid === undefined,
-            'border-green-200 ': isEmailValid === true,
+            'border-green-400 dark:border-green-200 ': isEmailValid === true,
             'border-red-200': isEmailValid === false,
           },
           {
@@ -78,27 +78,30 @@ export function LoginForm({ onSubmit }: Props): ReactElement {
         placeholder="Email"
         value={email}
       />
-      <button
-        className={cn(
-          'w-28',
-          'py-2',
-          'border-2',
-          'border-solid',
-          'border-green-200',
-          'text-green-200',
-          'hover:border-green-300',
-          'hover:text-green-300',
-          'disabled:opacity-50',
-          'disabled:border-gray-200',
-          'disabled:text-gray-200',
-          'disabled:cursor-not-allowed'
-        )}
-        disabled={!isEmailValid}
-        onClick={clickHandler}
-        type="button"
-      >
-        Request Link
-      </button>
+      <div className={cn('flex', 'items-center')}>
+        <button
+          className={cn(
+            'w-28',
+            'py-2',
+            'mx-auto',
+            'border-2',
+            'border-solid',
+            'border-green-400 dark:border-green-200',
+            'text-green-400 dark:text-green-200',
+            'hover:border-green-500 dark:hover:border-green-300',
+            'hover:text-green-500 dark:hover:text-green-300',
+            'disabled:opacity-50',
+            'dark:disabled:border-gray-200',
+            'dark:disabled:text-gray-200',
+            'disabled:cursor-not-allowed'
+          )}
+          disabled={!isEmailValid}
+          onClick={clickHandler}
+          type="button"
+        >
+          Request Link
+        </button>
+      </div>
     </form>
   );
 }
