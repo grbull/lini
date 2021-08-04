@@ -13,6 +13,7 @@ import { userActions } from './redux/user';
 import { Episode } from './views/Episode';
 import { Home } from './views/Home';
 import { Library } from './views/Library';
+import { Loading } from './views/Loading';
 import { Login } from './views/Login';
 import { NotFound } from './views/NotFound';
 import { Search } from './views/Search';
@@ -29,8 +30,8 @@ export function App(): ReactElement {
     dispatch(userActions.get());
   }, [dispatch]);
 
-  if (!user.data && user.status === 'loading') {
-    return <div>Loading</div>;
+  if (user.status === 'loading') {
+    return <Loading theme={theme} />;
   }
   return (
     <>

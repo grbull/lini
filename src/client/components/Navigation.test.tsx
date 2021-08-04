@@ -18,7 +18,9 @@ describe('Navigation Component', () => {
 
   it('matches the snapshot with user error', () => {
     const { asFragment } = testSetup(<Navigation />, {
-      state: { user: { status: 'error', error: 'Generic Error' } },
+      state: {
+        user: { status: 'error', isLoggedIn: false, error: 'Generic Error' },
+      },
     });
 
     expect(asFragment()).toMatchSnapshot();

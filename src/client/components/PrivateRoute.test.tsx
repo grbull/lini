@@ -18,6 +18,7 @@ describe('PrivateRoute Component', () => {
     const initialState: Partial<RootState> = {
       user: {
         status: 'idle',
+        isLoggedIn: true,
         data: {
           theme: 'auto',
           email: 'test@email.com',
@@ -43,6 +44,7 @@ describe('PrivateRoute Component', () => {
     const initialState: Partial<RootState> = {
       user: {
         status: 'error',
+        isLoggedIn: false,
         error: 'Generic Error',
       },
     };

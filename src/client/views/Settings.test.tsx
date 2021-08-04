@@ -21,6 +21,7 @@ describe('Settings View', () => {
     const initialState: Partial<RootState> = {
       user: {
         status: 'idle',
+        isLoggedIn: true,
         data: {
           email: 'test@email.com',
           theme: 'auto',

@@ -29,7 +29,7 @@ describe('Validate View', () => {
 
   it('matches the snapshot when error', () => {
     const initialState: Partial<RootState> = {
-      user: { status: 'error', error: 'Generic error' },
+      user: { status: 'error', isLoggedIn: false, error: 'Generic error' },
     };
 
     const { asFragment } = testSetup(<Validate />, { state: initialState });
@@ -39,7 +39,7 @@ describe('Validate View', () => {
 
   it('matches the snapshot when loading', () => {
     const initialState: Partial<RootState> = {
-      user: { status: 'loading' },
+      user: { status: 'loading', isLoggedIn: false },
     };
 
     const { asFragment } = testSetup(<Validate />, { state: initialState });
@@ -51,6 +51,7 @@ describe('Validate View', () => {
     const initialState: Partial<RootState> = {
       user: {
         status: 'idle',
+        isLoggedIn: true,
         data: {
           email: 'test@email.com',
           theme: 'auto',
@@ -87,7 +88,7 @@ describe('Validate View', () => {
 
   it('should trigger dispatch with token and user error', () => {
     const initialState: Partial<RootState> = {
-      user: { status: 'error', error: 'Generic error' },
+      user: { status: 'error', isLoggedIn: false, error: 'Generic error' },
     };
 
     const { dispatch } = testSetup(<Validate />, { state: initialState });

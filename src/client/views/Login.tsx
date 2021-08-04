@@ -23,7 +23,7 @@ export function Login(): ReactElement {
   }
 
   const user = useSelector((state: RootState) => state.user);
-  if (user.data && !user.error) {
+  if (user.isLoggedIn) {
     return <Redirect to="/" />;
   }
 

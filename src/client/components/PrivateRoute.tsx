@@ -7,7 +7,7 @@ import { RootState } from '../redux/store';
 export function PrivateRoute({ ...rest }: RouteProps): ReactElement {
   const user = useSelector((state: RootState) => state.user);
 
-  return user.data && !user.error ? (
+  return user.isLoggedIn ? (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <Route {...rest} />
   ) : (

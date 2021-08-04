@@ -15,6 +15,7 @@ describe('Preferences Component', () => {
   const initialState: Partial<RootState> = {
     user: {
       status: 'idle',
+      isLoggedIn: true,
       data: {
         theme: 'auto',
         email: 'test@email.com',

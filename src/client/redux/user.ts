@@ -11,11 +11,13 @@ import { subscriptionActions } from './subscription';
 type UserState = {
   status: 'init' | 'loading' | 'idle' | 'error';
   data?: UserDto;
+  isLoggedIn: boolean;
   error?: string;
 };
 
 const initialState: UserState = {
   status: 'init',
+  isLoggedIn: false,
 };
 
 export const get = createAsyncThunk<UserDto, void>(
@@ -55,10 +57,12 @@ export const user = createSlice({
     builder.addCase(get.fulfilled, (state, { payload }) => {
       state.status = 'idle';
       state.data = payload;
+      state.isLoggedIn = true;
       state.error = undefined;
     });
     builder.addCase(get.rejected, (state, { error }) => {
       state.status = 'error';
+      state.isLoggedIn = false;
       state.error = error.message;
     });
 
@@ -83,6 +87,7 @@ export const user = createSlice({
     builder.addCase(validateToken.fulfilled, (state, { payload }) => {
       state.status = 'idle';
       state.data = payload;
+      state.isLoggedIn = true;
       state.error = undefined;
     });
     builder.addCase(validateToken.rejected, (state, { error }) => {
