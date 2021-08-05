@@ -3,17 +3,47 @@
 html()
   head()
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-  body(style={color: '#E7F4F6', background: '#374151'})
-    div(style={background: '#4B5563', 'max-width': '720px', margin: 'auto', padding: '10px', display: 'flex', 'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'center'})
+    style(type="text/css").
+      body {
+        background: #fff;
+        color: #3a3a3a;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+      }
+      .main {
+        max-width: 720px;
+        margin: auto;
+        padding: 10px;
+      }
+      .warning {
+        color: #f59e0b;
+      }
+      .info {
+        background-color: rgb(240, 240, 240);
+        padding: 20px;
+        list-style: none;
+      }
+      .link_wrapper {
+        padding-top: 8px;
+        text-align: center;
+      }
+      .link {
+        color: #15c;
+        background: rgba(17, 86, 204, 0.2);
+        border: 2px solid #15c;
+        font-weight: 600;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+  body()
+    div(class='main')
       h1 Lini
       h3 Please complete the login process by clicking confirm.
-      p(style={color: '#F59E0B'}) If you did not request a magic link, please ignore this email.
-      ul
+      p(class='warning') If you did not request a magic link, please ignore this email.
+      ul(class='info')
         li <strong>Account</strong>: #{email}
         li <strong>When:</strong> #{date}
         li <strong>Device:</strong> #{userAgent}
         li <strong>IP:</strong> #{ip}
-      a(
-        href=link
-        style={color: '#10B981', 'font-weight': '600'}
-      ) Confirm
+      div(class='link_wrapper')
+        a(class='link', href=link) Login
