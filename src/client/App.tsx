@@ -30,9 +30,10 @@ export function App(): ReactElement {
     dispatch(userActions.get());
   }, [dispatch]);
 
-  if (user.status === 'loading') {
+  if (!user.isLoggedIn && user.status === 'loading') {
     return <Loading theme={theme} />;
   }
+
   return (
     <>
       <Helmet>
