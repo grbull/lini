@@ -7,6 +7,7 @@ import cn from 'classnames';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { RootState } from '../redux/store';
 import { NavigationItem } from './NavigationItem';
@@ -44,12 +45,12 @@ export function Navigation(): ReactElement {
           'md:px-2.5'
         )}
       >
-        <a
+        <Link
           className={cn('hidden', 'md:block', 'font-semibold', 'text-2xl')}
-          href="/"
+          to="/"
         >
           Lini
-        </a>
+        </Link>
         <div className={cn('h-full', 'flex', 'justify-around', 'items-center')}>
           <NavigationItem
             icon={faHome}
