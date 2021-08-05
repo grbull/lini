@@ -6,6 +6,7 @@ import { EpisodeDto } from '../../server/episode/episode.dto';
 import { dateFromNow } from '../utils/date';
 import { formatEpisodeCode } from '../utils/formatEpisodeCode';
 import { imageShow } from '../utils/imageShow';
+import { AutoUpdatingDate } from './AutoUpdatingDate';
 import { FixedImage } from './FixedImage';
 
 interface Props {
@@ -49,15 +50,14 @@ export function EpisodePanel({ episodes }: Props): ReactElement {
             >
               {episode.show.name}
             </span>
-            <span className={cn('block', 'text-sm', '')}>
+            <span className={cn('block', 'text-sm')}>
               {formatEpisodeCode(episode.season, episode.number)}
             </span>
-            <time
+            <AutoUpdatingDate
               className={cn('block', 'text-sm', 'font-light')}
-              dateTime={episode.airstamp || undefined}
-            >
-              {episode.airstamp ? dateFromNow(episode.airstamp) : 'N/A'}
-            </time>
+              date={episode.airstamp}
+              format={dateFromNow}
+            />
           </div>
         </Link>
       ))}

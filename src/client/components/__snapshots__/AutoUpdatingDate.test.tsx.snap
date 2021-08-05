@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoUpdatingDate Component matches the snapshot 1`] = `
+<DocumentFragment>
+  <time
+    datetime="2021-08-05T13:38:35.524Z"
+  >
+    in 29 days
+  </time>
+</DocumentFragment>
+`;
+
+exports[`AutoUpdatingDate Component matches the snapshot without a date 1`] = `
+<DocumentFragment>
+  <time>
+    N/A
+  </time>
+</DocumentFragment>
+`;
