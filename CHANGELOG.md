@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.12.3](https://github.com/grbull/lini/compare/v2.12.2...v2.12.3) (2021-08-05)
+
+
+### Bug Fixes
+
+* email layout is broken on mobile ([9681bb0](https://github.com/grbull/lini/commit/9681bb006e15d41304c18a1220511f9d30c401e9)), closes [#68](https://github.com/grbull/lini/issues/68)
+* lini title in nav doesn't use link comp ([65934cd](https://github.com/grbull/lini/commit/65934cd1a3ac577e7fca5c657bc0d4fc21cd9d42))
+* only shows loading page when logging in ([6fd25f4](https://github.com/grbull/lini/commit/6fd25f49c6fcd0e064507b12f3cdcbff240194ee))
+
 ### [2.12.2](https://github.com/grbull/lini/compare/v2.12.1...v2.12.2) (2021-08-04)
 
 
