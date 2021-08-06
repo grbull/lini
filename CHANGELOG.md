@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/grbull/lini/compare/v2.12.3...v2.13.0) (2021-08-06)
+
+
+### Features
+
+* times in episode panel update every 10min ([3e2f915](https://github.com/grbull/lini/commit/3e2f915580f38da07230d7cc8334653ba6bcd5e7)), closes [#62](https://github.com/grbull/lini/issues/62)
+
 ### [2.12.3](https://github.com/grbull/lini/compare/v2.12.2...v2.12.3) (2021-08-05)
 
 
