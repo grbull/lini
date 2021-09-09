@@ -36,8 +36,7 @@ async function bootstrap(): Promise<void> {
   // https://github.com/expressjs/session
   // https://github.com/tj/connect-redis
   const RedisStore = connectRedis(expressSession);
-  const sessionExpires = new Date();
-  sessionExpires.setMonth(sessionExpires.getMonth() + 1);
+  const oneMonthMs = 1000 * 60 * 60 * 24 * 30;
   app.use(
     expressSession({
       cookie: {
@@ -45,7 +44,7 @@ async function bootstrap(): Promise<void> {
         httpOnly: true,
         secure: configService.get('NODE_ENV') === 'production',
         signed: true,
-        expires: sessionExpires,
+        maxAge: oneMonthMs,
         sameSite:
           configService.get('NODE_ENV') === 'production' ? 'strict' : 'lax',
       },
