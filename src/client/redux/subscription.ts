@@ -36,8 +36,8 @@ export const create = createAsyncThunk<SubscriptionDto, SubscriptionCreateDto>(
 
 export const remove = createAsyncThunk<SubscriptionDto, SubscriptionRemoveDto>(
   'subscription/remove',
-  async (createDto, thunkAPI) => {
-    const subscription = await api.subscription.create(createDto);
+  async (removeDto, thunkAPI) => {
+    const subscription = await api.subscription.remove(removeDto);
     thunkAPI.dispatch(scheduleActions.get());
     return subscription;
   }
