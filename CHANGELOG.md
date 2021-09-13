@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.13.2](https://github.com/grbull/lini/compare/v2.13.1...v2.13.2) (2021-09-13)
+
+
+### Bug Fixes
+
+* unable to unsubscribe from shows ([76077cc](https://github.com/grbull/lini/commit/76077cc77acdaf955db2131fb05df5f487415b19))
+
 ### [2.13.1](https://github.com/grbull/lini/compare/v2.13.0...v2.13.1) (2021-09-09)
 
 
